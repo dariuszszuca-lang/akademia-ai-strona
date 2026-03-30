@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akademia AI — AI w Nieruchomościach</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #FFFDF9;
+  --gold-dark: #7A5210;
+  --gold-mid: #8B6914;
+  --gold-light: #C9A030;
+  --fuchsia-dark: #A30048;
+  --fuchsia-mid: #D4006A;
+  --fuchsia-light: #E91E8C;
+  --text-dark: #0E0008;
+  --text-mid: #4A3A2B;
+  --text-mid2: #5A4A3A;
+  --text-light: #7d8fa8;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-decorative: 'Cormorant Garamond', serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text-mid);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Gold divider */
+.gold-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-dark), var(--gold-light), var(--gold-mid), transparent);
+  margin: 0;
+  border: none;
+}
+
+.gold-divider-thin {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  margin: 32px auto;
+  max-width: 400px;
+  border: none;
+}
+
+/* Section base */
+section {
+  padding: 80px 0;
+}
+
+.section-badge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--fuchsia-mid);
+  border: 1px solid var(--fuchsia-mid);
+  padding: 6px 18px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.section-subtitle {
+  font-family: var(--font-decorative);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  color: var(--text-mid2);
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+/* ============ HERO ============ */
+.hero {
+  padding: 60px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--fuchsia-mid), var(--gold-light), var(--gold-dark));
+}
+
+.hero-logo {
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 8px;
+}
+
+.hero-logo .ai-mark {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--fuchsia-dark), var(--fuchsia-light));
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 4px;
+  margin-left: 4px;
+  font-size: 0.85em;
+  letter-spacing: 3px;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5.5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 20px 0 12px;
+  line-height: 1.2;
+}
+
+.hero-edition {
+  font-family: var(--font-decorative);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--gold-mid);
+  margin-bottom: 48px;
+  font-weight: 500;
+}
+
+.hero-features {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 14px 32px;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto 48px;
+}
+
+.hero-features li {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  padding-left: 28px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.hero-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+  border-radius: 50%;
+}
+
+.hero-partners {
+  font-family: var(--font-decorative);
+  font-size: 1rem;
+  color: var(--text-light);
+  letter-spacing: 1px;
+}
+
+/* ============ DLACZEGO AI ============ */
+.why-ai { text-align: center; }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.why-card {
+  background: #fff;
+  border: 1px solid rgba(201,160,48,0.2);
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-align: left;
+  transition: box-shadow 0.3s;
+}
+
+.why-card:hover {
+  box-shadow: 0 8px 32px rgba(122,82,16,0.08);
+}
+
+.why-card p {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+}
+
+.why-card p strong {
+  color: var(--text-dark);
+}
+
+.get-list {
+  list-style: none;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.get-list li {
+  padding: 10px 0 10px 32px;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.get-list li::before {
+  content: '\2714';
+  position: absolute;
+  left: 0;
+  color: var(--fuchsia-mid);
+  font-weight: 700;
+}
+
+/* ============ FORMAT ============ */
+.format-section { text-align: center; }
+
+.format-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.format-card {
+  background: linear-gradient(135deg, #fff 0%, #FFFDF9 100%);
+  border: 1px solid rgba(201,160,48,0.25);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: left;
+}
+
+.format-card .fc-title {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.format-card p {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+}
+
+.format-audience {
+  background: #fff;
+  border-left: 3px solid var(--fuchsia-mid);
+  padding: 24px 28px;
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 32px;
+  text-align: left;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.format-audience strong { color: var(--text-dark); }
+
+.format-summary {
+  font-family: var(--font-decorative);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold-dark);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ============ CALENDAR ============ */
+.calendar-section { text-align: center; }
+
+.cal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 48px;
+}
+
+.cal-table th {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 2px solid var(--gold-light);
+}
+
+.cal-table td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(201,160,48,0.15);
+  font-size: 0.92rem;
+  vertical-align: top;
+}
+
+.cal-table tr:hover td {
+  background: rgba(201,160,48,0.04);
+}
+
+.cal-date {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+.cal-event {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.cal-desc {
+  color: var(--text-mid2);
+  font-size: 0.85rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid rgba(201,160,48,0.2);
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+}
+
+.benefit-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+  color: #fff;
+  font-size: 16px;
+}
+
+/* ============ PROGRAM DAY ============ */
+.program-day { text-align: center; }
+
+.program-pre {
+  background: #fff;
+  border: 1px solid rgba(201,160,48,0.2);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.program-pre h4 {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--gold-dark);
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.program-pre p {
+  font-size: 0.92rem;
+  margin-bottom: 12px;
+  color: var(--text-mid);
+}
+
+.program-pre ul {
+  list-style: none;
+  padding: 0;
+}
+
+.program-pre ul li {
+  padding: 5px 0 5px 24px;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.program-pre ul li::before {
+  content: '\25C6';
+  position: absolute;
+  left: 0;
+  color: var(--gold-light);
+  font-size: 10px;
+  top: 8px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto 48px;
+  text-align: left;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold-dark), var(--gold-light), var(--fuchsia-mid));
+}
+
+.tl-item {
+  padding-left: 52px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-light);
+  background: var(--bg);
+}
+
+.tl-item.tl-break::before {
+  background: var(--gold-light);
+}
+
+.tl-title {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.tl-time {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.tl-desc {
+  font-size: 0.88rem;
+  color: var(--text-mid2);
+}
+
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.outcome-item {
+  padding: 8px 0 8px 28px;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.outcome-item::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: var(--fuchsia-mid);
+  font-weight: 700;
+}
+
+.after-day {
+  background: linear-gradient(135deg, rgba(122,82,16,0.04), rgba(201,160,48,0.06));
+  border: 1px solid rgba(201,160,48,0.2);
+  border-radius: 12px;
+  padding: 28px;
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.after-day h4 {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--gold-dark);
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.after-day ul {
+  list-style: none;
+}
+
+.after-day ul li {
+  padding: 5px 0 5px 24px;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.after-day ul li::before {
+  content: '\2714';
+  position: absolute;
+  left: 0;
+  color: var(--gold-mid);
+}
+
+/* ============ PLATFORMA ============ */
+.platform-section { text-align: center; }
+
+.platform-desc {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 0.95rem;
+}
+
+.platform-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.platform-card {
+  background: #fff;
+  border: 1px solid rgba(201,160,48,0.2);
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.platform-card .pc-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.platform-card h4 {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.platform-card p {
+  font-size: 0.88rem;
+  color: var(--text-mid2);
+}
+
+.platform-highlight {
+  background: linear-gradient(135deg, var(--fuchsia-dark), var(--fuchsia-mid));
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 24px 32px;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ============ ZESPOL AI ============ */
+.team-section { text-align: center; }
+
+.agent-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.agent-chip {
+  background: #fff;
+  border: 1px solid rgba(201,160,48,0.3);
+  border-radius: 50px;
+  padding: 10px 22px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: all 0.3s;
+}
+
+.agent-chip:hover {
+  background: linear-gradient(135deg, rgba(122,82,16,0.06), rgba(201,160,48,0.1));
+  border-color: var(--gold-mid);
+}
+
+.bonus-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.bonus-card {
+  background: linear-gradient(135deg, #fff 0%, #FFFDF9 100%);
+  border: 1px solid rgba(163,0,72,0.15);
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.bonus-card .bc-icon {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.bonus-card h4 {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.bonus-card p {
+  font-size: 0.85rem;
+  color: var(--text-mid2);
+}
+
+/* ============ NETWORK ============ */
+.network-section { text-align: center; }
+
+.network-desc {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 0.95rem;
+}
+
+.network-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.network-step {
+  background: #fff;
+  border: 1px solid rgba(201,160,48,0.2);
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.network-step .ns-num {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.network-step p {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+}
+
+.network-note {
+  font-family: var(--font-decorative);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--fuchsia-mid);
+}
+
+/* ============ EFEKT ============ */
+.effect-section { text-align: center; }
+
+.effect-desc {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 0.95rem;
+}
+
+.effect-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 48px;
+  text-align: left;
+}
+
+@media (max-width: 700px) {
+  .effect-columns { grid-template-columns: 1fr; }
+}
+
+.effect-col h4 {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--gold-dark);
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.effect-col ul {
+  list-style: none;
+}
+
+.effect-col ul li {
+  padding: 6px 0 6px 24px;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.effect-col ul li::before {
+  content: '\25C6';
+  position: absolute;
+  left: 0;
+  font-size: 10px;
+  top: 10px;
+}
+
+.effect-col:first-child ul li::before { color: var(--fuchsia-mid); }
+.effect-col:last-child ul li::before { color: var(--gold-mid); }
+
+.effect-quote {
+  background: linear-gradient(135deg, rgba(122,82,16,0.04), rgba(201,160,48,0.06));
+  border-left: 3px solid var(--gold-mid);
+  padding: 28px 32px;
+  border-radius: 0 12px 12px 0;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: var(--font-decorative);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+/* ============ CTA ============ */
+.cta-section {
+  text-align: center;
+  padding: 80px 0 60px;
+}
+
+.cta-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.cta-box {
+  background: #fff;
+  border: 2px solid rgba(201,160,48,0.3);
+  border-radius: 16px;
+  padding: 32px 24px;
+}
+
+.cta-box h4 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.cta-box p {
+  font-size: 0.9rem;
+  color: var(--text-mid2);
+}
+
+.cta-box .price-tag {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--fuchsia-mid);
+  margin-top: 8px;
+}
+
+.cta-contact {
+  margin: 40px 0;
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  line-height: 2;
+}
+
+.cta-contact strong {
+  color: var(--text-dark);
+}
+
+.cta-cert {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: var(--gold-mid);
+  margin-top: 24px;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--fuchsia-dark), var(--fuchsia-mid));
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 18px 48px;
+  border-radius: 60px;
+  text-decoration: none;
+  transition: all 0.3s;
+  margin-top: 24px;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(163,0,72,0.25);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 2px solid rgba(201,160,48,0.15);
+}
+
+footer p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 6px;
+}
+
+footer .footer-partners {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--gold-mid);
+  margin-top: 12px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 600px) {
+  section { padding: 56px 0; }
+  .hero-features { grid-template-columns: 1fr; }
+  .cal-table th:last-child,
+  .cal-table td:last-child { display: none; }
+  .cta-boxes { grid-template-columns: 1fr; }
+  .timeline::before { left: 12px; }
+  .tl-item { padding-left: 40px; }
+  .tl-item::before { left: 6px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-logo">AKADEMIA <span class="ai-mark">AI</span></div>
+    <h1>AI w pracy agenta nieruchomości</h1>
+    <p class="hero-edition">Edycja Polnoc &mdash; Trojmiasto 2026</p>
+
+    <ul class="hero-features">
+      <li>Ogłoszenie w 5 minut zamiast godziny &mdash; AI pisze ze zdjęć i danych</li>
+      <li>Budujesz własny zespół AI dopasowany do Twojego biura</li>
+      <li>Wycena, analiza ROI, raporty eksperckie &mdash; gotowe jednym promptem</li>
+      <li>Trener obiekcji i negocjator &mdash; AI przygotuje Cię do rozmowy</li>
+      <li>Rolki, reklamy Meta i posty &mdash; bez kamery i grafika</li>
+      <li>Virtual Home Staging &mdash; wizualizacja mieszkania bez remontu</li>
+      <li>Rok dostępu do platformy z aktualizacjami materiałów</li>
+      <li>Zamknięta sieć matchowania ofert między absolwentami</li>
+      <li>80% warsztatu to praktyka &mdash; wychodzisz z gotowymi narzędziami</li>
+    </ul>
+
+    <p class="hero-partners">Keller Williams &middot; Nieruchomości Spod Lady</p>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ DLACZEGO AI ============ -->
+<section class="why-ai">
+  <div class="container">
+    <h2 class="section-title">Twoje biuro, tylko szybsze</h2>
+    <p class="section-subtitle">Praktyczny warsztat, po którym AI robi za Ciebie powtarzalne zadania.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <p><strong>Tracisz godzinę na jedno ogłoszenie?</strong> Po warsztacie &mdash; 5 minut i gotowe.</p>
+      </div>
+      <div class="why-card">
+        <p><strong>Klient pyta o wycenę, a Ty szukasz danych?</strong> AI przygotuje raport w tle.</p>
+      </div>
+      <div class="why-card">
+        <p><strong>Nie masz czasu na social media?</strong> Twój cyfrowy asystent napisze post za Ciebie.</p>
+      </div>
+      <div class="why-card">
+        <p><strong>Konkurencja już to robi.</strong> Tu nauczysz się robić to lepiej.</p>
+      </div>
+    </div>
+
+    <h3 class="section-title" style="font-size:1.3rem;">Co dostajesz:</h3>
+    <hr class="gold-divider-thin">
+    <ul class="get-list">
+      <li>Narzędzia, które wdrożysz od następnego dnia &mdash; nie za miesiąc</li>
+      <li>Własny zespół AI dopasowany do Twojej pracy i Twoich klientów</li>
+      <li>Gotowe szablony ogłoszeń, ofert, raportów i reklam</li>
+      <li>System automatyzacji, który odciąży Cię z papierkowej roboty</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ FORMAT ============ -->
+<section class="format-section">
+  <div class="container">
+    <h2 class="section-title">Na co możesz liczyć</h2>
+    <p class="section-subtitle">Warsztat zaprojektowany pod praktyków, nie pod slajdy.</p>
+
+    <div class="format-grid">
+      <div class="format-card">
+        <div class="fc-title">ROBISZ, NIE SŁUCHASZ</div>
+        <p>80% czasu to praca na własnych materiałach</p>
+      </div>
+      <div class="format-card">
+        <div class="fc-title">BRANŻOWE PRZYKŁADY</div>
+        <p>Każdy prompt, agent i szablon jest z nieruchomości</p>
+      </div>
+      <div class="format-card">
+        <div class="fc-title">AKTUALNA WIEDZA</div>
+        <p>AI zmienia się co tydzień, program jest na bieżąco</p>
+      </div>
+      <div class="format-card">
+        <div class="fc-title">ROK DOSTĘPU</div>
+        <p>Platforma z aktualizacjami &mdash; uczysz się dalej we własnym tempie</p>
+      </div>
+    </div>
+
+    <div class="format-audience">
+      <p><strong>Dla kogo:</strong> Agenci, pośrednicy, właściciele biur nieruchomości. Nie musisz znać AI &mdash; zaczynamy od zera i dochodzimy do zaawansowanej automatyzacji.</p>
+    </div>
+
+    <p class="format-summary">1 spotkanie online + 2 spotkania × 6h (z przerwą obiadową) + sesja Q&A online po szkoleniu + rok dostępu do platformy z aktualizacjami</p>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ CALENDAR ============ -->
+<section class="calendar-section">
+  <div class="container">
+    <h2 class="section-title">Kalendarz Akademii AI</h2>
+    <p class="section-subtitle">8&ndash;11 kwietnia 2026 &mdash; Edycja Trojmiasto</p>
+
+    <table class="cal-table">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Wydarzenie</th>
+          <th>Godzina</th>
+          <th>Czas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cal-date">8 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:0.8rem;color:var(--text-light)">(środa)</span></td>
+          <td><span class="cal-event">Spotkanie online</span><br><span class="cal-desc">Przygotowanie plików i materiałów</span></td>
+          <td>Wieczór</td>
+          <td>1&ndash;2h</td>
+        </tr>
+        <tr>
+          <td class="cal-date">9 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:0.8rem;color:var(--text-light)">(czwartek)</span></td>
+          <td><span class="cal-event">Spotkanie 1 &mdash; Twój AI Team w akcji</span><br><span class="cal-desc">Warsztaty stacjonarne</span></td>
+          <td>09:00&ndash;16:00</td>
+          <td>6h</td>
+        </tr>
+        <tr>
+          <td class="cal-date">10 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:0.8rem;color:var(--text-light)">(piątek)</span></td>
+          <td><span class="cal-event">Spotkanie 2 &mdash; Zaawansowane AI + Automatyzacja</span><br><span class="cal-desc">Warsztaty stacjonarne</span></td>
+          <td>09:00&ndash;16:00</td>
+          <td>6h</td>
+        </tr>
+        <tr>
+          <td class="cal-date">11 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:0.8rem;color:var(--text-light)">(sobota)</span></td>
+          <td><span class="cal-event">Q&A online</span><br><span class="cal-desc">Sesja pytań i odpowiedzi</span></td>
+          <td>09:00</td>
+          <td>1h</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="benefits-grid">
+      <div class="benefit-item"><div class="benefit-icon">&#9733;</div> 2 dni warsztatowe (2 × 6h)</div>
+      <div class="benefit-item"><div class="benefit-icon">&#9741;</div> Spotkanie przygotowawcze online</div>
+      <div class="benefit-item"><div class="benefit-icon">&#63;</div> Sesja Q&A online po szkoleniu</div>
+      <div class="benefit-item"><div class="benefit-icon">&#8634;</div> Rok dostępu do platformy z aktualizacjami</div>
+      <div class="benefit-item"><div class="benefit-icon">&#9881;</div> Zespół agentów AI na własność</div>
+      <div class="benefit-item"><div class="benefit-icon">&#9823;</div> Zamknięta grupa społecznościowa</div>
+      <div class="benefit-item"><div class="benefit-icon">&#9998;</div> Certyfikat KW-NSL-AI-XXX-2026</div>
+      <div class="benefit-item"><div class="benefit-icon">&#8644;</div> Dostęp do Network Nieruchomości</div>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ PROGRAM DZIEN 1 ============ -->
+<section class="program-day">
+  <div class="container">
+    <div class="section-badge">SPOTKANIE 1 z 2</div>
+    <h2 class="section-title">SPOTKANIE 1 &mdash; Twój AI Team w akcji</h2>
+    <p class="section-subtitle">6h (z przerwą 45 min) &middot; 9 kwietnia 2026</p>
+
+    <div class="program-pre">
+      <h4>PRZED WARSZTATEM &mdash; 8.04 ONLINE</h4>
+      <p>Dołączasz do zamkniętej grupy, dostajesz dostęp do platformy i materiały wprowadzające:</p>
+      <ul>
+        <li>Profil przedsiębiorcy (profil.md) &mdash; AI poznaje Ciebie</li>
+        <li>Persona klienta kupujący + sprzedający (persona.md)</li>
+        <li>Pogłębiony profil (26 dodatkowych pytań)</li>
+        <li>Oferta kupującego + oferta sprzedającego (oferta.md)</li>
+        <li>Pobranie asystenta operacyjnego (coo.md)</li>
+      </ul>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-title">Weryfikacja + Konfiguracja projektu</span><br>
+        <span class="tl-time">45 min</span><br>
+        <span class="tl-desc">Sprawdzenie pracy domowej, setup projektu w AI</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-title">GHOST &mdash; Twój styl pisania w AI</span><br>
+        <span class="tl-time">45 min</span><br>
+        <span class="tl-desc">Maile, SMS, portale, DM &mdash; AI pisze jak TY</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-title">Negocjator &mdash; trener rozmów</span><br>
+        <span class="tl-time">45 min</span><br>
+        <span class="tl-desc">Symulacja rozmów, taktyki, skrypty telefoniczne</span>
+      </div>
+      <div class="tl-item tl-break">
+        <span class="tl-title">PRZERWA</span><br>
+        <span class="tl-time">45 min</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-title">CAO &mdash; Chief Agent Officer</span><br>
+        <span class="tl-time">1h</span><br>
+        <span class="tl-desc">Wycena, CMA, opisy ofert, prospecting, procedury</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-title">Mój AI Team Nieruchomości</span><br>
+        <span class="tl-time">1h</span><br>
+        <span class="tl-desc">Składanie zespołu &mdash; COO + Ghost + Negocjator + CAO</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-title">Narzędzia: NotebookLM &middot; Gamma &middot; Rejestr cen</span><br>
+        <span class="tl-time">45 min</span>
+      </div>
+    </div>
+
+    <h3 class="section-title" style="font-size:1.2rem; margin-bottom: 24px;">Czego się nauczysz:</h3>
+    <div class="outcomes-grid">
+      <div class="outcome-item">Jak zamknąć swój styl pisania w AI</div>
+      <div class="outcome-item">Jak trenować negocjacje z AI</div>
+      <div class="outcome-item">Jak pisać ogłoszenia ze zdjęć w 5 minut</div>
+      <div class="outcome-item">Jak robić wyceny i raporty CMA</div>
+      <div class="outcome-item">Jak pozyskiwać leady z AI</div>
+      <div class="outcome-item">Jak zbudować pełny zespół asystentów AI</div>
+    </div>
+
+    <div class="after-day">
+      <h4>PO SPOTKANIU 1:</h4>
+      <ul>
+        <li>Skonfigurowany projekt AI z Twoimi danymi</li>
+        <li>4 gotowych asystentów: COO, Ghost, Negocjator, CAO</li>
+        <li>Bank obiekcji i skrypty telefoniczne</li>
+        <li>System do pisania ogłoszeń i ofert</li>
+        <li>Zadania przygotowujące na spotkanie 2</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ PROGRAM DZIEN 2 ============ -->
+<section class="program-day">
+  <div class="container">
+    <div class="section-badge">SPOTKANIE 2 z 2</div>
+    <h2 class="section-title">SPOTKANIE 2 &mdash; Zaawansowane AI + Automatyzacja</h2>
+    <p class="section-subtitle">6h (z przerwą 45 min) &middot; 10 kwietnia 2026</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-title">CEO &mdash; Asystent egzekucyjny</span><br>
+        <span class="tl-time">30 min</span><br>
+        <span class="tl-desc">AI jako dyrektor &mdash; plan, decyzje, kontrola</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-title">Kreator reklam + Meta Ads</span><br>
+        <span class="tl-time">45 min</span><br>
+        <span class="tl-desc">Copywriter, kreator idei, asystent Meta Ads</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-title">Video i Social Media z AI</span><br>
+        <span class="tl-time">45 min</span><br>
+        <span class="tl-desc">Veo3, rolki, posty &mdash; zero kamery</span>
+      </div>
+      <div class="tl-item tl-break">
+        <span class="tl-title">PRZERWA</span><br>
+        <span class="tl-time">45 min</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-title">Z przeglądarki na komputer</span><br>
+        <span class="tl-time">1h</span><br>
+        <span class="tl-desc">Terminal, instalacja AI, pełna kontrola</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-title">Skille &middot; API &middot; MCP &middot; Google Workspace</span><br>
+        <span class="tl-time">45 min</span><br>
+        <span class="tl-desc">AI podłączone do maila, kalendarza, arkuszy</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-title">Team Agents + Virtual Home Staging</span><br>
+        <span class="tl-time">45 min</span><br>
+        <span class="tl-desc">Zespoły agentów, staging jednym promptem</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-title">Test + Certyfikat KW-NSL-AI-2026</span><br>
+        <span class="tl-time">30 min</span>
+      </div>
+    </div>
+
+    <h3 class="section-title" style="font-size:1.2rem; margin-bottom: 24px;">Czego się nauczysz:</h3>
+    <div class="outcomes-grid">
+      <div class="outcome-item">Jak zarządzać biznesem z AI</div>
+      <div class="outcome-item">Jak tworzyć reklamy nieruchomości z AI</div>
+      <div class="outcome-item">Jak generować rolki i video bez kamery</div>
+      <div class="outcome-item">Jak przenieść AI na komputer</div>
+      <div class="outcome-item">Jak używać zaawansowanych narzędzi AI</div>
+      <div class="outcome-item">Jak budować zespoły agentów AI</div>
+      <div class="outcome-item">Jak tworzyć virtual home staging</div>
+      <div class="outcome-item">Jak podłączyć AI do maila i kalendarza</div>
+      <div class="outcome-item">Jak zautomatyzować powtarzalne zadania</div>
+    </div>
+
+    <div class="after-day">
+      <h4>PO SPOTKANIU 2:</h4>
+      <ul>
+        <li>AI zainstalowane lokalnie na komputerze</li>
+        <li>Gotowe automatyzacje codziennych zadań</li>
+        <li>Szablony reklam, video i prezentacji</li>
+        <li>Certyfikat KW-NSL-AI-2026</li>
+        <li>Dostęp do Network Nieruchomości</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ PLATFORMA ============ -->
+<section class="platform-section">
+  <div class="container">
+    <h2 class="section-title">PLATFORMA SZKOLENIOWA</h2>
+    <p class="section-subtitle">Szkolenie na żywo z dostępem do platformy online</p>
+
+    <p class="platform-desc">Warsztaty odbywają się na spersonalizowanej platformie. Wykonujesz zadania, testujesz narzędzia, budujesz agentów, pobierasz gotowe materiały. Po szkoleniu platforma zostaje z Tobą.</p>
+
+    <div class="platform-cards">
+      <div class="platform-card">
+        <div class="pc-icon">&#128218;</div>
+        <h4>Materiały 24/7</h4>
+        <p>Instrukcje, prompty, szablony</p>
+      </div>
+      <div class="platform-card">
+        <div class="pc-icon">&#129302;</div>
+        <h4>Agenci AI</h4>
+        <p>Gotowi asystenci do testowania</p>
+      </div>
+      <div class="platform-card">
+        <div class="pc-icon">&#9997;</div>
+        <h4>Ćwiczenia</h4>
+        <p>Praktyczne zadania</p>
+      </div>
+    </div>
+
+    <div class="platform-highlight">ROK DOSTĘPU DO PLATFORMY Z AKTUALIZACJAMI!</div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ ZESPOL AI ============ -->
+<section class="team-section">
+  <div class="container">
+    <h2 class="section-title">Twój zespół agentów AI</h2>
+    <p class="section-subtitle">Na własność &mdash; budujesz na warsztacie, zabierasz ze sobą</p>
+
+    <div class="agent-chips">
+      <div class="agent-chip">Agent ogłoszeń</div>
+      <div class="agent-chip">Agent wyceny</div>
+      <div class="agent-chip">Agent ofert ze zdjęć</div>
+      <div class="agent-chip">Agent ROI</div>
+      <div class="agent-chip">Trener obiekcji</div>
+      <div class="agent-chip">Agent raportów</div>
+      <div class="agent-chip">Kreator reklam</div>
+      <div class="agent-chip">Agent prezentacji</div>
+      <div class="agent-chip">Virtual Home Staging</div>
+      <div class="agent-chip">COO &mdash; asystent operacyjny</div>
+    </div>
+
+    <div class="bonus-cards">
+      <div class="bonus-card">
+        <div class="bc-icon">&#128172;</div>
+        <h4>Sesja Q&A online</h4>
+        <p>Pytania po szkoleniu? Odpowiedzi na żywo.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="bc-icon">&#128203;</div>
+        <h4>Raport procesów</h4>
+        <p>Analiza Twojego workflow z rekomendacjami AI.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="bc-icon">&#127760;</div>
+        <h4>Społeczność</h4>
+        <p>Zamknięta grupa absolwentów Akademii AI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ NETWORK ============ -->
+<section class="network-section">
+  <div class="container">
+    <h2 class="section-title">Network Nieruchomości</h2>
+    <p class="section-subtitle">Zamknięta sieć matchowania ofert między agentami</p>
+
+    <p class="network-desc">Jako absolwent dostajesz dostęp do zamkniętej sieci. Wrzucasz ofertę &mdash; AI szuka agenta, który ma klienta na taką nieruchomość. Im więcej absolwentów, tym więcej dopasowań i transakcji.</p>
+
+    <div class="network-steps">
+      <div class="network-step">
+        <div class="ns-num">1</div>
+        <p>Wrzucasz ofertę do sieci</p>
+      </div>
+      <div class="network-step">
+        <div class="ns-num">2</div>
+        <p>AI przeszukuje bazę klientów innych agentów</p>
+      </div>
+      <div class="network-step">
+        <div class="ns-num">3</div>
+        <p>Dostajesz dopasowanie &mdash; kontakt do agenta</p>
+      </div>
+      <div class="network-step">
+        <div class="ns-num">4</div>
+        <p>Zamykacie transakcję razem</p>
+      </div>
+    </div>
+
+    <p class="network-note">Dostęp tylko przez szkolenie Akademii AI.</p>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ EFEKT ============ -->
+<section class="effect-section">
+  <div class="container">
+    <h2 class="section-title">EFEKT SZKOLENIA</h2>
+    <p class="section-subtitle">Gotowy indywidualny system pracy z AI</p>
+
+    <p class="effect-desc">Po szkoleniu potrafisz wykorzystać AI jako realne wsparcie w codziennej pracy.</p>
+
+    <div class="effect-columns">
+      <div class="effect-col">
+        <h4>TWOI AGENCI AI POTRAFIĄ:</h4>
+        <ul>
+          <li>Pisać ogłoszenia na podstawie zdjęć i danych</li>
+          <li>Wyceniać nieruchomości na podstawie danych rynkowych</li>
+          <li>Analizować ROI inwestycji dla klientów</li>
+          <li>Tworzyć prezentacje i oferty</li>
+          <li>Trenować Cię z obiekcji sprzedażowych</li>
+          <li>Tworzyć reklamy i content na social media</li>
+          <li>Robić virtual home staging jednym promptem</li>
+          <li>Zarządzać zadaniami i kalendarzem</li>
+        </ul>
+      </div>
+      <div class="effect-col">
+        <h4>KORZYŚCI:</h4>
+        <ul>
+          <li>Oszczędność czasu &mdash; ogłoszenie w 5 minut zamiast godziny</li>
+          <li>Szybsze materiały sprzedażowe</li>
+          <li>Lepsza jakość opisów i komunikacji</li>
+          <li>Sprawniejsze analizy i raporty</li>
+          <li>Lepsze przygotowanie do rozmów</li>
+          <li>Uporządkowany workflow biura</li>
+          <li>Video i rolki bez nagrywania</li>
+          <li>Matchowanie ofert przez sieć</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="effect-quote">
+      &bdquo;Wchodzisz z zerową wiedzą o AI, wychodzisz z własnym zespołem cyfrowych pracowników i narzędziami, które zarabiają od pierwszego dnia.&rdquo;
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ CTA ============ -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="section-title">Gotowy, żeby zacząć pracować mądrzej?</h2>
+    <p class="section-subtitle">2 dni warsztatów. Zespół agentów AI na własność. Narzędzia, które zarabiają od pierwszego dnia.</p>
+
+    <div class="cta-boxes">
+      <div class="cta-box">
+        <h4>[CENA]</h4>
+        <p>2 × 6h + Q&A + platforma rok</p>
+      </div>
+      <div class="cta-box">
+        <h4>Trójmiasto</h4>
+        <p>Edycja Północ &mdash; kwiecień 2026</p>
+      </div>
+    </div>
+
+    <div class="cta-contact">
+      <strong>Sylwia Wróblewska</strong><br>
+      Nieruchomości Spod Lady<br>
+      [EMAIL] &middot; [TELEFON]
+    </div>
+
+    <p class="cta-cert">CERTYFIKACJA KW-NSL-AI-2026</p>
+
+    <a href="#" class="cta-btn">Zapisz się na szkolenie</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <p>Edycja Północ &mdash; Trójmiasto 2026 &middot; Akademia AI &middot; ai-team.pl</p>
+  <p class="footer-partners">Keller Williams &middot; Nieruchomości Spod Lady</p>
+</footer>
+
+</body>
+</html>
