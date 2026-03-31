@@ -856,7 +856,7 @@ footer .footer-partners {
 }
 
 /* ============ RESPONSIVE ============ */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   section { padding: 56px 0; }
   .hero-features { grid-template-columns: 1fr; }
   .cal-table th:last-child,
@@ -866,16 +866,41 @@ footer .footer-partners {
   .tl-item { padding-left: 40px; }
   .tl-item::before { left: 6px; }
 }
+
+/* Hero media grid responsive */
+@media (max-width: 700px) {
+  .hero [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
 </style>
 </head>
 <body>
 
 <!-- ============ HERO ============ -->
-<section class="hero">
+<section class="hero" style="padding: 60px 0 40px;">
   <div class="container">
     <div class="hero-logo">AKADEMIA <span class="ai-mark">AI</span></div>
+    <p class="hero-partners" style="margin-bottom:12px;">Keller Williams &middot; Nieruchomości Spod Lady</p>
     <h1>AI w pracy agenta nieruchomości</h1>
-    <p class="hero-edition">Edycja Polnoc &mdash; Trojmiasto 2026</p>
+    <p class="hero-edition">Edycja Północ &mdash; Trójmiasto 2026</p>
+
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:32px 0;">
+      <a href="#zapis" class="cta-btn">Zapisz się na szkolenie</a>
+      <a href="#program-dzien1" class="cta-btn" style="background:transparent;border:2px solid var(--gold-mid);color:var(--gold-dark);">Zobacz program</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:800px;margin:0 auto 32px;align-items:center;">
+      <div style="border-radius:16px;overflow:hidden;border:2px solid rgba(201,160,48,0.2);">
+        <img src="img/warsztat-foto.jpg" alt="Warsztat Akademia AI — uczestnicy przy pracy" style="width:100%;height:auto;display:block;">
+      </div>
+      <div style="border-radius:16px;overflow:hidden;border:2px solid rgba(201,160,48,0.2);aspect-ratio:9/16;max-height:400px;">
+        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1906124916655205&show_text=false"
+          style="border:none;overflow:hidden;width:100%;height:100%;"
+          scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+      </div>
+    </div>
 
     <ul class="hero-features">
       <li>Ogłoszenie w 5 minut zamiast godziny &mdash; AI pisze ze zdjęć i danych</li>
@@ -888,8 +913,6 @@ footer .footer-partners {
       <li>Zamknięta sieć matchowania ofert między absolwentami</li>
       <li>80% warsztatu to praktyka &mdash; wychodzisz z gotowymi narzędziami</li>
     </ul>
-
-    <p class="hero-partners">Keller Williams &middot; Nieruchomości Spod Lady</p>
   </div>
 </section>
 
@@ -1023,7 +1046,7 @@ footer .footer-partners {
 <hr class="gold-divider">
 
 <!-- ============ PROGRAM DZIEN 1 ============ -->
-<section class="program-day">
+<section id="program-dzien1" class="program-day">
   <div class="container">
     <div class="section-badge">SPOTKANIE 1 z 2</div>
     <h2 class="section-title">SPOTKANIE 1 &mdash; Twój AI Team w akcji</h2>
@@ -1329,32 +1352,66 @@ footer .footer-partners {
 
 <hr class="gold-divider">
 
-<!-- ============ CTA ============ -->
-<section class="cta-section">
+<!-- ============ ZAPIS — MAILERLITE ============ -->
+<section id="zapis" class="cta-section">
   <div class="container">
-    <h2 class="section-title">Gotowy, żeby zacząć pracować mądrzej?</h2>
-    <p class="section-subtitle">2 dni warsztatów. Zespół agentów AI na własność. Narzędzia, które zarabiają od pierwszego dnia.</p>
+    <h2 class="section-title">Zapisz się na szkolenie</h2>
+    <p class="section-subtitle">Zostaw dane, odezwiemy się z informacjami i linkiem do płatności.</p>
+
+    <!-- MailerLite Embedded Form -->
+    <div id="mlb2-form" style="max-width:500px;margin:0 auto 40px;">
+      <form action="" method="post" id="signup-form" style="display:flex;flex-direction:column;gap:12px;">
+        <input type="text" name="fields[name]" placeholder="Imię i nazwisko" required
+          style="padding:14px 20px;border-radius:10px;border:2px solid rgba(201,160,48,0.3);background:#fff;font-size:0.95rem;font-family:var(--font-body);outline:none;">
+        <input type="email" name="fields[email]" placeholder="Adres email" required
+          style="padding:14px 20px;border-radius:10px;border:2px solid rgba(201,160,48,0.3);background:#fff;font-size:0.95rem;font-family:var(--font-body);outline:none;">
+        <input type="tel" name="fields[phone]" placeholder="Numer telefonu"
+          style="padding:14px 20px;border-radius:10px;border:2px solid rgba(201,160,48,0.3);background:#fff;font-size:0.95rem;font-family:var(--font-body);outline:none;">
+        <select name="fields[edition]"
+          style="padding:14px 20px;border-radius:10px;border:2px solid rgba(201,160,48,0.3);background:#fff;font-size:0.95rem;font-family:var(--font-body);outline:none;color:var(--text-mid);">
+          <option value="">Wybierz edycję</option>
+          <option value="2026-04-08">8–11 kwietnia 2026 (Edycja #1)</option>
+          <option value="2026-04-15">15–18 kwietnia 2026 (Edycja #2)</option>
+          <option value="2026-04-22">22–25 kwietnia 2026 (Edycja #3)</option>
+        </select>
+        <button type="submit" class="cta-btn" style="border:none;cursor:pointer;font-family:var(--font-heading);">Zapisz się</button>
+      </form>
+      <p id="form-success" style="display:none;margin-top:16px;color:var(--fuchsia-mid);font-weight:600;font-size:0.95rem;">Dziękujemy za zapis! Odezwiemy się wkrótce.</p>
+      <p style="font-size:0.8rem;color:var(--text-light);margin-top:12px;">Zapisując się, wyrażasz zgodę na kontakt w sprawie szkolenia. Twoje dane są bezpieczne.</p>
+    </div>
+
+    <!-- TODO: Podpiąć MailerLite API -->
+    <!-- Grupa: Akademia AI Warsztaty -->
+    <!-- Po zapisie: automatyczny mail z potwierdzeniem + link do płatności -->
+
+    <hr class="gold-divider-thin">
+
+    <h3 class="section-title" style="font-size:1.3rem;margin-top:32px;">Lub kup bezpośrednio</h3>
+    <p class="section-subtitle">Płatność przez sklep Nieruchomości Spod Lady</p>
 
     <div class="cta-boxes">
       <div class="cta-box">
-        <h4>[CENA]</h4>
-        <p>2 × 6h + Q&A + platforma rok</p>
+        <h4>1 699 PLN</h4>
+        <p>2 × 6h warsztat + Q&A + platforma rok</p>
+        <p class="price-tag">Cena standardowa</p>
       </div>
-      <div class="cta-box">
-        <h4>Trójmiasto</h4>
-        <p>Edycja Północ &mdash; kwiecień 2026</p>
+      <div class="cta-box" style="border-color:var(--fuchsia-mid);">
+        <h4>1 599 PLN</h4>
+        <p>2 × 6h warsztat + Q&A + platforma rok</p>
+        <p class="price-tag">Członkowie NSL</p>
       </div>
     </div>
 
-    <div class="cta-contact">
+    <!-- TODO: Podpiąć link do sklepu Sylwii -->
+    <a href="#" id="buy-link" class="cta-btn" style="margin-top:24px;">Kup szkolenie</a>
+
+    <div class="cta-contact" style="margin-top:32px;">
       <strong>Sylwia Wróblewska</strong><br>
       Nieruchomości Spod Lady<br>
-      [EMAIL] &middot; [TELEFON]
+      Kontakt w sprawie płatności i faktur
     </div>
 
     <p class="cta-cert">CERTYFIKACJA KW-NSL-AI-2026</p>
-
-    <a href="#" class="cta-btn">Zapisz się na szkolenie</a>
   </div>
 </section>
 
@@ -1363,6 +1420,44 @@ footer .footer-partners {
   <p>Edycja Północ &mdash; Trójmiasto 2026 &middot; Akademia AI &middot; ai-team.pl</p>
   <p class="footer-partners">Keller Williams &middot; Nieruchomości Spod Lady</p>
 </footer>
+
+<!-- ============ MAILERLITE + FORM SCRIPT ============ -->
+<script>
+// TODO: Zastąpić fetch na MailerLite API
+// Grupa: Akademia AI Warsztaty
+// API Key: z .env (MAILERLITE_API_KEY)
+// Endpoint: https://connect.mailerlite.com/api/subscribers
+
+document.getElementById('signup-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button');
+  const name = form.querySelector('[name="fields[name]"]').value;
+  const email = form.querySelector('[name="fields[email]"]').value;
+  const phone = form.querySelector('[name="fields[phone]"]').value;
+  const edition = form.querySelector('[name="fields[edition]"]').value;
+
+  btn.textContent = 'Wysyłam...';
+  btn.disabled = true;
+
+  try {
+    // TODO: Podpiąć MailerLite API (Vercel serverless function)
+    // await fetch('/api/signup', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ name, email, phone, edition })
+    // });
+
+    // Tymczasowo: pokaż sukces
+    form.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  } catch (err) {
+    btn.textContent = 'Zapisz się';
+    btn.disabled = false;
+    alert('Wystąpił błąd. Spróbuj ponownie lub napisz do nas bezpośrednio.');
+  }
+});
+</script>
 
 </body>
 </html>
