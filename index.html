@@ -834,6 +834,40 @@ section {
   box-shadow: 0 8px 32px rgba(163,0,72,0.25);
 }
 
+/* Inline CTA between sections */
+.section-cta {
+  text-align: center;
+  padding: 32px 0;
+}
+
+.section-cta a {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--fuchsia-dark), var(--fuchsia-mid));
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  border-radius: 60px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.section-cta a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(163,0,72,0.25);
+}
+
+.section-cta p {
+  font-family: var(--font-decorative);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-mid2);
+  margin-top: 12px;
+}
+
 /* ============ FOOTER ============ */
 footer {
   text-align: center;
@@ -855,8 +889,26 @@ footer .footer-partners {
   margin-top: 12px;
 }
 
+/* ============ HERO SPLIT ============ */
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-left { text-align: left; }
+.hero-right { display: flex; justify-content: center; }
+
 /* ============ RESPONSIVE ============ */
 @media (max-width: 700px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .hero-left { text-align: center; }
+  .hero-left .hero-features { text-align: left; }
+  .hero-left div[style*="display:flex"] { justify-content: center; }
   section { padding: 56px 0; }
   .hero-features { grid-template-columns: 1fr; }
   .cal-table th:last-child,
@@ -867,12 +919,6 @@ footer .footer-partners {
   .tl-item::before { left: 6px; }
 }
 
-/* Hero media grid responsive */
-@media (max-width: 700px) {
-  .hero [style*="grid-template-columns: 1fr 1fr"] {
-    grid-template-columns: 1fr !important;
-  }
-}
 </style>
 </head>
 <body>
@@ -882,34 +928,60 @@ footer .footer-partners {
   <div class="container">
     <div class="hero-logo">AKADEMIA <span class="ai-mark">AI</span></div>
     <p class="hero-partners" style="margin-bottom:12px;">Keller Williams &middot; Nieruchomości Spod Lady</p>
-    <h1>AI w pracy agenta nieruchomości</h1>
-    <p class="hero-edition">Edycja Północ &mdash; Trójmiasto 2026</p>
 
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:32px 0;">
-      <a href="#zapis" class="cta-btn">Zapisz się na szkolenie</a>
-      <a href="#program-dzien1" class="cta-btn" style="background:transparent;border:2px solid var(--gold-mid);color:var(--gold-dark);">Zobacz program</a>
-    </div>
+    <div class="hero-split">
+      <!-- LEWA: treść -->
+      <div class="hero-left">
+        <h1 style="text-align:left;">AI w pracy agenta nieruchomości</h1>
+        <p class="hero-edition" style="text-align:left;">Edycja Północ &mdash; Trójmiasto 2026</p>
 
-    <div style="max-width:400px;margin:0 auto 32px;">
-      <div style="border-radius:16px;overflow:hidden;border:2px solid rgba(201,160,48,0.2);aspect-ratio:9/16;max-height:500px;">
-        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1906124916655205&show_text=false"
-          style="border:none;overflow:hidden;width:100%;height:100%;"
-          scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-        </iframe>
+        <ul class="hero-features" style="text-align:left;">
+          <li>Ogłoszenie w 5 minut zamiast godziny &mdash; AI pisze ze zdjęć i danych</li>
+          <li>Budujesz własny zespół AI dopasowany do Twojego biura</li>
+          <li>Wycena, analiza ROI, raporty eksperckie &mdash; gotowe jednym promptem</li>
+          <li>Trener obiekcji i negocjator &mdash; AI przygotuje Cię do rozmowy</li>
+          <li>Rolki, reklamy Meta i posty &mdash; bez kamery i grafika</li>
+          <li>Virtual Home Staging &mdash; wizualizacja mieszkania bez remontu</li>
+          <li>Rok dostępu do platformy z aktualizacjami materiałów</li>
+          <li>Zamknięta sieć matchowania ofert między absolwentami</li>
+          <li>80% warsztatu to praktyka &mdash; wychodzisz z gotowymi narzędziami</li>
+        </ul>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin:28px 0;">
+          <a href="#zapis" class="cta-btn">Zapisz się na szkolenie</a>
+          <a href="#program-dzien1" class="cta-btn" style="background:transparent;border:2px solid var(--gold-mid);color:var(--gold-dark);">Zobacz program</a>
+        </div>
+
+        <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:20px;">
+          <div>
+            <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--fuchsia-mid);">4</div>
+            <div style="font-size:0.8rem;color:var(--text-mid2);">dni szkolenia</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--fuchsia-mid);">12h</div>
+            <div style="font-size:0.8rem;color:var(--text-mid2);">praktyki na żywo</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--fuchsia-mid);">10+</div>
+            <div style="font-size:0.8rem;color:var(--text-mid2);">agentów AI</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--fuchsia-mid);">1 rok</div>
+            <div style="font-size:0.8rem;color:var(--text-mid2);">platformy</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRAWA: video -->
+      <div class="hero-right">
+        <div style="border-radius:16px;overflow:hidden;border:2px solid rgba(201,160,48,0.2);aspect-ratio:9/16;max-height:580px;">
+          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1906124916655205&show_text=false"
+            style="border:none;overflow:hidden;width:100%;height:100%;"
+            scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
       </div>
     </div>
-
-    <ul class="hero-features">
-      <li>Ogłoszenie w 5 minut zamiast godziny &mdash; AI pisze ze zdjęć i danych</li>
-      <li>Budujesz własny zespół AI dopasowany do Twojego biura</li>
-      <li>Wycena, analiza ROI, raporty eksperckie &mdash; gotowe jednym promptem</li>
-      <li>Trener obiekcji i negocjator &mdash; AI przygotuje Cię do rozmowy</li>
-      <li>Rolki, reklamy Meta i posty &mdash; bez kamery i grafika</li>
-      <li>Virtual Home Staging &mdash; wizualizacja mieszkania bez remontu</li>
-      <li>Rok dostępu do platformy z aktualizacjami materiałów</li>
-      <li>Zamknięta sieć matchowania ofert między absolwentami</li>
-      <li>80% warsztatu to praktyka &mdash; wychodzisz z gotowymi narzędziami</li>
-    </ul>
   </div>
 </section>
 
@@ -946,6 +1018,13 @@ footer .footer-partners {
     </ul>
   </div>
 </section>
+
+<hr class="gold-divider">
+
+<div class="section-cta">
+  <a href="#zapis">Zapisz się na szkolenie</a>
+  <p>Najbliższa edycja: 8&ndash;11 kwietnia 2026</p>
+</div>
 
 <hr class="gold-divider">
 
@@ -1042,6 +1121,13 @@ footer .footer-partners {
 
 <hr class="gold-divider">
 
+<div class="section-cta">
+  <a href="#zapis">Chcę się zapisać</a>
+  <p>Liczba miejsc ograniczona &mdash; max 8 osób na edycję</p>
+</div>
+
+<hr class="gold-divider">
+
 <!-- ============ PROGRAM DZIEN 1 ============ -->
 <section id="program-dzien1" class="program-day">
   <div class="container">
@@ -1122,6 +1208,12 @@ footer .footer-partners {
 
 <hr class="gold-divider">
 
+<div class="section-cta">
+  <a href="#zapis">Zapisz się teraz</a>
+</div>
+
+<hr class="gold-divider">
+
 <!-- ============ PROGRAM DZIEN 2 ============ -->
 <section class="program-day">
   <div class="container">
@@ -1195,6 +1287,13 @@ footer .footer-partners {
     </div>
   </div>
 </section>
+
+<hr class="gold-divider">
+
+<div class="section-cta">
+  <a href="#zapis">Rezerwuję miejsce</a>
+  <p>1 699 PLN &middot; Członkowie NSL: 1 599 PLN</p>
+</div>
 
 <hr class="gold-divider">
 
@@ -1383,9 +1482,6 @@ footer .footer-partners {
 
     <hr class="gold-divider-thin">
 
-    <h3 class="section-title" style="font-size:1.3rem;margin-top:32px;">Lub kup bezpośrednio</h3>
-    <p class="section-subtitle">Płatność przez sklep Nieruchomości Spod Lady</p>
-
     <div class="cta-boxes">
       <div class="cta-box">
         <h4>1 699 PLN</h4>
@@ -1399,16 +1495,7 @@ footer .footer-partners {
       </div>
     </div>
 
-    <!-- TODO: Podpiąć link do sklepu Sylwii -->
-    <a href="#" id="buy-link" class="cta-btn" style="margin-top:24px;">Kup szkolenie</a>
-
-    <div class="cta-contact" style="margin-top:32px;">
-      <strong>Sylwia Wróblewska</strong><br>
-      Nieruchomości Spod Lady<br>
-      Kontakt w sprawie płatności i faktur
-    </div>
-
-    <p class="cta-cert">CERTYFIKACJA KW-NSL-AI-2026</p>
+    <p class="cta-cert" style="margin-top:32px;">CERTYFIKACJA KW-NSL-AI-2026</p>
   </div>
 </section>
 
