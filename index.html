@@ -872,6 +872,162 @@ section {
   margin-top: 12px;
 }
 
+/* ============ NAV ============ */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255,253,249,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid rgba(201,160,48,0.15);
+  padding: 0 24px;
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-brand img {
+  height: 36px;
+  width: auto;
+}
+
+.nav-brand span {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold-dark);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--fuchsia-mid);
+}
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--fuchsia-dark), var(--fuchsia-mid));
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-cta:hover {
+  box-shadow: 0 4px 16px rgba(163,0,72,0.3);
+  color: #fff !important;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: var(--gold-dark);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: rgba(255,253,249,0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid rgba(201,160,48,0.15);
+  padding: 16px 24px 24px;
+  z-index: 99;
+}
+
+.mobile-menu.open {
+  display: block;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 14px 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,160,48,0.1);
+}
+
+.mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu a:hover {
+  color: var(--fuchsia-mid);
+}
+
+.mobile-menu .nav-cta {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+}
+
 /* ============ FOOTER ============ */
 footer {
   text-align: center;
@@ -993,12 +1149,40 @@ footer .footer-partners {
 </head>
 <body>
 
+<!-- ============ NAV ============ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <img src="img/nsl-logo.png" alt="NSL">
+      <span>AKADEMIA AI</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#program-dzien1">Program</a></li>
+      <li><a href="#kalendarz">Kalendarz</a></li>
+      <li><a href="#prowadzacy">Prowadzący</a></li>
+      <li><a href="#faq-section">FAQ</a></li>
+      <li><a href="#zapis" class="nav-cta">Zapisz się</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#program-dzien1" onclick="closeMenu()">Program</a>
+  <a href="#kalendarz" onclick="closeMenu()">Kalendarz</a>
+  <a href="#prowadzacy" onclick="closeMenu()">Prowadzący</a>
+  <a href="#faq-section" onclick="closeMenu()">FAQ</a>
+  <a href="#zapis" class="nav-cta" onclick="closeMenu()">Zapisz się</a>
+</div>
+
 <!-- ============ HERO ============ -->
-<section class="hero" style="padding: 60px 0 40px;">
+<section class="hero" style="padding: 100px 0 40px;">
   <div class="container">
     <div class="hero-logo">AKADEMIA <span class="ai-mark">AI</span></div>
     <div style="display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:16px;">
-      <img src="img/nsl-logo.png" alt="Nieruchomości Spod Lady" style="height:60px;width:auto;">
+      <img src="img/nsl-logo.png" alt="Nieruchomości Spod Lady" style="height:90px;width:auto;">
       <span style="font-family:var(--font-heading);font-size:0.75rem;letter-spacing:3px;color:var(--text-light);text-transform:uppercase;">×</span>
       <span style="font-family:var(--font-heading);font-size:0.85rem;letter-spacing:2px;color:var(--gold-dark);font-weight:700;">AKADEMIA AI</span>
     </div>
@@ -1139,8 +1323,8 @@ footer .footer-partners {
 <!-- ============ CALENDAR ============ -->
 <section class="calendar-section">
   <div class="container">
-    <div style="margin-bottom:16px;"><img src="img/nsl-logo.png" alt="Nieruchomości Spod Lady" style="height:50px;width:auto;"></div>
-    <h2 class="section-title">Kalendarz Akademii AI</h2>
+    <div style="margin-bottom:16px;"><img src="img/nsl-logo.png" alt="Nieruchomości Spod Lady" style="height:70px;width:auto;"></div>
+    <h2 id="kalendarz" class="section-title">Kalendarz Akademii AI</h2>
     <p class="section-subtitle">Edycja Trójmiasto &mdash; co tydzień nowa edycja</p>
 
     <table class="cal-table">
@@ -1516,7 +1700,7 @@ footer .footer-partners {
 <hr class="gold-divider">
 
 <!-- ============ PROWADZĄCY ============ -->
-<section style="text-align:center;">
+<section id="prowadzacy" style="text-align:center;">
   <div class="container">
     <div class="section-badge">Prowadzący</div>
     <h2 class="section-title">Dariusz Szuca</h2>
@@ -1618,14 +1802,14 @@ footer .footer-partners {
     </div>
 
     <div style="margin-top:32px;display:flex;align-items:center;justify-content:center;gap:16px;">
-      <img src="img/nsl-logo.png" alt="Nieruchomości Spod Lady" style="height:40px;width:auto;">
+      <img src="img/nsl-logo.png" alt="Nieruchomości Spod Lady" style="height:60px;width:auto;">
       <p class="cta-cert" style="margin:0;">CERTYFIKACJA KW-NSL-AI-2026</p>
     </div>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
-<section style="text-align:center;">
+<section id="faq-section" style="text-align:center;">
   <div class="container" style="max-width:750px;">
     <div class="section-badge">FAQ</div>
     <h2 class="section-title">Najczęściej zadawane pytania</h2>
@@ -1679,12 +1863,24 @@ footer .footer-partners {
 
 <!-- ============ FOOTER ============ -->
 <footer>
-  <div style="margin-bottom:16px;"><img src="img/nsl-logo.png" alt="Nieruchomości Spod Lady" style="height:50px;width:auto;"></div>
+  <div style="margin-bottom:16px;"><img src="img/nsl-logo.png" alt="Nieruchomości Spod Lady" style="height:70px;width:auto;"></div>
   <p style="font-size:1rem;color:var(--text-mid);margin-bottom:8px;"><strong>Organizator:</strong> Sylwia Wróblewska &mdash; Nieruchomości Spod Lady</p>
   <p style="font-size:1rem;color:var(--text-mid);margin-bottom:8px;"><strong>Prowadzący:</strong> Dariusz Szuca &mdash; ai-team.pl</p>
   <p>Edycja Północ &mdash; Trójmiasto 2026</p>
   <p class="footer-partners">Keller Williams &middot; Nieruchomości Spod Lady &middot; Akademia AI</p>
 </footer>
+
+<!-- ============ HAMBURGER MENU ============ -->
+<script>
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.querySelector('.hamburger').classList.toggle('active');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.querySelector('.hamburger').classList.remove('active');
+}
+</script>
 
 <!-- ============ VIDEO PLAYER ============ -->
 <script>
