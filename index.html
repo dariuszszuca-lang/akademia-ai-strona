@@ -91,9 +91,9 @@ section {
 }
 
 .section-subtitle {
-  font-family: var(--font-decorative);
-  font-style: italic;
-  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: clamp(1.05rem, 2.5vw, 1.2rem);
   color: var(--text-mid);
   margin-bottom: 40px;
   font-weight: 500;
@@ -289,12 +289,17 @@ section {
 .format-audience strong { color: var(--text-dark); }
 
 .format-summary {
-  font-family: var(--font-decorative);
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--gold-dark);
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-dark);
   max-width: 700px;
   margin: 0 auto;
+  background: rgba(201,160,48,0.06);
+  border: 1px solid rgba(201,160,48,0.15);
+  border-radius: 12px;
+  padding: 20px 28px;
 }
 
 /* ============ CALENDAR ============ */
@@ -308,7 +313,7 @@ section {
 
 .cal-table th {
   font-family: var(--font-heading);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--gold-dark);
@@ -690,9 +695,10 @@ section {
 }
 
 .network-note {
-  font-family: var(--font-decorative);
-  font-style: italic;
-  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--fuchsia-mid);
 }
 
@@ -753,8 +759,8 @@ section {
   border-radius: 0 12px 12px 0;
   max-width: 800px;
   margin: 0 auto;
-  font-family: var(--font-decorative);
-  font-style: italic;
+  font-family: var(--font-body);
+  font-style: normal;
   font-size: 1.15rem;
   color: var(--text-dark);
   line-height: 1.7;
@@ -813,8 +819,9 @@ section {
 .cta-cert {
   font-family: var(--font-heading);
   font-size: 1rem;
+  font-weight: 700;
   letter-spacing: 3px;
-  color: var(--gold-mid);
+  color: var(--gold-dark);
   margin-top: 24px;
 }
 
