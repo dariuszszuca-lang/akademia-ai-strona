@@ -884,9 +884,12 @@ section {
 /* ============ GALLERY ============ */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
   margin-top: 32px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .gallery-item {
@@ -1751,12 +1754,12 @@ footer .footer-partners {
 
     <div class="gallery-grid">
       <div class="gallery-item">
-        <video controls playsinline preload="metadata" poster="">
+        <video controls playsinline preload="metadata" poster="media/thumb-1.jpg">
           <source src="media/warsztat-1.mp4" type="video/mp4">
         </video>
       </div>
       <div class="gallery-item">
-        <video controls playsinline preload="metadata" poster="">
+        <video controls playsinline preload="metadata" poster="media/thumb-2.jpg">
           <source src="media/warsztat-2.mp4" type="video/mp4">
         </video>
       </div>
