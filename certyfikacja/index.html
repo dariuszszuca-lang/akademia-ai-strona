@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certyfikacja KW-NSL-AI — Akademia AI w Nieruchomościach</title>
+<meta name="description" content="Program certyfikacji AI w Nieruchomościach. Keller Williams × Nieruchomości Spod Lady × Akademia AI.">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #FFFDF9;
+  --gold-dark: #7A5210;
+  --gold-mid: #8B6914;
+  --gold-light: #C9A030;
+  --fuchsia-dark: #A30048;
+  --fuchsia-mid: #D4006A;
+  --fuchsia-light: #E91E8C;
+  --text-dark: #0E0008;
+  --text-mid: #4A3A2B;
+  --text-mid2: #5A4A3A;
+  --text-light: #7d8fa8;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-decorative: 'Cormorant Garamond', serif;
+}
+
+html, body { overflow-x: hidden; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Gold dividers */
+.gold-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-dark), var(--gold-light), var(--gold-mid), transparent);
+  margin: 0;
+  border: none;
+}
+
+.gold-divider-thin {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  margin: 32px auto;
+  max-width: 400px;
+  border: none;
+}
+
+/* Sections */
+section {
+  padding: 80px 0;
+}
+
+.section-badge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--fuchsia-mid);
+  border: 1px solid var(--fuchsia-mid);
+  padding: 6px 18px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  color: var(--text-mid);
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+/* ============ NAV ============ */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  background: rgba(255,253,249,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,160,48,0.12);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logo-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(122,82,16,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold-dark);
+}
+
+.nav-logo-text {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold-dark);
+}
+
+.nav-logo-sub {
+  display: block;
+  font-size: 9px;
+  color: var(--text-mid);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--text-mid);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold-dark); }
+
+/* ============ HERO ============ */
+.hero {
+  padding: 140px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(201,160,48,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-partners {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(122,82,16,0.5);
+  margin-bottom: 32px;
+}
+
+.hero-partners .sep { color: rgba(122,82,16,0.2); }
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+.hero h1 .gold { color: var(--gold-dark); }
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: var(--text-mid);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.btn-gold {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold-mid), var(--gold-light), var(--gold-dark));
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 16px 36px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 4px 20px rgba(139,105,20,0.3);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  display: inline-block;
+  border: 2px solid var(--gold-dark);
+  color: var(--gold-dark);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 14px 36px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-outline:hover {
+  background: rgba(122,82,16,0.05);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid rgba(201,160,48,0.2);
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  color: var(--text-mid);
+}
+
+.hero-badge .pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--fuchsia-mid);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* ============ CARDS GRID ============ */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: linear-gradient(135deg, #fff 0%, #FFFDF9 100%);
+  border: 1px solid rgba(201,160,48,0.2);
+  border-radius: 12px;
+  padding: 32px 24px;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  border-color: rgba(201,160,48,0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(163,0,72,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.card-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--fuchsia-dark);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.card h3 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--fuchsia-dark);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+/* ============ TWO COLUMNS ============ */
+.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 700px) {
+  .two-cols { grid-template-columns: 1fr; }
+}
+
+/* ============ CHECKLIST ============ */
+.checklist {
+  list-style: none;
+  padding: 0;
+}
+
+.checklist li {
+  padding: 10px 0 10px 28px;
+  position: relative;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+}
+
+.checklist li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: var(--fuchsia-mid);
+  font-weight: 700;
+}
+
+.checklist li strong {
+  color: var(--text-dark);
+}
+
+/* ============ CERTIFICATE PREVIEW ============ */
+.cert-preview {
+  background: #fff;
+  border: 1px solid rgba(201,160,48,0.2);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.cert-inner {
+  aspect-ratio: 297/210;
+  border-radius: 8px;
+  border: 1px solid rgba(201,160,48,0.12);
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px;
+}
+
+.cert-inner .cert-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid rgba(122,82,16,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold-dark);
+}
+
+/* ============ CERT FEATURES ============ */
+.cert-features {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cert-feature {
+  display: flex;
+  gap: 16px;
+}
+
+.cert-feature-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(163,0,72,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--fuchsia-dark);
+}
+
+.cert-feature h4 {
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+.cert-feature p {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+}
+
+.cert-code {
+  font-family: monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  background: rgba(122,82,16,0.06);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* ============ LICENSE ============ */
+.license-card {
+  background: #fff;
+  border: 1px solid rgba(201,160,48,0.2);
+  border-radius: 12px;
+  padding: 40px;
+}
+
+.license-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--fuchsia-dark);
+  margin-bottom: 12px;
+  margin-top: 28px;
+}
+
+.license-card h3:first-child { margin-top: 0; }
+
+.license-card p,
+.license-card li {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+.license-card ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 8px;
+}
+
+.license-card ul li {
+  padding: 4px 0 4px 20px;
+  position: relative;
+}
+
+.license-card ul li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  color: var(--fuchsia-mid);
+}
+
+.license-footer {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(201,160,48,0.15);
+  font-size: 0.8rem;
+  color: var(--text-mid);
+}
+
+/* ============ FAQ ============ */
+details {
+  background: #fff;
+  border: 1px solid rgba(201,160,48,0.2);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: all 0.3s;
+}
+
+details:hover {
+  border-color: rgba(201,160,48,0.35);
+}
+
+details summary {
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  list-style: none;
+}
+
+details summary::-webkit-details-marker { display: none; }
+
+details summary .toggle {
+  color: rgba(163,0,72,0.4);
+  font-size: 1.3rem;
+  transition: transform 0.3s;
+}
+
+details[open] summary .toggle {
+  transform: rotate(45deg);
+}
+
+details .faq-body {
+  padding: 0 24px 20px;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+/* ============ VERIFY ============ */
+.verify-box {
+  background: #fff;
+  border: 1px solid rgba(201,160,48,0.2);
+  border-radius: 12px;
+  padding: 32px;
+}
+
+.verify-form {
+  display: flex;
+  gap: 12px;
+}
+
+.verify-input {
+  flex: 1;
+  padding: 14px 20px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 1px solid rgba(201,160,48,0.2);
+  font-family: monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.verify-input::placeholder {
+  color: rgba(74,58,43,0.25);
+}
+
+.verify-input:focus {
+  border-color: rgba(163,0,72,0.3);
+}
+
+.verify-btn {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--gold-mid), var(--gold-light), var(--gold-dark));
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.verify-btn:hover {
+  box-shadow: 0 4px 20px rgba(139,105,20,0.3);
+}
+
+#verify-result {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  display: none;
+}
+
+/* ============ DAY SLIDER ============ */
+.day-slider-wrapper {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid rgba(201,160,48,0.2);
+  border-radius: 24px;
+  padding: 40px 28px;
+  position: relative;
+  overflow: hidden;
+  height: 700px;
+}
+
+.day-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(122,82,16,0.06);
+  border: 1px solid rgba(122,82,16,0.15);
+  border-radius: 100px;
+  padding: 12px 28px;
+  width: fit-content;
+  margin: 0 auto 28px;
+  position: relative;
+  z-index: 10;
+}
+
+.day-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--fuchsia-dark);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.day-badge span {
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--gold-dark);
+}
+
+.day-track {
+  position: relative;
+  height: calc(100% - 70px);
+  overflow: hidden;
+}
+
+.day-track::before,
+.day-track::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 90px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.day-track::before {
+  top: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, transparent 100%);
+}
+
+.day-track::after {
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(255,255,255,0.95) 0%, transparent 100%);
+}
+
+.day-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: dayScroll 36s linear infinite;
+}
+
+@keyframes dayScroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.day-track:hover .day-inner { animation-play-state: paused; }
+
+.day-card {
+  background: rgba(122,82,16,0.03);
+  border: 1px solid rgba(122,82,16,0.08);
+  border-radius: 16px;
+  padding: 24px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.day-card:hover {
+  background: rgba(122,82,16,0.06);
+  border-color: rgba(122,82,16,0.18);
+  transform: scale(1.02);
+}
+
+.day-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.day-card-time {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.day-card-agent {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.da-prospecting  { background: rgba(163,0,72,0.08); color: #A30048; }
+.da-wycena       { background: rgba(122,82,16,0.08); color: #7A5210; }
+.da-ogloszenia   { background: rgba(76,130,60,0.1); color: #4c823c; }
+.da-marketing    { background: rgba(120,70,150,0.08); color: #7846a0; }
+.da-negocjacje   { background: rgba(50,120,150,0.08); color: #327896; }
+.da-crm          { background: rgba(163,0,72,0.06); color: #A30048; }
+.da-raporty      { background: rgba(50,120,80,0.08); color: #327850; }
+.da-coo          { background: rgba(122,82,16,0.06); color: #7A5210; }
+.da-ghost        { background: rgba(100,90,80,0.08); color: #64584e; }
+.da-monitor      { background: rgba(80,130,50,0.08); color: #508232; }
+
+.day-card-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+.day-card-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(42,26,34,0.3);
+}
+
+.day-card-status svg {
+  width: 17px;
+  height: 17px;
+  stroke: rgba(42,26,34,0.3);
+  fill: none;
+  stroke-width: 2;
+}
+
+.day-card.dc-progress {
+  background: rgba(163,0,72,0.04);
+  border-color: rgba(163,0,72,0.15);
+}
+
+.day-card.dc-progress .day-card-time { color: var(--fuchsia-dark); }
+.day-card.dc-progress .day-card-status { color: var(--fuchsia-dark); }
+.day-card.dc-progress .day-card-status svg { stroke: var(--fuchsia-dark); animation: spin 2s linear infinite; }
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.day-progress-bar {
+  height: 3px;
+  background: rgba(163,0,72,0.1);
+  border-radius: 3px;
+  margin-top: 14px;
+  overflow: hidden;
+}
+
+.day-progress-bar .day-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--fuchsia-dark), var(--fuchsia-mid));
+  border-radius: 3px;
+  animation: progressAnim 3s ease-in-out infinite;
+}
+
+@keyframes progressAnim {
+  0% { width: 30%; }
+  50% { width: 75%; }
+  100% { width: 30%; }
+}
+
+/* ============ FOOTER ============ */
+footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 2px solid rgba(201,160,48,0.15);
+}
+
+footer p {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin-bottom: 6px;
+}
+
+footer .footer-partners {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--gold-mid);
+  margin-top: 12px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 600px) {
+  section { padding: 56px 0; }
+  .nav-links { display: none; }
+  .verify-form { flex-direction: column; }
+  .day-slider-wrapper { height: 600px; border-radius: 16px; padding: 28px 16px; }
+  .hero { padding: 120px 0 60px; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-mark">AI</div>
+      <div>
+        <span class="nav-logo-text">KW-NSL-AI</span>
+        <span class="nav-logo-sub">Certyfikacja</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">Szkolenie</a></li>
+      <li><a href="#program">Program</a></li>
+      <li><a href="#warunki">Warunki</a></li>
+      <li><a href="#certyfikat">Certyfikat</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#weryfikacja">Weryfikacja</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div style="margin-bottom: 24px;"><img src="img/nsl-logo.png" alt="NSL Logo" style="height: 80px;"></div>
+    <div class="hero-partners">
+      <span>Keller Williams</span>
+      <span class="sep">|</span>
+      <span>Nieruchomości Spod Lady</span>
+      <span class="sep">|</span>
+      <span>Akademia AI</span>
+    </div>
+
+    <h1><span class="gold">Certyfikacja</span><br>AI w Nieruchomościach</h1>
+
+    <p class="hero-desc">Pierwszy w Polsce program certyfikacji praktycznego zastosowania sztucznej inteligencji w branży nieruchomości.</p>
+
+    <div class="hero-buttons">
+      <a href="#program" class="btn-gold">Poznaj program</a>
+      <a href="#weryfikacja" class="btn-outline">Zweryfikuj certyfikat</a>
+    </div>
+
+    <div class="hero-badge">
+      <div class="pulse"></div>
+      <span>Najbliższy warsztat: <strong style="color: var(--fuchsia-mid);">kwiecień 2026</strong></span>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ O PROGRAMIE ============ -->
+<section id="program">
+  <div class="container" style="text-align: center;">
+    <div class="section-badge">O programie</div>
+    <h2 class="section-title">Czym jest certyfikacja <span style="color: var(--gold-dark);">KW-NSL-AI</span>?</h2>
+    <p class="section-subtitle">Program certyfikacji potwierdza praktyczne umiejętności wykorzystania narzędzi AI w codziennej pracy agenta nieruchomości.</p>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Warsztat praktyczny</h3>
+        <p>Intensywny program pracy z AI. Tworzysz opisy, analizujesz rynek, generujesz materiały marketingowe — na żywo, na swoich danych.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3>Certyfikat numerowany</h3>
+        <p>Każdy absolwent otrzymuje imiennie numerowany certyfikat KW-NSL-AI z unikalnym kodem weryfikacyjnym online.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3>3 organizacje</h3>
+        <p>Sygnowany przez Keller Williams, Nieruchomości Spod Lady i Akademię AI. Rozpoznawalny w branży.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ DZIEŃ Z AI ============ -->
+<section>
+  <div class="container" style="text-align: center;">
+    <div class="section-badge">Twój dzień z AI</div>
+    <h2 class="section-title">Tak będzie wyglądał <span style="color: var(--gold-dark);">Twój dzień</span></h2>
+    <p class="section-subtitle">Po warsztacie Twoje AI pracuje od rana do wieczora. Ty prowadzisz spotkania — resztę robi system.</p>
+
+    <div class="day-slider-wrapper">
+      <div class="day-badge">
+        <div class="day-dot"></div>
+        <span>TAK MOŻE WYGLĄDAĆ TWÓJ DZIEŃ</span>
+      </div>
+      <div class="day-track">
+        <div class="day-inner" id="dayScrollInner"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ WARUNKI ============ -->
+<section id="warunki">
+  <div class="container" style="text-align: center;">
+    <div class="section-badge">Warunki</div>
+    <h2 class="section-title">Warunki uzyskania certyfikatu</h2>
+    <hr class="gold-divider-thin">
+
+    <div class="two-cols" style="text-align: left;">
+      <div class="card">
+        <h3 style="display: flex; align-items: center; gap: 12px;"><span style="width:32px;height:32px;border-radius:8px;background:rgba(163,0,72,0.08);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--fuchsia-dark);font-weight:700;">1</span> Wymagania uczestnictwa</h3>
+        <ul class="checklist">
+          <li>Aktywny agent nieruchomości lub osoba zawodowo związana z branżą</li>
+          <li>Własny laptop z dostępem do internetu</li>
+          <li>Konto w minimum jednym narzędziu AI (Claude, ChatGPT, Gemini)</li>
+          <li>Opłacony udział w warsztacie przed datą wydarzenia</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="display: flex; align-items: center; gap: 12px;"><span style="width:32px;height:32px;border-radius:8px;background:rgba(163,0,72,0.08);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--fuchsia-dark);font-weight:700;">2</span> Warunki certyfikacji</h3>
+        <ul class="checklist">
+          <li><strong>100% obecności</strong> — pełne uczestnictwo w warsztacie</li>
+          <li><strong>Wykonanie ćwiczeń</strong> — aktywny udział we wszystkich zadaniach praktycznych</li>
+          <li><strong>Projekt końcowy</strong> — samodzielne wykonanie zadania z użyciem AI</li>
+          <li><strong>Akceptacja regulaminu</strong> — zgoda na warunki programu certyfikacji</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ CERTYFIKAT ============ -->
+<section id="certyfikat">
+  <div class="container" style="text-align: center;">
+    <div class="section-badge">Certyfikat</div>
+    <h2 class="section-title">Co otrzymujesz</h2>
+    <hr class="gold-divider-thin">
+
+    <div class="two-cols" style="text-align: left; align-items: center;">
+      <div class="cert-preview">
+        <div class="cert-inner">
+          <div>
+            <div class="cert-logo">AI</div>
+            <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(122,82,16,0.5);font-weight:700;margin-bottom:8px;">Akademia AI</p>
+            <p style="font-family:var(--font-heading);font-size:1.2rem;color:var(--text-dark);font-weight:700;margin-bottom:6px;">Certyfikat Ukończenia</p>
+            <p style="font-size:10px;color:var(--text-light);letter-spacing:1px;font-weight:600;">KW-NSL-AI-XXX-2026</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-features">
+        <div class="cert-feature">
+          <div class="cert-feature-icon">#</div>
+          <div>
+            <h4>Unikalna numeracja</h4>
+            <p>Każdy certyfikat ma niepowtarzalny numer: <span class="cert-code">KW-NSL-AI-001-2026</span></p>
+          </div>
+        </div>
+
+        <div class="cert-feature">
+          <div class="cert-feature-icon">&#9998;</div>
+          <div>
+            <h4>Podpis prowadzącego</h4>
+            <p>Sygnowany przez Dariusza Szucę — prowadzącego Akademię AI.</p>
+          </div>
+        </div>
+
+        <div class="cert-feature">
+          <div class="cert-feature-icon">&#8734;</div>
+          <div>
+            <h4>Ważność bezterminowa</h4>
+            <p>Certyfikat potwierdza ukończenie warsztatu i nie wymaga odnowienia.</p>
+          </div>
+        </div>
+
+        <div class="cert-feature">
+          <div class="cert-feature-icon">&#10003;</div>
+          <div>
+            <h4>Weryfikacja online</h4>
+            <p>Każdy certyfikat można zweryfikować online wpisując numer KW-NSL-AI.</p>
+          </div>
+        </div>
+
+        <div class="cert-feature">
+          <div class="cert-feature-icon">PDF</div>
+          <div>
+            <h4>Format cyfrowy</h4>
+            <p>PDF (A4 landscape) do wydruku lub udostępnienia na LinkedIn.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ LICENCJA ============ -->
+<section>
+  <div class="container" style="text-align: center;">
+    <div class="section-badge">Licencja</div>
+    <h2 class="section-title">Licencja i regulamin certyfikacji</h2>
+    <hr class="gold-divider-thin">
+
+    <div class="license-card" style="text-align: left; max-width: 800px; margin: 0 auto;">
+      <h3>1. Wydawca certyfikatu</h3>
+      <p>Certyfikat KW-NSL-AI jest wydawany wspólnie przez trzy podmioty: Keller Williams Polska, społeczność Nieruchomości Spod Lady oraz Akademię AI. Certyfikat potwierdza ukończenie autorskiego warsztatu „AI w Nieruchomościach".</p>
+
+      <h3>2. Zakres certyfikacji</h3>
+      <p>Certyfikat potwierdza, że jego posiadacz uczestniczył w pełnym warsztacie praktycznym i wykazał się umiejętnością zastosowania narzędzi AI w kontekście pracy agenta nieruchomości. Certyfikat <strong style="color:var(--text-dark);">nie jest</strong> licencją zawodową, dyplomem uczelni wyższej ani uprawnieniem regulowanym.</p>
+
+      <h3>3. Prawa posiadacza</h3>
+      <ul>
+        <li>Posługiwanie się certyfikatem w CV, portfolio i mediach społecznościowych</li>
+        <li>Umieszczanie numeru certyfikatu na wizytówkach i materiałach zawodowych</li>
+        <li>Powoływanie się na ukończenie programu certyfikacji KW-NSL-AI</li>
+      </ul>
+
+      <h3>4. Ograniczenia</h3>
+      <ul>
+        <li>Certyfikat jest imienny i nie podlega przeniesieniu na inną osobę</li>
+        <li>Zabrania się modyfikacji, podrabiania lub kopiowania certyfikatu</li>
+        <li>Posiadacz nie może używać certyfikatu w sposób sugerujący nadanie uprawnień, których certyfikat nie obejmuje</li>
+        <li>Logo programu KW-NSL-AI nie może być używane bez pisemnej zgody organizatorów</li>
+      </ul>
+
+      <h3>5. Unieważnienie</h3>
+      <p>Organizatorzy zastrzegają sobie prawo do unieważnienia certyfikatu w przypadku stwierdzenia, że został uzyskany w sposób nieuczciwy lub jest wykorzystywany niezgodnie z regulaminem.</p>
+
+      <h3>6. Weryfikacja autentyczności</h3>
+      <p>Każdy certyfikat posiada unikalny numer w formacie <span class="cert-code">KW-NSL-AI-XXX-2026</span>, który można zweryfikować w systemie online.</p>
+
+      <h3>7. Ochrona danych</h3>
+      <p>Dane uczestników są przechowywane wyłącznie w celu prowadzenia rejestru certyfikatów i weryfikacji ich autentyczności. Nie są udostępniane podmiotom trzecim.</p>
+
+      <div class="license-footer">
+        Wersja regulaminu: 1.0 &nbsp;|&nbsp; Data: marzec 2026 &nbsp;|&nbsp; Kontakt: certyfikacja@akademia-ai.pl
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="container" style="max-width: 750px; text-align: center;">
+    <div class="section-badge">FAQ</div>
+    <h2 class="section-title">Najczęściej zadawane pytania</h2>
+    <hr class="gold-divider-thin">
+
+    <div style="text-align: left;">
+      <details open>
+        <summary>Ile trwa warsztat?<span class="toggle">+</span></summary>
+        <div class="faq-body">Warsztat trwa jeden pełny dzień (6-8 godzin) z przerwami. Format: wykłady + ćwiczenia praktyczne + projekt końcowy.</div>
+      </details>
+
+      <details>
+        <summary>Czy potrzebuję doświadczenia z AI?<span class="toggle">+</span></summary>
+        <div class="faq-body">Nie. Warsztat jest zaprojektowany dla osób na każdym poziomie zaawansowania.</div>
+      </details>
+
+      <details>
+        <summary>Co jeśli nie zdam projektu końcowego?<span class="toggle">+</span></summary>
+        <div class="faq-body">Projekt końcowy jest ćwiczeniem praktycznym, a nie egzaminem. Prowadzący pomaga podczas wykonania. Jeśli aktywnie uczestniczysz — certyfikat jest Twój.</div>
+      </details>
+
+      <details>
+        <summary>Czy certyfikat jest uznawany przez PFRN?<span class="toggle">+</span></summary>
+        <div class="faq-body">Certyfikat KW-NSL-AI jest niezależnym potwierdzeniem kompetencji, nie jest akredytowany przez PFRN. Jest natomiast sygnowany przez rozpoznawalne podmioty w branży.</div>
+      </details>
+
+      <details>
+        <summary>Jak mogę użyć certyfikatu na LinkedIn?<span class="toggle">+</span></summary>
+        <div class="faq-body">Dodaj certyfikat w sekcji „Licencje i certyfikaty". Nazwa: „AI w Nieruchomościach (KW-NSL-AI)". ID poświadczenia: Twój numer certyfikatu.</div>
+      </details>
+
+      <details>
+        <summary>Ile kosztuje udział?<span class="toggle">+</span></summary>
+        <div class="faq-body">Cena warsztatu z certyfikacją: <strong style="color:var(--text-dark);">500 PLN</strong> netto za osobę. Obejmuje: warsztat, materiały, certyfikat, dostęp do materiałów online.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============ WERYFIKACJA ============ -->
+<section id="weryfikacja">
+  <div class="container" style="max-width: 650px; text-align: center;">
+    <div class="section-badge">Weryfikacja</div>
+    <h2 class="section-title">Zweryfikuj certyfikat</h2>
+    <p class="section-subtitle">Wpisz numer certyfikatu aby potwierdzić jego autentyczność.</p>
+
+    <div class="verify-box">
+      <div class="verify-form">
+        <input type="text" class="verify-input" placeholder="np. KW-NSL-AI-001-2026">
+        <button class="verify-btn">Weryfikuj</button>
+      </div>
+      <div id="verify-result"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<div style="text-align: center; padding: 40px 0 0;"><img src="img/nsl-logo.png" alt="NSL Logo" style="height: 80px;"></div>
+<footer>
+  <p>&copy; 2026 Akademia AI</p>
+  <p class="footer-partners">Keller Williams &times; Nieruchomości Spod Lady &times; Akademia AI</p>
+  <p style="font-size:0.8rem;color:var(--text-light);margin-top:8px;">Program certyfikacji KW-NSL-AI v1.0</p>
+</footer>
+
+<!-- ============ DAY SLIDER SCRIPT ============ -->
+<script>
+(function() {
+  var DAY_CARDS = [
+    { time: '07:30', agent: 'AI COO', cls: 'da-coo', title: 'Plan dnia: 12 zadań, 3 priorytety, 2 spotkania z klientami', s: 'done' },
+    { time: '08:00', agent: 'AI MONITOR', cls: 'da-monitor', title: 'Alert: nowa oferta na OLX — 3-pokojowe, Wrzeszcz, poniżej rynku', s: 'done' },
+    { time: '08:45', agent: 'AI PROSPECTING', cls: 'da-prospecting', title: 'Odpowiedź na leada z OLX: wycena + propozycja spotkania', s: 'done' },
+    { time: '09:30', agent: 'AI WYCENA', cls: 'da-wycena', title: 'Raport cenowy: ul. Grunwaldzka — 47 transakcji, mediana 12 400 PLN/m²', s: 'done' },
+    { time: '10:15', agent: 'AI OGŁOSZENIA', cls: 'da-ogloszenia', title: 'Opis oferty ze zdjęć: 3-pokojowe, balkon, widok na park. Gotowy do publikacji', s: 'done' },
+    { time: '11:00', agent: 'AI NEGOCJACJE', cls: 'da-negocjacje', title: 'Przygotowanie do spotkania: argumenty cenowe, obiekcje sprzedającego, plan B', s: 'progress' },
+    { time: '12:30', agent: 'AI RAPORTY', cls: 'da-raporty', title: 'Prezentacja PDF dla właściciela: analiza rynku + rekomendacja cenowa', s: 'done' },
+    { time: '13:45', agent: 'AI GHOST', cls: 'da-ghost', title: 'Follow-up do 4 klientów: spersonalizowane wiadomości w Twoim stylu', s: 'done' },
+    { time: '14:30', agent: 'AI MARKETING', cls: 'da-marketing', title: '3 warianty posta na FB + story na Instagram dla nowej oferty', s: 'done' },
+    { time: '15:45', agent: 'AI CRM', cls: 'da-crm', title: 'Aktualizacja pipeline: 2 nowe leady, 1 umowa na wyłączność', s: 'done' },
+    { time: '16:30', agent: 'AI WYCENA', cls: 'da-wycena', title: 'Kalkulator ROI: kawalerka na wynajem — zwrot w 8.2 lat, yield 6.1%', s: 'done' },
+    { time: '17:15', agent: 'AI NEWSLETTER', cls: 'da-monitor', title: 'Newsletter ofert: 5 najlepszych okazji tego tygodnia — wysłany do 120 kontaktów', s: 'done' },
+    { time: '18:00', agent: 'AI COO', cls: 'da-coo', title: 'Podsumowanie dnia: 4 leady, 2 spotkania, 1 podpisana umowa', s: 'done' },
+    { time: '19:30', agent: 'AI CEO', cls: 'da-prospecting', title: 'Weekly review: co zadziałało, co zmienić, plan na przyszły tydzień', s: 'done' }
+  ];
+
+  function mkCard(c) {
+    var ip = c.s === 'progress';
+    var st = ip
+      ? '<div class="day-card-status"><svg viewBox="0 0 24 24"><path d="M12 2v4m0 12v4m-7.07-15.07l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>W TRAKCIE...</div><div class="day-progress-bar"><div class="day-fill"></div></div>'
+      : '<div class="day-card-status"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>WYKONANO</div>';
+    return '<div class="day-card'+(ip?' dc-progress':'')+'"><div class="day-card-header"><div class="day-card-time">'+c.time+'</div><div class="day-card-agent '+c.cls+'">'+c.agent+'</div></div><div class="day-card-title">'+c.title+'</div>'+st+'</div>';
+  }
+
+  var el = document.getElementById('dayScrollInner');
+  var html = DAY_CARDS.map(mkCard).join('');
+  el.innerHTML = html + html;
+
+  requestAnimationFrame(function() {
+    var h = el.scrollHeight / 2;
+    el.style.animationDuration = (h / 38) + 's';
+  });
+})();
+</script>
+
+</body>
+</html>
