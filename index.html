@@ -30,10 +30,11 @@ html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
-  color: var(--text-mid);
+  color: var(--text-dark);
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.75;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -68,32 +69,33 @@ section {
 .section-badge {
   display: inline-block;
   font-family: var(--font-heading);
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--fuchsia-mid);
-  border: 1px solid var(--fuchsia-mid);
-  padding: 6px 18px;
+  border: 2px solid var(--fuchsia-mid);
+  padding: 8px 20px;
   border-radius: 4px;
   margin-bottom: 20px;
 }
 
 .section-title {
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
   color: var(--text-dark);
-  margin-bottom: 12px;
-  line-height: 1.3;
+  margin-bottom: 14px;
+  line-height: 1.25;
 }
 
 .section-subtitle {
   font-family: var(--font-decorative);
   font-style: italic;
-  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
-  color: var(--text-mid2);
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  color: var(--text-mid);
   margin-bottom: 40px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 /* ============ HERO ============ */
@@ -259,7 +261,7 @@ section {
 
 .format-card .fc-title {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--gold-dark);
   margin-bottom: 8px;
@@ -267,7 +269,7 @@ section {
 }
 
 .format-card p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-mid);
 }
 
@@ -339,7 +341,7 @@ section {
 
 .cal-desc {
   color: var(--text-mid2);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
 }
 
 .benefits-grid {
@@ -356,7 +358,7 @@ section {
   border: 1px solid rgba(201,160,48,0.2);
   border-radius: 10px;
   padding: 16px 18px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-mid);
 }
 
@@ -387,7 +389,7 @@ section {
 
 .program-pre h4 {
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--gold-dark);
   letter-spacing: 2px;
   margin-bottom: 16px;
@@ -407,7 +409,7 @@ section {
 .program-pre ul li {
   padding: 5px 0 5px 24px;
   position: relative;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .program-pre ul li::before {
@@ -465,12 +467,12 @@ section {
 }
 
 .tl-time {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--text-light);
 }
 
 .tl-desc {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: var(--text-mid2);
 }
 
@@ -485,7 +487,7 @@ section {
 .outcome-item {
   padding: 8px 0 8px 28px;
   position: relative;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .outcome-item::before {
@@ -508,7 +510,7 @@ section {
 
 .after-day h4 {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--gold-dark);
   letter-spacing: 2px;
   margin-bottom: 16px;
@@ -521,7 +523,7 @@ section {
 .after-day ul li {
   padding: 5px 0 5px 24px;
   position: relative;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .after-day ul li::before {
@@ -562,14 +564,14 @@ section {
 
 .platform-card h4 {
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-dark);
   margin-bottom: 8px;
   letter-spacing: 1px;
 }
 
 .platform-card p {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: var(--text-mid2);
 }
 
@@ -602,7 +604,7 @@ section {
   border: 1px solid rgba(201,160,48,0.3);
   border-radius: 50px;
   padding: 10px 22px;
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--text-dark);
   transition: all 0.3s;
@@ -634,14 +636,14 @@ section {
 
 .bonus-card h4 {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-dark);
   margin-bottom: 6px;
   letter-spacing: 1px;
 }
 
 .bonus-card p {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-mid2);
 }
 
@@ -682,7 +684,7 @@ section {
 }
 
 .network-step p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-mid);
 }
 
@@ -716,7 +718,7 @@ section {
 
 .effect-col h4 {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--gold-dark);
   letter-spacing: 2px;
   margin-bottom: 16px;
@@ -729,7 +731,7 @@ section {
 .effect-col ul li {
   padding: 6px 0 6px 24px;
   position: relative;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .effect-col ul li::before {
@@ -785,7 +787,7 @@ section {
 }
 
 .cta-box p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-mid2);
 }
 
@@ -809,7 +811,7 @@ section {
 
 .cta-cert {
   font-family: var(--font-heading);
-  font-size: 0.8rem;
+  font-size: 1rem;
   letter-spacing: 3px;
   color: var(--gold-mid);
   margin-top: 24px;
@@ -820,7 +822,7 @@ section {
   background: linear-gradient(135deg, var(--fuchsia-dark), var(--fuchsia-mid));
   color: #fff;
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -847,7 +849,7 @@ section {
   background: linear-gradient(135deg, var(--fuchsia-dark), var(--fuchsia-mid));
   color: #fff;
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -878,7 +880,7 @@ footer {
 }
 
 footer p {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-light);
   margin-bottom: 6px;
 }
@@ -968,7 +970,7 @@ footer .footer-partners {
   .hero-left .hero-features { text-align: left; }
   section { padding: 56px 0; }
   .hero-features { grid-template-columns: 1fr; }
-  .cal-table { font-size: 0.85rem; }
+  .cal-table { font-size: 0.95rem; }
   .cal-table th:last-child,
   .cal-table td:last-child { display: none; }
   .cta-boxes { grid-template-columns: 1fr; }
@@ -983,7 +985,7 @@ footer .footer-partners {
   .effect-columns { grid-template-columns: 1fr; }
   .network-steps { grid-template-columns: 1fr 1fr; }
   .agent-chips { gap: 8px; }
-  .agent-chip { font-size: 0.8rem; padding: 8px 14px; }
+  .agent-chip { font-size: 1rem; padding: 8px 14px; }
   img, iframe, video { max-width: 100%; }
 }
 
@@ -996,6 +998,7 @@ footer .footer-partners {
   <div class="container">
     <div class="hero-logo">AKADEMIA <span class="ai-mark">AI</span></div>
     <p class="hero-partners" style="margin-bottom:12px;">Keller Williams &middot; Nieruchomości Spod Lady</p>
+    <p style="font-size:1rem;color:var(--text-mid2);margin-bottom:8px;">Organizator: <strong style="color:var(--text-dark);">Sylwia Wróblewska &mdash; Nieruchomości Spod Lady</strong></p>
 
     <div class="hero-split">
       <!-- LEWA: treść -->
@@ -1023,19 +1026,19 @@ footer .footer-partners {
         <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:20px;">
           <div>
             <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--fuchsia-mid);">4</div>
-            <div style="font-size:0.8rem;color:var(--text-mid2);">dni szkolenia</div>
+            <div style="font-size:1rem;color:var(--text-mid2);">dni szkolenia</div>
           </div>
           <div>
             <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--fuchsia-mid);">12h</div>
-            <div style="font-size:0.8rem;color:var(--text-mid2);">praktyki na żywo</div>
+            <div style="font-size:1rem;color:var(--text-mid2);">praktyki na żywo</div>
           </div>
           <div>
             <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--fuchsia-mid);">10+</div>
-            <div style="font-size:0.8rem;color:var(--text-mid2);">agentów AI</div>
+            <div style="font-size:1rem;color:var(--text-mid2);">agentów AI</div>
           </div>
           <div>
             <div style="font-family:var(--font-heading);font-size:1.8rem;font-weight:800;color:var(--fuchsia-mid);">1 rok</div>
-            <div style="font-size:0.8rem;color:var(--text-mid2);">platformy</div>
+            <div style="font-size:1rem;color:var(--text-mid2);">platformy</div>
           </div>
         </div>
       </div>
@@ -1089,7 +1092,7 @@ footer .footer-partners {
 
 <div class="section-cta">
   <a href="#zapis">Zapisz się na szkolenie</a>
-  <p>Najbliższa edycja: 8&ndash;11 kwietnia 2026</p>
+  <p>Najbliższa edycja: 15&ndash;18 kwietnia 2026</p>
 </div>
 
 <hr class="gold-divider">
@@ -1133,7 +1136,7 @@ footer .footer-partners {
 <section class="calendar-section">
   <div class="container">
     <h2 class="section-title">Kalendarz Akademii AI</h2>
-    <p class="section-subtitle">8&ndash;11 kwietnia 2026 &mdash; Edycja Trojmiasto</p>
+    <p class="section-subtitle">Edycja Trójmiasto &mdash; co tydzień nowa edycja</p>
 
     <table class="cal-table">
       <thead>
@@ -1145,27 +1148,71 @@ footer .footer-partners {
         </tr>
       </thead>
       <tbody>
+        <!-- EDYCJA #1 -->
+        <tr><td colspan="4" style="background:rgba(163,0,72,0.04);font-family:var(--font-heading);font-size:0.95rem;font-weight:700;color:var(--fuchsia-dark);letter-spacing:2px;padding:12px 16px;">EDYCJA #1 &mdash; KWIECIEŃ</td></tr>
         <tr>
-          <td class="cal-date">8 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:0.8rem;color:var(--text-light)">(środa)</span></td>
+          <td class="cal-date">15 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:1rem;color:var(--text-light)">(środa)</span></td>
           <td><span class="cal-event">Spotkanie online</span><br><span class="cal-desc">Przygotowanie plików i materiałów</span></td>
           <td>09:00</td>
           <td>1&ndash;2h</td>
         </tr>
         <tr>
-          <td class="cal-date">9 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:0.8rem;color:var(--text-light)">(czwartek)</span></td>
+          <td class="cal-date">16 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:1rem;color:var(--text-light)">(czwartek)</span></td>
           <td><span class="cal-event">Spotkanie 1 &mdash; Twój AI Team w akcji</span><br><span class="cal-desc">Warsztaty stacjonarne</span></td>
           <td>09:00&ndash;15:00</td>
           <td>6h</td>
         </tr>
         <tr>
-          <td class="cal-date">10 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:0.8rem;color:var(--text-light)">(piątek)</span></td>
+          <td class="cal-date">17 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:1rem;color:var(--text-light)">(piątek)</span></td>
           <td><span class="cal-event">Spotkanie 2 &mdash; Zaawansowane AI + Automatyzacja</span><br><span class="cal-desc">Warsztaty stacjonarne</span></td>
           <td>09:00&ndash;15:00</td>
           <td>6h</td>
         </tr>
         <tr>
-          <td class="cal-date">11 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:0.8rem;color:var(--text-light)">(sobota)</span></td>
+          <td class="cal-date">18 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:1rem;color:var(--text-light)">(sobota)</span></td>
           <td><span class="cal-event">Q&A online</span><br><span class="cal-desc">Sesja pytań i odpowiedzi</span></td>
+          <td>09:00</td>
+          <td>1h</td>
+        </tr>
+
+        <!-- EDYCJA #2 -->
+        <tr><td colspan="4" style="background:rgba(122,82,16,0.04);font-family:var(--font-heading);font-size:0.95rem;font-weight:700;color:var(--gold-dark);letter-spacing:2px;padding:12px 16px;">EDYCJA #2</td></tr>
+        <tr>
+          <td class="cal-date">22 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:1rem;color:var(--text-light)">(środa)</span></td>
+          <td><span class="cal-event">Spotkanie online</span></td>
+          <td>09:00</td>
+          <td>1&ndash;2h</td>
+        </tr>
+        <tr>
+          <td class="cal-date">23&ndash;24 kwietnia</td>
+          <td><span class="cal-event">Warsztaty stacjonarne (2 dni)</span></td>
+          <td>09:00&ndash;15:00</td>
+          <td>2 &times; 6h</td>
+        </tr>
+        <tr>
+          <td class="cal-date">25 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:1rem;color:var(--text-light)">(sobota)</span></td>
+          <td><span class="cal-event">Q&A online</span></td>
+          <td>09:00</td>
+          <td>1h</td>
+        </tr>
+
+        <!-- EDYCJA #3 -->
+        <tr><td colspan="4" style="background:rgba(122,82,16,0.04);font-family:var(--font-heading);font-size:0.95rem;font-weight:700;color:var(--gold-dark);letter-spacing:2px;padding:12px 16px;">EDYCJA #3</td></tr>
+        <tr>
+          <td class="cal-date">29 kwietnia<br><span style="font-weight:400;font-family:var(--font-body);font-size:1rem;color:var(--text-light)">(środa)</span></td>
+          <td><span class="cal-event">Spotkanie online</span></td>
+          <td>09:00</td>
+          <td>1&ndash;2h</td>
+        </tr>
+        <tr>
+          <td class="cal-date">30 kwietnia &ndash; 1 maja</td>
+          <td><span class="cal-event">Warsztaty stacjonarne (2 dni)</span></td>
+          <td>09:00&ndash;15:00</td>
+          <td>2 &times; 6h</td>
+        </tr>
+        <tr>
+          <td class="cal-date">2 maja<br><span style="font-weight:400;font-family:var(--font-body);font-size:1rem;color:var(--text-light)">(sobota)</span></td>
+          <td><span class="cal-event">Q&A online</span></td>
           <td>09:00</td>
           <td>1h</td>
         </tr>
@@ -1199,10 +1246,10 @@ footer .footer-partners {
   <div class="container">
     <div class="section-badge">SPOTKANIE 1 z 2</div>
     <h2 class="section-title">SPOTKANIE 1 &mdash; Twój AI Team w akcji</h2>
-    <p class="section-subtitle">6h (z przerwą 45 min) &middot; 9 kwietnia 2026</p>
+    <p class="section-subtitle">6h (z przerwą 45 min) &middot; czwartek</p>
 
     <div class="program-pre">
-      <h4>PRZED WARSZTATEM &mdash; 8.04 ONLINE</h4>
+      <h4>PRZED WARSZTATEM &mdash; ŚRODA ONLINE</h4>
       <p>Dołączasz do zamkniętej grupy, dostajesz dostęp do platformy i materiały wprowadzające:</p>
       <ul>
         <li>Profil przedsiębiorcy (profil.md) &mdash; AI poznaje Ciebie</li>
@@ -1285,7 +1332,7 @@ footer .footer-partners {
   <div class="container">
     <div class="section-badge">SPOTKANIE 2 z 2</div>
     <h2 class="section-title">SPOTKANIE 2 &mdash; Zaawansowane AI + Automatyzacja</h2>
-    <p class="section-subtitle">6h (z przerwą 45 min) &middot; 10 kwietnia 2026</p>
+    <p class="section-subtitle">6h (z przerwą 45 min) &middot; piątek</p>
 
     <div class="timeline">
       <div class="tl-item">
@@ -1358,7 +1405,7 @@ footer .footer-partners {
 
 <div class="section-cta">
   <a href="#zapis">Rezerwuję miejsce</a>
-  <p>1 699 PLN &middot; Członkowie NSL: 1 599 PLN</p>
+  <p>1 499 PLN &middot; Członkowie NSL: 1 399 PLN</p>
 </div>
 
 <hr class="gold-divider">
@@ -1532,15 +1579,15 @@ footer .footer-partners {
         <div style="display:flex;gap:24px;flex-wrap:wrap;">
           <div>
             <div style="font-family:var(--font-heading);font-size:1.4rem;font-weight:700;color:var(--fuchsia-mid);">8 lat</div>
-            <div style="font-size:0.8rem;color:var(--text-mid2);">w marketingu</div>
+            <div style="font-size:1rem;color:var(--text-mid2);">w marketingu</div>
           </div>
           <div>
             <div style="font-family:var(--font-heading);font-size:1.4rem;font-weight:700;color:var(--fuchsia-mid);">15+</div>
-            <div style="font-size:0.8rem;color:var(--text-mid2);">branż obsłużonych</div>
+            <div style="font-size:1rem;color:var(--text-mid2);">branż obsłużonych</div>
           </div>
           <div>
             <div style="font-family:var(--font-heading);font-size:1.4rem;font-weight:700;color:var(--fuchsia-mid);">20+</div>
-            <div style="font-size:0.8rem;color:var(--text-mid2);">narzędzi AI w praktyce</div>
+            <div style="font-size:1rem;color:var(--text-mid2);">narzędzi AI w praktyce</div>
           </div>
         </div>
       </div>
@@ -1574,14 +1621,14 @@ footer .footer-partners {
         <select name="fields[edition]"
           style="padding:14px 20px;border-radius:10px;border:2px solid rgba(201,160,48,0.3);background:#fff;font-size:0.95rem;font-family:var(--font-body);outline:none;color:var(--text-mid);">
           <option value="">Wybierz edycję</option>
-          <option value="2026-04-08">8–11 kwietnia 2026 (Edycja #1)</option>
-          <option value="2026-04-15">15–18 kwietnia 2026 (Edycja #2)</option>
-          <option value="2026-04-22">22–25 kwietnia 2026 (Edycja #3)</option>
+          <option value="2026-04-15">15–18 kwietnia 2026 (Edycja #1)</option>
+          <option value="2026-04-22">22–25 kwietnia 2026 (Edycja #2)</option>
+          <option value="2026-04-29">29 kwietnia – 2 maja 2026 (Edycja #3)</option>
         </select>
         <button type="submit" class="cta-btn" style="border:none;cursor:pointer;font-family:var(--font-heading);">Zapisz się</button>
       </form>
       <p id="form-success" style="display:none;margin-top:16px;color:var(--fuchsia-mid);font-weight:600;font-size:0.95rem;">Dziękujemy za zapis! Odezwiemy się wkrótce.</p>
-      <p style="font-size:0.8rem;color:var(--text-light);margin-top:12px;">Zapisując się, wyrażasz zgodę na kontakt w sprawie szkolenia. Twoje dane są bezpieczne.</p>
+      <p style="font-size:1rem;color:var(--text-light);margin-top:12px;">Zapisując się, wyrażasz zgodę na kontakt w sprawie szkolenia. Twoje dane są bezpieczne.</p>
     </div>
 
     <!-- TODO: Podpiąć MailerLite API -->
@@ -1592,12 +1639,12 @@ footer .footer-partners {
 
     <div class="cta-boxes">
       <div class="cta-box">
-        <h4>1 699 PLN</h4>
+        <h4>1 499 PLN</h4>
         <p>2 × 6h warsztat + Q&A + platforma rok</p>
         <p class="price-tag">Cena standardowa</p>
       </div>
       <div class="cta-box" style="border-color:var(--fuchsia-mid);">
-        <h4>1 599 PLN</h4>
+        <h4>1 399 PLN</h4>
         <p>2 × 6h warsztat + Q&A + platforma rok</p>
         <p class="price-tag">Członkowie NSL</p>
       </div>
@@ -1617,42 +1664,42 @@ footer .footer-partners {
     <div style="text-align:left;">
       <details open style="background:#fff;border:1px solid rgba(201,160,48,0.2);border-radius:12px;margin-bottom:10px;">
         <summary style="padding:18px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--text-dark);font-size:0.95rem;list-style:none;">Czy muszę znać AI żeby uczestniczyć?<span style="color:var(--fuchsia-mid);font-size:1.2rem;transition:transform 0.3s;">+</span></summary>
-        <div style="padding:0 24px 18px;font-size:0.9rem;color:var(--text-mid2);line-height:1.7;">Nie. Zaczynamy od zera. Warsztat jest zaprojektowany tak, żebyś wyszedł z gotowymi narzędziami niezależnie od poziomu startowego.</div>
+        <div style="padding:0 24px 18px;font-size:1rem;color:var(--text-mid2);line-height:1.7;">Nie. Zaczynamy od zera. Warsztat jest zaprojektowany tak, żebyś wyszedł z gotowymi narzędziami niezależnie od poziomu startowego.</div>
       </details>
 
       <details style="background:#fff;border:1px solid rgba(201,160,48,0.2);border-radius:12px;margin-bottom:10px;">
         <summary style="padding:18px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--text-dark);font-size:0.95rem;list-style:none;">Co muszę mieć ze sobą?<span style="color:var(--fuchsia-mid);font-size:1.2rem;">+</span></summary>
-        <div style="padding:0 24px 18px;font-size:0.9rem;color:var(--text-mid2);line-height:1.7;">Laptop z dostępem do internetu. Przed warsztatem dostaniesz instrukcję co zainstalować i jakie konta założyć.</div>
+        <div style="padding:0 24px 18px;font-size:1rem;color:var(--text-mid2);line-height:1.7;">Laptop z dostępem do internetu. Przed warsztatem dostaniesz instrukcję co zainstalować i jakie konta założyć.</div>
       </details>
 
       <details style="background:#fff;border:1px solid rgba(201,160,48,0.2);border-radius:12px;margin-bottom:10px;">
         <summary style="padding:18px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--text-dark);font-size:0.95rem;list-style:none;">Ile osób jest na szkoleniu?<span style="color:var(--fuchsia-mid);font-size:1.2rem;">+</span></summary>
-        <div style="padding:0 24px 18px;font-size:0.9rem;color:var(--text-mid2);line-height:1.7;">Maksymalnie 12 osób. Dzięki temu każdy dostaje indywidualną pomoc i pracujemy na Twoich materiałach.</div>
+        <div style="padding:0 24px 18px;font-size:1rem;color:var(--text-mid2);line-height:1.7;">Maksymalnie 12 osób. Dzięki temu każdy dostaje indywidualną pomoc i pracujemy na Twoich materiałach.</div>
       </details>
 
       <details style="background:#fff;border:1px solid rgba(201,160,48,0.2);border-radius:12px;margin-bottom:10px;">
         <summary style="padding:18px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--text-dark);font-size:0.95rem;list-style:none;">Gdzie odbywają się warsztaty stacjonarne?<span style="color:var(--fuchsia-mid);font-size:1.2rem;">+</span></summary>
-        <div style="padding:0 24px 18px;font-size:0.9rem;color:var(--text-mid2);line-height:1.7;">Trójmiasto. Dokładny adres i wskazówki dojazdu dostaniesz mailem po zapisie.</div>
+        <div style="padding:0 24px 18px;font-size:1rem;color:var(--text-mid2);line-height:1.7;">Trójmiasto. Dokładny adres i wskazówki dojazdu dostaniesz mailem po zapisie.</div>
       </details>
 
       <details style="background:#fff;border:1px solid rgba(201,160,48,0.2);border-radius:12px;margin-bottom:10px;">
         <summary style="padding:18px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--text-dark);font-size:0.95rem;list-style:none;">Co dostaję po szkoleniu?<span style="color:var(--fuchsia-mid);font-size:1.2rem;">+</span></summary>
-        <div style="padding:0 24px 18px;font-size:0.9rem;color:var(--text-mid2);line-height:1.7;">Zespół agentów AI skonfigurowanych pod Twoją pracę, rok dostępu do platformy z materiałami, certyfikat KW-NSL-AI, dostęp do zamkniętej grupy absolwentów i Network Nieruchomości.</div>
+        <div style="padding:0 24px 18px;font-size:1rem;color:var(--text-mid2);line-height:1.7;">Zespół agentów AI skonfigurowanych pod Twoją pracę, rok dostępu do platformy z materiałami, certyfikat KW-NSL-AI, dostęp do zamkniętej grupy absolwentów i Network Nieruchomości.</div>
       </details>
 
       <details style="background:#fff;border:1px solid rgba(201,160,48,0.2);border-radius:12px;margin-bottom:10px;">
         <summary style="padding:18px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--text-dark);font-size:0.95rem;list-style:none;">Czy mogę dostać fakturę?<span style="color:var(--fuchsia-mid);font-size:1.2rem;">+</span></summary>
-        <div style="padding:0 24px 18px;font-size:0.9rem;color:var(--text-mid2);line-height:1.7;">Tak. Faktura VAT wystawiana po płatności. Podaj dane do faktury przy zapisie.</div>
+        <div style="padding:0 24px 18px;font-size:1rem;color:var(--text-mid2);line-height:1.7;">Tak. Faktura VAT wystawiana po płatności. Podaj dane do faktury przy zapisie.</div>
       </details>
 
       <details style="background:#fff;border:1px solid rgba(201,160,48,0.2);border-radius:12px;margin-bottom:10px;">
         <summary style="padding:18px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--text-dark);font-size:0.95rem;list-style:none;">Jaka jest różnica w cenie dla członków NSL?<span style="color:var(--fuchsia-mid);font-size:1.2rem;">+</span></summary>
-        <div style="padding:0 24px 18px;font-size:0.9rem;color:var(--text-mid2);line-height:1.7;">Członkowie grupy Nieruchomości Spod Lady płacą 1 599 PLN zamiast 1 699 PLN. Zniżka 100 PLN naliczana przy zapisie.</div>
+        <div style="padding:0 24px 18px;font-size:1rem;color:var(--text-mid2);line-height:1.7;">Członkowie grupy Nieruchomości Spod Lady płacą 1 399 PLN zamiast 1 499 PLN. Zniżka 100 PLN naliczana przy zapisie.</div>
       </details>
 
       <details style="background:#fff;border:1px solid rgba(201,160,48,0.2);border-radius:12px;margin-bottom:10px;">
         <summary style="padding:18px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--text-dark);font-size:0.95rem;list-style:none;">Czy szkolenie jest tylko dla agentów nieruchomości?<span style="color:var(--fuchsia-mid);font-size:1.2rem;">+</span></summary>
-        <div style="padding:0 24px 18px;font-size:0.9rem;color:var(--text-mid2);line-height:1.7;">Szkolenie jest dla każdego z szerokiej branży nieruchomości &mdash; agenci, pośrednicy, zarządcy, deweloperzy, rzeczoznawcy, home stagerzy, fotografowie nieruchomości. Jeśli pracujesz z klientami i ofertami &mdash; wyniesiesz dużo.</div>
+        <div style="padding:0 24px 18px;font-size:1rem;color:var(--text-mid2);line-height:1.7;">Szkolenie jest dla każdego z szerokiej branży nieruchomości &mdash; agenci, pośrednicy, zarządcy, deweloperzy, rzeczoznawcy, home stagerzy, fotografowie nieruchomości. Jeśli pracujesz z klientami i ofertami &mdash; wyniesiesz dużo.</div>
       </details>
     </div>
   </div>
@@ -1662,8 +1709,10 @@ footer .footer-partners {
 
 <!-- ============ FOOTER ============ -->
 <footer>
-  <p>Edycja Północ &mdash; Trójmiasto 2026 &middot; Akademia AI &middot; ai-team.pl</p>
-  <p class="footer-partners">Keller Williams &middot; Nieruchomości Spod Lady</p>
+  <p style="font-size:1rem;color:var(--text-mid);margin-bottom:8px;"><strong>Organizator:</strong> Sylwia Wróblewska &mdash; Nieruchomości Spod Lady</p>
+  <p style="font-size:1rem;color:var(--text-mid);margin-bottom:8px;"><strong>Prowadzący:</strong> Dariusz Szuca &mdash; ai-team.pl</p>
+  <p>Edycja Północ &mdash; Trójmiasto 2026</p>
+  <p class="footer-partners">Keller Williams &middot; Nieruchomości Spod Lady &middot; Akademia AI</p>
 </footer>
 
 <!-- ============ VIDEO PLAYER ============ -->
