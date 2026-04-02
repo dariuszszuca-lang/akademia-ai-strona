@@ -2075,35 +2075,10 @@ footer .footer-partners {
 <!-- ============ ZAPIS — MAILERLITE ============ -->
 <section id="zapis" class="cta-section">
   <div class="container">
-    <h2 class="section-title">Zapisz się na szkolenie</h2>
-    <p class="section-subtitle">Zostaw dane, odezwiemy się z informacjami i linkiem do płatności.</p>
+    <h2 class="section-title">Kup szkolenie</h2>
+    <p class="section-subtitle">Płatność przez sklep Nieruchomości Spod Lady. Po zakupie dostaniesz maila z instrukcjami.</p>
 
-    <!-- MailerLite Embedded Form -->
-    <div id="mlb2-form" style="max-width:500px;margin:0 auto 40px;">
-      <form action="" method="post" id="signup-form" style="display:flex;flex-direction:column;gap:12px;">
-        <input type="text" name="fields[name]" placeholder="Imię i nazwisko" required
-          style="padding:14px 20px;border-radius:10px;border:2px solid rgba(201,160,48,0.3);background:#fff;font-size:1rem;font-family:var(--font-body);outline:none;">
-        <input type="email" name="fields[email]" placeholder="Adres email" required
-          style="padding:14px 20px;border-radius:10px;border:2px solid rgba(201,160,48,0.3);background:#fff;font-size:1rem;font-family:var(--font-body);outline:none;">
-        <input type="tel" name="fields[phone]" placeholder="Numer telefonu"
-          style="padding:14px 20px;border-radius:10px;border:2px solid rgba(201,160,48,0.3);background:#fff;font-size:1rem;font-family:var(--font-body);outline:none;">
-        <select name="fields[edition]"
-          style="padding:14px 20px;border-radius:10px;border:2px solid rgba(201,160,48,0.3);background:#fff;font-size:1rem;font-family:var(--font-body);outline:none;color:var(--text-mid);">
-          <option value="">Wybierz edycję</option>
-          <option value="2026-04-15">15–18 kwietnia 2026 (Edycja #1)</option>
-          <option value="2026-04-22">22–25 kwietnia 2026 (Edycja #2)</option>
-        </select>
-        <button type="submit" class="cta-btn" style="border:none;cursor:pointer;font-family:var(--font-heading);">Zapisz się</button>
-      </form>
-      <p id="form-success" style="display:none;margin-top:16px;color:var(--fuchsia-mid);font-weight:600;font-size:1rem;">Dziękujemy za zapis! Odezwiemy się wkrótce.</p>
-      <p style="font-size:1rem;color:var(--text-mid2);margin-top:12px;">Zapisując się, wyrażasz zgodę na kontakt w sprawie szkolenia. Twoje dane są bezpieczne.</p>
-    </div>
-
-    <!-- TODO: Podpiąć MailerLite API -->
-    <!-- Grupa: Akademia AI Warsztaty -->
-    <!-- Po zapisie: automatyczny mail z potwierdzeniem + link do płatności -->
-
-    <hr class="gold-divider-thin">
+    <!-- TODO: Podpiąć link do sklepu Tpay Sylwii -->
 
     <div class="cta-boxes">
       <div class="cta-box">
@@ -2281,43 +2256,8 @@ function playVideo() {
 }
 </script>
 
-<!-- ============ MAILERLITE + FORM SCRIPT ============ -->
-<script>
-// TODO: Zastąpić fetch na MailerLite API
-// Grupa: Akademia AI Warsztaty
-// API Key: z .env (MAILERLITE_API_KEY)
-// Endpoint: https://connect.mailerlite.com/api/subscribers
-
-document.getElementById('signup-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('button');
-  const name = form.querySelector('[name="fields[name]"]').value;
-  const email = form.querySelector('[name="fields[email]"]').value;
-  const phone = form.querySelector('[name="fields[phone]"]').value;
-  const edition = form.querySelector('[name="fields[edition]"]').value;
-
-  btn.textContent = 'Wysyłam...';
-  btn.disabled = true;
-
-  try {
-    // TODO: Podpiąć MailerLite API (Vercel serverless function)
-    // await fetch('/api/signup', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ name, email, phone, edition })
-    // });
-
-    // Tymczasowo: pokaż sukces
-    form.style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-  } catch (err) {
-    btn.textContent = 'Zapisz się';
-    btn.disabled = false;
-    alert('Wystąpił błąd. Spróbuj ponownie lub napisz do nas bezpośrednio.');
-  }
-});
-</script>
+<!-- MailerLite: grupa Akademia AI, ID: 183660606404953428, konto Sylwii NSL -->
+<!-- Webhook Tpay po płatności → dodaj do grupy + wyślij mail powitalny -->
 
 <!-- ============ RODO / COOKIE BANNER ============ -->
 <style>
