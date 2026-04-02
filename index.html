@@ -886,25 +886,14 @@ section {
   width: 100%;
   max-width: 520px;
   margin: 0 auto;
-  background: linear-gradient(180deg, #0E0008 0%, #1a0a12 100%);
-  border: 1px solid rgba(201,160,48,0.2);
+  background: #fff;
+  border: 2px solid rgba(201,160,48,0.2);
   border-radius: 24px;
   padding: 36px 24px;
   position: relative;
   overflow: hidden;
   height: 600px;
-}
-
-.day-slider-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(201,160,48,0.08) 0%, transparent 70%);
-  pointer-events: none;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06);
 }
 
 .day-badge-box {
@@ -960,12 +949,12 @@ section {
 
 .day-track::before {
   top: 0;
-  background: linear-gradient(180deg, #0E0008 0%, transparent 100%);
+  background: linear-gradient(180deg, #fff 0%, transparent 100%);
 }
 
 .day-track::after {
   bottom: 0;
-  background: linear-gradient(0deg, #0E0008 0%, transparent 100%);
+  background: linear-gradient(0deg, #fff 0%, transparent 100%);
 }
 
 .day-scroll {
@@ -1006,7 +995,7 @@ section {
 .day-card-time {
   font-size: 1.2rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--text-dark);
 }
 
 .day-card-tag {
@@ -1027,7 +1016,7 @@ section {
 .day-card-title {
   font-size: 0.95rem;
   font-weight: 500;
-  color: rgba(255,255,255,0.85);
+  color: var(--text-mid);
   line-height: 1.4;
 }
 
@@ -1047,6 +1036,7 @@ section {
   border-color: rgba(163,0,72,0.2);
 }
 
+.day-card.active { background: rgba(163,0,72,0.04); border-color: rgba(163,0,72,0.15); }
 .day-card.active .day-card-time { color: var(--fuchsia-mid); }
 .day-card.active .day-card-status { color: var(--fuchsia-mid); }
 
@@ -1966,43 +1956,21 @@ footer .footer-partners {
     <div class="effect-quote">
       &bdquo;Wchodzisz z zerową wiedzą o AI, wychodzisz z własnym zespołem cyfrowych pracowników i narzędziami, które zarabiają od pierwszego dnia.&rdquo;
     </div>
-  </div>
-</section>
 
-<hr class="gold-divider">
+    <hr class="gold-divider-thin">
 
-<!-- ============ POTRZEBUJESZ WIĘCEJ? ============ -->
-<section style="text-align:center;">
-  <div class="container">
-    <div class="section-badge">Potrzebujesz więcej?</div>
-    <h2 class="section-title">Wynajmij specjalistę AI</h2>
-    <p class="section-subtitle">Po szkoleniu budujesz sam. Ale jeśli potrzebujesz czegoś większego, zrobimy to za Ciebie.</p>
+    <h3 class="section-title" style="font-size:1.3rem;margin-top:32px;">Potrzebujesz czegoś więcej?</h3>
+    <p style="font-size:1rem;color:var(--text-mid);margin-bottom:24px;">Po szkoleniu budujesz sam. Ale jeśli potrzebujesz automatyzacji, narzędzia, strony czy analizy, zrobimy to za Ciebie.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:20px;margin:32px 0;">
-      <div style="background:#fff;border:1px solid rgba(201,160,48,0.2);border-radius:12px;padding:28px 20px;text-align:center;">
-        <div style="font-size:1.8rem;margin-bottom:12px;">🤖</div>
-        <h4 style="font-family:var(--font-heading);font-size:0.95rem;font-weight:700;color:var(--text-dark);margin-bottom:8px;">Automatyzacja</h4>
-        <p style="font-size:0.95rem;color:var(--text-mid);">Skrypty, boty, integracje — AI pracuje za Ciebie 24/7</p>
-      </div>
-      <div style="background:#fff;border:1px solid rgba(201,160,48,0.2);border-radius:12px;padding:28px 20px;text-align:center;">
-        <div style="font-size:1.8rem;margin-bottom:12px;">🛠</div>
-        <h4 style="font-family:var(--font-heading);font-size:0.95rem;font-weight:700;color:var(--text-dark);margin-bottom:8px;">Narzędzie na miarę</h4>
-        <p style="font-size:0.95rem;color:var(--text-mid);">Kalkulator, generator, CRM — zbudowane pod Twój biznes</p>
-      </div>
-      <div style="background:#fff;border:1px solid rgba(201,160,48,0.2);border-radius:12px;padding:28px 20px;text-align:center;">
-        <div style="font-size:1.8rem;margin-bottom:12px;">🌐</div>
-        <h4 style="font-family:var(--font-heading);font-size:0.95rem;font-weight:700;color:var(--text-dark);margin-bottom:8px;">Strona / platforma</h4>
-        <p style="font-size:0.95rem;color:var(--text-mid);">Landing page, aplikacja, system do klientów</p>
-      </div>
-      <div style="background:#fff;border:1px solid rgba(201,160,48,0.2);border-radius:12px;padding:28px 20px;text-align:center;">
-        <div style="font-size:1.8rem;margin-bottom:12px;">📊</div>
-        <h4 style="font-family:var(--font-heading);font-size:0.95rem;font-weight:700;color:var(--text-dark);margin-bottom:8px;">Raport / analiza</h4>
-        <p style="font-size:0.95rem;color:var(--text-mid);">Analiza rynku, raport cenowy, dashboard z danymi</p>
-      </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:24px;">
+      <span style="background:#fff;border:1px solid rgba(201,160,48,0.25);border-radius:50px;padding:10px 20px;font-size:0.9rem;font-weight:600;color:var(--text-dark);">🤖 Automatyzacja</span>
+      <span style="background:#fff;border:1px solid rgba(201,160,48,0.25);border-radius:50px;padding:10px 20px;font-size:0.9rem;font-weight:600;color:var(--text-dark);">🛠 Narzędzie na miarę</span>
+      <span style="background:#fff;border:1px solid rgba(201,160,48,0.25);border-radius:50px;padding:10px 20px;font-size:0.9rem;font-weight:600;color:var(--text-dark);">🌐 Strona / platforma</span>
+      <span style="background:#fff;border:1px solid rgba(201,160,48,0.25);border-radius:50px;padding:10px 20px;font-size:0.9rem;font-weight:600;color:var(--text-dark);">📊 Raport / analiza</span>
     </div>
 
-    <a href="https://ai-team.pl/zlecenie" target="_blank" class="cta-btn" style="background:linear-gradient(135deg, var(--gold-dark), var(--gold-light));margin-top:8px;">Złóż zlecenie na ai-team.pl &rarr;</a>
-    <p style="font-size:0.9rem;color:var(--text-mid);margin-top:12px;">Wycena w 24h. Realizacja od 2 dni.</p>
+    <a href="https://ai-team.pl/zlecenie" target="_blank" class="cta-btn" style="background:linear-gradient(135deg, var(--gold-dark), var(--gold-light));">Złóż zlecenie na ai-team.pl &rarr;</a>
+    <p style="font-size:0.9rem;color:var(--text-mid);margin-top:10px;">Wycena w 24h. Realizacja od 2 dni.</p>
   </div>
 </section>
 
