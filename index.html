@@ -2128,6 +2128,69 @@ footer .footer-partners {
 </section>
 
 <!-- ============ OPINIE ============ -->
+<style>
+.testimonial-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  font-size: 72px;
+  font-family: Georgia, serif;
+  color: rgba(201,169,78,0.15);
+  line-height: 1;
+}
+.testimonial-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #c9a94e;
+  box-shadow: 0 2px 12px rgba(201,169,78,0.3);
+}
+.testimonial-name {
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+  font-size: 16px;
+}
+.testimonial-role {
+  color: #c9a94e;
+  font-size: 12px;
+  margin: 2px 0 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.testimonial-text {
+  color: #444;
+  line-height: 1.75;
+  font-size: 15px;
+  margin: 0;
+  font-style: italic;
+}
+.testimonial-stars {
+  color: #c9a94e;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-top: 12px;
+}
+.testimonial-featured {
+  border: 2px solid rgba(201,169,78,0.3);
+  background: linear-gradient(135deg, #fffdf5 0%, #fff 100%);
+}
+</style>
 <section style="padding:80px 24px;background:#faf9f6;">
   <div style="max-width:900px;margin:0 auto;">
     <div class="section-badge">Opinie</div>
@@ -2135,48 +2198,69 @@ footer .footer-partners {
 
     <div style="display:grid;gap:24px;margin-top:48px;">
 
-      <div style="background:#fff;border:1px solid #eee;border-radius:16px;padding:28px 32px;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#c9a94e,#b8860b);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;">J</div>
+      <!-- Rafał - featured -->
+      <div class="testimonial-card testimonial-featured">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+          <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#c9a94e,#8b6914);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:22px;border:3px solid #c9a94e;box-shadow:0 2px 12px rgba(201,169,78,0.3);">R</div>
           <div>
-            <p style="font-weight:700;color:#1a1a2e;margin:0;font-size:15px;">Joanna Olejniczak</p>
-            <p style="color:#999;font-size:12px;margin:0;">Uczestniczka warsztatów</p>
+            <p class="testimonial-name">Rafał Lenart</p>
+            <p class="testimonial-role">RM Nieruchomości</p>
           </div>
         </div>
-        <p style="color:#333;line-height:1.7;font-size:15px;margin:0;">Świetne szkolenie! Poznawałam na nim nieznane światy, ale możliwości jakie to daje w pracy są po prostu niezmierzone! Polecam</p>
+        <p class="testimonial-text">Na kurs poszedłem jako osoba, która AI w nieruchomościach wykorzystuje już dosyć mocno. Brakowało mi jednak jednego: systemu, który pracuje za mnie. I dokładnie to dostałem. Po szkoleniu mam swoich AI asystentów, którzy realnie ułatwiają prowadzenie biznesu i oszczędzają czas. To nie jest kolejny kurs "jak zadać pytanie chatbotowi" — to konkretna implementacja, po której wychodzisz z działającymi narzędziami. Kurs polecam zarówno osobom zaawansowanym, jak i początkującym.</p>
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
       </div>
 
-      <div style="background:#fff;border:1px solid #eee;border-radius:16px;padding:28px 32px;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#2d5a8e,#1a3a5c);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;">S</div>
+      <!-- Joanna -->
+      <div class="testimonial-card">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+          <img src="img/opinie/joanna.png" alt="Joanna Olejniczak" class="testimonial-avatar">
           <div>
-            <p style="font-weight:700;color:#1a1a2e;margin:0;font-size:15px;">Szymon Lip</p>
-            <p style="color:#999;font-size:12px;margin:0;">Uczestnik warsztatów</p>
+            <p class="testimonial-name">Joanna Olejniczak</p>
+            <p class="testimonial-role">Uczestniczka warsztatów</p>
           </div>
         </div>
-        <p style="color:#333;line-height:1.7;font-size:15px;margin:0;">Ze swojej strony mogę z czystym sumieniem polecić te warsztaty. Zarówno osoby bez wcześniejszej wiedzy, jak i te bardziej zaawansowane znajdą coś dla siebie. Warto dowiedzieć się, w jakich obszarach można wykorzystać AI, bo za kilka lat agenci, którzy nie będą z niego korzystać, mogą zwyczajnie zostać w tyle.</p>
+        <p class="testimonial-text">Świetne szkolenie! Poznawałam na nim nieznane światy, ale możliwości jakie to daje w pracy są po prostu niezmierzone! Polecam</p>
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
       </div>
 
-      <div style="background:#fff;border:1px solid #eee;border-radius:16px;padding:28px 32px;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#c9a94e,#8b6914);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;">J</div>
+      <!-- Szymon -->
+      <div class="testimonial-card">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+          <img src="img/opinie/szymon.png" alt="Szymon Lip" class="testimonial-avatar">
           <div>
-            <p style="font-weight:700;color:#1a1a2e;margin:0;font-size:15px;">Justyna Richert</p>
-            <p style="color:#999;font-size:12px;margin:0;">Uczestniczka warsztatów</p>
+            <p class="testimonial-name">Szymon Lip</p>
+            <p class="testimonial-role">Uczestnik warsztatów</p>
           </div>
         </div>
-        <p style="color:#333;line-height:1.7;font-size:15px;margin:0;">Byłam, potwierdzam, sztos! Zaczynałam jako totalny laik, a dziś już siedem kroków dalej. Super wiedza, pomoc i cierpliwość. Polecam!</p>
+        <p class="testimonial-text">Ze swojej strony mogę z czystym sumieniem polecić te warsztaty. Zarówno osoby bez wcześniejszej wiedzy, jak i te bardziej zaawansowane znajdą coś dla siebie. Warto dowiedzieć się, w jakich obszarach można wykorzystać AI, bo za kilka lat agenci, którzy nie będą z niego korzystać, mogą zwyczajnie zostać w tyle.</p>
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
       </div>
 
-      <div style="background:#fff;border:1px solid #eee;border-radius:16px;padding:28px 32px;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#9b59b6,#6c3483);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;">M</div>
+      <!-- Justyna -->
+      <div class="testimonial-card">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+          <img src="img/opinie/justyna.png" alt="Justyna Richert" class="testimonial-avatar">
           <div>
-            <p style="font-weight:700;color:#1a1a2e;margin:0;font-size:15px;">Magdalena Milczarek</p>
-            <p style="color:#999;font-size:12px;margin:0;">Uczestniczka warsztatów</p>
+            <p class="testimonial-name">Justyna Richert</p>
+            <p class="testimonial-role">Uczestniczka warsztatów</p>
           </div>
         </div>
-        <p style="color:#333;line-height:1.7;font-size:15px;margin:0;">Polecam! AI ułatwia pracę, a z Darkiem nawet stworzy ci ebooka w 5 minut.</p>
+        <p class="testimonial-text">Byłam, potwierdzam, sztos! Zaczynałam jako totalny laik, a dziś już siedem kroków dalej. Super wiedza, pomoc i cierpliwość. Polecam!</p>
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+      </div>
+
+      <!-- Magdalena -->
+      <div class="testimonial-card">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+          <img src="img/opinie/magdalena.png" alt="Magdalena Milczarek" class="testimonial-avatar">
+          <div>
+            <p class="testimonial-name">Magdalena Milczarek</p>
+            <p class="testimonial-role">Uczestniczka warsztatów</p>
+          </div>
+        </div>
+        <p class="testimonial-text">Polecam! AI ułatwia pracę, a z Darkiem nawet stworzy ci ebooka w 5 minut.</p>
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
       </div>
 
     </div>
