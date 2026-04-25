@@ -1,0 +1,2459 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webinar: 5 narzędzi AI dla agenta nieruchomości · 12.05.2026 · Akademia AI</title>
+<meta name="description" content="Bezpłatny webinar online, 12 maja 2026, 20:00. Claude, ChatGPT, Gemini, NotebookLM, Gamma. 75 minut na żywo dla agentów nieruchomości. Prowadzą: Sylwia Wróblewska i Dariusz Szuca.">
+<meta property="og:title" content="Webinar: 5 narzędzi AI dla agenta nieruchomości · 12.05.2026">
+<meta property="og:description" content="Bezpłatny webinar online. Claude, ChatGPT, Gemini, NotebookLM, Gamma. 75 minut konkretnej praktyki.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<link rel="canonical" href="https://akademia-ai-nieruchomosci.pl/webinar-narzedzia-ai/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #FFFDF9;
+  --bg-paper: #F7F1E5;
+  --bg-deep: #EDE3CE;
+  --gold-dark: #7A5210;
+  --gold-mid: #8B6914;
+  --gold-light: #C9A030;
+  --gold-glow: #E5C66A;
+  --gold-line: rgba(122,82,16,0.16);
+  --fuchsia-dark: #A30048;
+  --fuchsia-mid: #D4006A;
+  --fuchsia-light: #E91E8C;
+  --fuchsia-glow: #FF6BB1;
+  --ink: #0E0008;
+  --ink-soft: #2A1F18;
+  --ink-mid: #4A3A2B;
+  --ink-mute: #7A6E60;
+
+  --serif: 'Fraunces', 'Times New Roman', Georgia, serif;
+  --sans: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+html, body { overflow-x: hidden; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: rgba(212,0,106,0.18); color: var(--ink); }
+
+.container { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+.container-narrow { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+
+.serif {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+}
+.serif-italic {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.eyebrow .num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--fuchsia-mid);
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.eyebrow .dot {
+  width: 5px; height: 5px; border-radius: 999px;
+  background: var(--fuchsia-mid);
+  box-shadow: 0 0 10px var(--fuchsia-mid);
+}
+
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-line) 20%, var(--gold-line) 80%, transparent);
+  border: none;
+}
+
+/* ============ NAV ============ */
+nav {
+  position: fixed;
+  top: 0; width: 100%;
+  z-index: 100;
+  background: rgba(255,253,249,0.82);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--gold-line);
+}
+.nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.nav-brand {
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-variation-settings: "opsz" 96, "SOFT" 50;
+}
+.nav-brand .it { font-style: italic; color: var(--fuchsia-mid); font-variation-settings: "opsz" 96, "SOFT" 100; }
+.nav-brand .small {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(.2,.8,.2,1), background 0.2s;
+}
+.nav-cta::after { content: "→"; transition: transform 0.25s; }
+.nav-cta:hover { background: var(--fuchsia-mid); transform: translateY(-1px); }
+.nav-cta:hover::after { transform: translateX(3px); }
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  padding: 140px 0 70px;
+  overflow: hidden;
+}
+
+/* mesh gradient blob w tle - animowany */
+.hero-mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.95;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 600px 500px at 85% 18%, rgba(212,0,106,0.10), transparent 65%),
+    radial-gradient(ellipse 500px 400px at 12% 82%, rgba(201,160,48,0.13), transparent 65%),
+    radial-gradient(ellipse 700px 600px at 50% 100%, rgba(212,0,106,0.04), transparent 60%);
+  animation: mesh-drift 24s ease-in-out infinite;
+}
+@keyframes mesh-drift {
+  0%, 100% { background-position: 0% 0%; transform: scale(1); }
+  50% { background-position: 5% -5%; transform: scale(1.04); }
+}
+@media (prefers-reduced-motion: reduce) { .hero-mesh { animation: none; } }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 980px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+.hero-text { position: relative; z-index: 2; }
+
+.hero-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 8px 14px;
+  border: 1px solid var(--gold-line);
+  border-radius: 999px;
+  background: rgba(255,253,249,0.7);
+  backdrop-filter: blur(8px);
+}
+.pill .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--fuchsia-mid); box-shadow: 0 0 10px var(--fuchsia-mid); }
+
+.hero-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.8rem, 6.4vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 28px;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+.hero-title .it {
+  font-style: italic;
+  color: var(--fuchsia-mid);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.hero-title .underline-mark {
+  position: relative;
+  white-space: nowrap;
+}
+.hero-title .underline-mark::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0.06em;
+  height: 0.4em;
+  background: linear-gradient(180deg, transparent 60%, rgba(201,160,48,0.32) 60%);
+  z-index: -1;
+  border-radius: 2px;
+}
+
+.hero-lead {
+  font-family: var(--sans);
+  font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+  color: var(--ink-mid);
+  max-width: 540px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+/* ============ HERO FORM ============ */
+.hero-form-wrap {
+  margin-top: 8px;
+  padding: 24px;
+  background: rgba(255,253,249,0.85);
+  border: 1px solid var(--gold-line);
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(122,82,16,0.08), 0 1px 0 rgba(255,255,255,0.7) inset;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  max-width: 560px;
+}
+.hero-form-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--gold-line);
+}
+.hero-form-label .left { display: inline-flex; align-items: center; gap: 8px; }
+.hero-form-label .left .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--fuchsia-mid); box-shadow: 0 0 10px var(--fuchsia-mid); animation: pulse 2.4s ease-in-out infinite; }
+.hero-form-label .free { color: var(--fuchsia-mid); }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.hero-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+@media (max-width: 540px) { .hero-form { grid-template-columns: 1fr; } }
+
+.hero-form input {
+  padding: 14px 16px;
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--gold-line);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+.hero-form input:focus { border-color: var(--fuchsia-mid); box-shadow: 0 0 0 3px rgba(212,0,106,0.10); }
+
+.hero-form-submit {
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.hero-form-trust {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.hero-form-trust span { display: inline-flex; align-items: center; gap: 6px; }
+.hero-form-trust span::before { content: "✦"; color: var(--gold-mid); font-family: var(--sans); letter-spacing: 0; font-size: 12px; }
+
+.hero-form-tiny {
+  font-size: 11px;
+  color: var(--ink-mute);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.hero-form-tiny a { color: var(--fuchsia-mid); }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 16px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), background 0.25s;
+}
+.btn-primary::after { content: "→"; transition: transform 0.3s; }
+.btn-primary:hover { background: var(--fuchsia-mid); transform: translateY(-2px); }
+.btn-primary:hover::after { transform: translateX(4px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  padding: 16px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid var(--gold-line);
+  background: transparent;
+  transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+.btn-ghost:hover { border-color: var(--ink-soft); color: var(--ink); background: rgba(255,253,249,0.6); }
+
+.hero-trust {
+  margin-top: 44px;
+  padding-top: 28px;
+  border-top: 1px solid var(--gold-line);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.hero-trust .avatars { display: flex; }
+.hero-trust .avatar {
+  width: 50px; height: 50px;
+  border-radius: 999px;
+  display: grid; place-items: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--bg);
+  border: 2.5px solid var(--bg);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+}
+.hero-trust .avatar.a { background: linear-gradient(135deg, #E5C66A, #7A5210); }
+.hero-trust .avatar.b { background: linear-gradient(135deg, #FF6BB1, #A30048); margin-left: -16px; }
+.hero-trust .label-mono {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 3px;
+}
+.hero-trust .names {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 96, "SOFT" 50;
+}
+.hero-trust .names em { color: var(--fuchsia-mid); font-style: italic; font-variation-settings: "opsz" 96, "SOFT" 100; }
+
+/* ============ HERO ORBIT ============ */
+.hero-orbit {
+  position: relative;
+  aspect-ratio: 1;
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+}
+.orbit-stage { position: absolute; inset: 0; }
+.orbit-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(122,82,16,0.16);
+  pointer-events: none;
+  animation: ring-rotate 90s linear infinite;
+}
+.orbit-ring.r1 { width: 100%; height: 100%; }
+.orbit-ring.r2 { width: 78%; height: 78%; border-color: rgba(122,82,16,0.10); animation-direction: reverse; animation-duration: 70s; }
+.orbit-ring.r3 { width: 56%; height: 56%; border-color: rgba(122,82,16,0.06); animation-duration: 50s; }
+@keyframes ring-rotate { from { transform: translate(-50%, -50%) rotate(0); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .orbit-ring { animation: none; } }
+
+/* SVG layer — pulsujące linie od centrum do każdego node */
+.orbit-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.orbit-lines line {
+  stroke: var(--fuchsia-mid);
+  stroke-width: 1;
+  stroke-dasharray: 3 6;
+  opacity: 0;
+  animation: line-pulse 4s ease-in-out infinite;
+}
+.orbit-lines line:nth-child(1) { animation-delay: 0s; }
+.orbit-lines line:nth-child(2) { animation-delay: 0.8s; }
+.orbit-lines line:nth-child(3) { animation-delay: 1.6s; }
+.orbit-lines line:nth-child(4) { animation-delay: 2.4s; }
+.orbit-lines line:nth-child(5) { animation-delay: 3.2s; }
+@keyframes line-pulse {
+  0%, 100% { opacity: 0; stroke-dashoffset: 0; }
+  20% { opacity: 0.55; }
+  80% { opacity: 0.4; }
+  100% { stroke-dashoffset: -36; }
+}
+@media (prefers-reduced-motion: reduce) { .orbit-lines line { animation: none; opacity: 0.25; } }
+
+/* Particles krążące po orbicie */
+.orbit-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.particle {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  transform-origin: center center;
+  animation: particle-orbit 12s linear infinite;
+}
+.particle.p1 { background: radial-gradient(circle, #FF6BB1, transparent 70%); animation-duration: 14s; animation-delay: 0s; }
+.particle.p2 { background: radial-gradient(circle, #E5C66A, transparent 70%); animation-duration: 18s; animation-delay: -3s; }
+.particle.p3 { background: radial-gradient(circle, #D97757, transparent 70%); animation-duration: 22s; animation-delay: -6s; }
+.particle.p4 { background: radial-gradient(circle, #4285F4, transparent 70%); animation-duration: 16s; animation-delay: -9s; }
+
+@keyframes particle-orbit {
+  0% { transform: translate(-50%, -50%) rotate(0) translateX(180px) rotate(0); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) translateX(180px) rotate(-360deg); }
+}
+@media (prefers-reduced-motion: reduce) { .particle { animation: none; opacity: 0.5; } }
+
+@keyframes node-breathe {
+  0%, 100% {
+    transform: var(--pos) translateY(0);
+    box-shadow:
+      0 12px 30px rgba(122,82,16,0.10),
+      0 0 0 0 var(--node-glow, rgba(212,0,106,0)),
+      0 1px 0 rgba(255,255,255,0.6) inset;
+  }
+  50% {
+    transform: var(--pos) translateY(-7px);
+    box-shadow:
+      0 20px 44px rgba(122,82,16,0.14),
+      0 0 32px 4px var(--node-glow, rgba(212,0,106,0.18)),
+      0 1px 0 rgba(255,255,255,0.6) inset;
+  }
+}
+
+.tool-node {
+  --pos: translate(-50%, -50%);
+  --node-glow: rgba(212,0,106,0.18);
+  position: absolute;
+  width: 92px;
+  height: 92px;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  border-radius: 24px;
+  border: 1px solid var(--gold-line);
+  transform: var(--pos);
+  animation: node-breathe 5.5s ease-in-out infinite;
+  transition: border-color 0.3s, scale 0.3s;
+  cursor: pointer;
+  z-index: 4;
+}
+.tool-node:hover { border-color: var(--fuchsia-mid); scale: 1.08; z-index: 10; }
+@media (prefers-reduced-motion: reduce) { .tool-node { animation: none; } }
+
+/* Pozycje 5 nodów + indywidualne kolory glow */
+.tool-node.t1 { top: 3%;  left: 50%; --pos: translate(-50%, 0); --node-glow: rgba(217,119,87,0.30); animation-delay: 0s; }
+.tool-node.t2 { top: 17%; left: 95%; --pos: translate(-100%, -50%); --node-glow: rgba(16,163,127,0.28); animation-delay: 0.6s; }
+.tool-node.t3 { top: 73%; left: 92%; --pos: translate(-100%, -50%); --node-glow: rgba(66,133,244,0.28); animation-delay: 1.2s; }
+.tool-node.t4 { top: 73%; left: 8%;  --pos: translate(0, -50%); --node-glow: rgba(26,115,232,0.26); animation-delay: 1.8s; }
+.tool-node.t5 { top: 17%; left: 5%;  --pos: translate(0, -50%); --node-glow: rgba(168,85,247,0.30); animation-delay: 2.4s; }
+
+.tool-node svg { width: 42px; height: 42px; }
+.tool-node .tool-label {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-top: 10px;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  opacity: 0.9;
+  transition: opacity 0.25s, color 0.25s;
+  pointer-events: none;
+}
+.tool-node:hover .tool-label { opacity: 1; color: var(--fuchsia-mid); }
+
+/* Pulsujące aury wokół centrum */
+.orbit-center-aura {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 170px; height: 170px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 4;
+}
+.orbit-center-aura::before,
+.orbit-center-aura::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--fuchsia-mid);
+  animation: aura-pulse 3.5s ease-out infinite;
+  opacity: 0;
+}
+.orbit-center-aura::after { animation-delay: 1.75s; }
+@keyframes aura-pulse {
+  0% { transform: scale(1); opacity: 0.5; border-color: var(--fuchsia-mid); }
+  70% { opacity: 0.1; }
+  100% { transform: scale(1.6); opacity: 0; border-color: var(--gold-light); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit-center-aura::before, .orbit-center-aura::after { animation: none; opacity: 0; }
+}
+
+.orbit-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,253,249,1), rgba(255,253,249,0.95)),
+    var(--bg);
+  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+  border: 1px solid var(--gold-line);
+  box-shadow:
+    0 0 80px rgba(212,0,106,0.18),
+    0 0 40px rgba(201,160,48,0.10),
+    0 1px 0 rgba(255,255,255,0.6) inset,
+    0 -20px 40px rgba(201,160,48,0.06) inset;
+  animation: center-breathe 4.5s ease-in-out infinite;
+}
+@keyframes center-breathe {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow:
+      0 0 80px rgba(212,0,106,0.18),
+      0 0 40px rgba(201,160,48,0.10),
+      0 1px 0 rgba(255,255,255,0.6) inset,
+      0 -20px 40px rgba(201,160,48,0.06) inset;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.04);
+    box-shadow:
+      0 0 100px rgba(212,0,106,0.28),
+      0 0 50px rgba(201,160,48,0.16),
+      0 1px 0 rgba(255,255,255,0.6) inset,
+      0 -20px 40px rgba(201,160,48,0.06) inset;
+  }
+}
+@media (prefers-reduced-motion: reduce) { .orbit-center { animation: none; } }
+
+.orbit-center .label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 6px;
+}
+.orbit-center .big {
+  font-family: var(--serif);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 54px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  background: linear-gradient(135deg, var(--ink) 30%, var(--fuchsia-mid));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 6s ease-in-out infinite;
+  background-size: 200% 200%;
+  padding: 0 4px;
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@media (prefers-reduced-motion: reduce) { .orbit-center .big { animation: none; } }
+
+.orbit-center .small {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  color: var(--ink-mid);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+@media (max-width: 980px) {
+  .hero-orbit { max-width: 360px; margin: 0 auto; }
+  .tool-node { width: 70px; height: 70px; border-radius: 18px; }
+  .tool-node svg { width: 32px; height: 32px; }
+  .orbit-center { width: 124px; height: 124px; }
+  .orbit-center-aura { width: 124px; height: 124px; }
+  .orbit-center .big { font-size: 42px; }
+  .particle.p1, .particle.p2, .particle.p3, .particle.p4 {
+    animation-name: particle-orbit-mobile;
+  }
+  @keyframes particle-orbit-mobile {
+    0% { transform: translate(-50%, -50%) rotate(0) translateX(125px) rotate(0); }
+    100% { transform: translate(-50%, -50%) rotate(360deg) translateX(125px) rotate(-360deg); }
+  }
+}
+
+/* ============ TICKER ============ */
+.ticker {
+  border-top: 1px solid var(--gold-line);
+  border-bottom: 1px solid var(--gold-line);
+  padding: 26px 0;
+  overflow: hidden;
+  background: var(--bg-paper);
+  position: relative;
+}
+/* fade na bokach żeby nie było widać "skoku" */
+.ticker::before, .ticker::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.ticker::before { left: 0; background: linear-gradient(90deg, var(--bg-paper), transparent); }
+.ticker::after { right: 0; background: linear-gradient(-90deg, var(--bg-paper), transparent); }
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: max-content;
+  animation: scroll-left 28s linear infinite;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 30px;
+  color: var(--ink-soft);
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  white-space: nowrap;
+}
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.ticker-item svg { width: 26px; height: 26px; flex-shrink: 0; }
+.ticker-item .sep {
+  font-family: var(--sans);
+  font-style: normal;
+  color: var(--gold-mid);
+  font-size: 16px;
+  font-variation-settings: normal;
+  margin-left: 4px;
+  opacity: 0.6;
+}
+@keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+
+/* ============ SECTIONS ============ */
+section { padding: 110px 0; position: relative; }
+section.tight { padding: 70px 0; }
+
+.section-head { display: grid; grid-template-columns: 0.4fr 0.6fr; gap: 40px; align-items: end; margin-bottom: 60px; }
+@media (max-width: 860px) { .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 36px; } }
+
+.section-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 4.6vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+.section-title .it {
+  font-style: italic;
+  color: var(--fuchsia-mid);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.section-lead {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+  max-width: 480px;
+}
+
+/* ============ DLA KOGO — z grafiką ============ */
+.audience {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+@media (max-width: 860px) { .audience { grid-template-columns: 1fr; gap: 24px; } }
+
+.aud-card {
+  padding: 36px 32px;
+  background: var(--bg-paper);
+  border: 1px solid var(--gold-line);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.aud-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(122,82,16,0.10);
+  border-color: var(--gold-light);
+}
+.aud-card::before {
+  content: "";
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(212,0,106,0.06), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.aud-icon {
+  width: 72px; height: 72px;
+  border-radius: 22px;
+  background: var(--bg);
+  border: 1px solid var(--gold-line);
+  display: grid; place-items: center;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 20px rgba(122,82,16,0.06);
+}
+.aud-icon svg { width: 36px; height: 36px; color: var(--fuchsia-mid); }
+
+.aud-card h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 12px;
+  font-variation-settings: "opsz" 96, "SOFT" 50;
+}
+.aud-card h3 .it { font-style: italic; color: var(--fuchsia-mid); font-variation-settings: "opsz" 96, "SOFT" 100; }
+.aud-card p { font-size: 15px; color: var(--ink-mid); line-height: 1.65; }
+
+/* ============ NARZĘDZIA — duże z mockupami ============ */
+.tool-row {
+  display: grid;
+  grid-template-columns: 0.55fr 0.45fr;
+  gap: 60px;
+  padding: 80px 0;
+  border-bottom: 1px solid var(--gold-line);
+  align-items: center;
+}
+.tool-row:first-of-type { padding-top: 40px; border-top: 1px solid var(--gold-line); }
+.tool-row.reverse { grid-template-columns: 0.45fr 0.55fr; }
+.tool-row.reverse .tool-content { order: 2; }
+.tool-row.reverse .tool-visual { order: 1; }
+@media (max-width: 860px) {
+  .tool-row, .tool-row.reverse { grid-template-columns: 1fr; gap: 32px; padding: 50px 0; }
+  .tool-row.reverse .tool-content { order: 1; }
+  .tool-row.reverse .tool-visual { order: 2; }
+}
+
+.tool-num-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.tool-num-name .num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 56px;
+  color: var(--fuchsia-mid);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.tool-num-name .name-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--bg-paper);
+  border: 1px solid var(--gold-line);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+.tool-num-name .name-pill svg { width: 18px; height: 18px; }
+
+.tool-content h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin-bottom: 16px;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+.tool-content h3 .it { font-style: italic; color: var(--fuchsia-mid); font-variation-settings: "opsz" 144, "SOFT" 100; }
+.tool-content p { font-size: 16px; color: var(--ink-mid); line-height: 1.7; margin-bottom: 22px; max-width: 460px; }
+.tool-content .case {
+  padding: 20px 22px;
+  background: var(--bg-paper);
+  border-left: 2px solid var(--fuchsia-mid);
+  border-radius: 0 12px 12px 0;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  max-width: 460px;
+}
+.tool-content .case-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fuchsia-mid);
+  margin-bottom: 6px;
+}
+
+/* MOCKUP karty */
+.tool-visual {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--bg-paper), var(--bg));
+  border: 1px solid var(--gold-line);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow:
+    0 24px 50px rgba(122,82,16,0.08),
+    0 1px 0 rgba(255,255,255,0.7) inset;
+  overflow: hidden;
+}
+.tool-visual::before {
+  content: "";
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,0,106,0.10), transparent 70%);
+  pointer-events: none;
+}
+
+/* mockup elementy wspólne */
+.mock-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gold-line);
+}
+.mock-bar .dots { display: flex; gap: 5px; }
+.mock-bar .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold-line); }
+.mock-bar .dot.r { background: #FF6B6B; }
+.mock-bar .dot.y { background: #FFD43B; }
+.mock-bar .dot.g { background: #51CF66; }
+.mock-bar .url {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-mute);
+  margin-left: 8px;
+  flex: 1;
+  text-align: center;
+  background: var(--bg);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--gold-line);
+}
+
+.mock-area { flex: 1; display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; }
+.mock-line {
+  height: 8px;
+  background: var(--gold-line);
+  border-radius: 4px;
+  opacity: 0.5;
+}
+.mock-line.w90 { width: 90%; }
+.mock-line.w70 { width: 70%; }
+.mock-line.w50 { width: 50%; opacity: 0.3; }
+.mock-line.w30 { width: 30%; opacity: 0.3; }
+
+.mock-bubble {
+  align-self: flex-end;
+  max-width: 75%;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, var(--fuchsia-mid), var(--fuchsia-dark));
+  color: white;
+  border-radius: 14px 14px 4px 14px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.mock-bubble.in {
+  align-self: flex-start;
+  background: var(--bg-paper);
+  color: var(--ink);
+  border: 1px solid var(--gold-line);
+  border-radius: 14px 14px 14px 4px;
+}
+
+.mock-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fuchsia-mid);
+  background: rgba(212,0,106,0.08);
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  width: fit-content;
+}
+
+.mock-photo {
+  aspect-ratio: 16/10;
+  background:
+    linear-gradient(135deg, rgba(201,160,48,0.25), rgba(212,0,106,0.15)),
+    var(--bg-deep);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.mock-photo::before {
+  content: "";
+  position: absolute;
+  bottom: -20px; left: 30%; right: 20%;
+  height: 60%;
+  background: linear-gradient(to top, var(--ink-soft), transparent);
+  border-radius: 50% 50% 0 0;
+  opacity: 0.3;
+}
+.mock-photo::after {
+  content: "🏠";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  opacity: 0.5;
+  filter: grayscale(0.4);
+}
+
+.mock-emails { display: flex; flex-direction: column; gap: 6px; }
+.mock-email {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: var(--bg);
+  border: 1px solid var(--gold-line);
+  border-radius: 8px;
+  font-size: 10px;
+}
+.mock-email .av {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-light), var(--fuchsia-mid));
+  flex-shrink: 0;
+  display: grid; place-items: center;
+  color: white;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 11px;
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+}
+.mock-email .text { flex: 1; min-width: 0; }
+.mock-email .text .from { font-weight: 600; color: var(--ink); }
+.mock-email .text .preview { color: var(--ink-mute); font-size: 9px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mock-email.priority { background: rgba(212,0,106,0.04); border-color: rgba(212,0,106,0.2); }
+
+.mock-sources { display: flex; flex-direction: column; gap: 4px; }
+.mock-src {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: var(--bg);
+  border: 1px solid var(--gold-line);
+  border-radius: 6px;
+  font-size: 9px;
+  font-family: var(--mono);
+  color: var(--ink-mid);
+}
+.mock-src .icon {
+  width: 14px; height: 14px;
+  border-radius: 3px;
+  background: var(--fuchsia-mid);
+  flex-shrink: 0;
+}
+.mock-src .icon.audio { background: var(--gold-mid); }
+.mock-src .icon.pdf { background: #FF6B6B; }
+
+.mock-slides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.mock-slide {
+  aspect-ratio: 16/10;
+  background: var(--bg);
+  border: 1px solid var(--gold-line);
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mock-slide .h { height: 4px; width: 70%; background: var(--ink); border-radius: 2px; }
+.mock-slide .l { height: 3px; background: var(--gold-line); border-radius: 2px; }
+.mock-slide .l.short { width: 50%; }
+.mock-slide.featured { background: linear-gradient(135deg, var(--fuchsia-mid), var(--fuchsia-dark)); border: none; }
+.mock-slide.featured .h { background: white; }
+.mock-slide.featured .l { background: rgba(255,255,255,0.4); }
+
+/* ============ AGENDA — clock visual ============ */
+.agenda {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  gap: 60px;
+  align-items: center;
+}
+@media (max-width: 860px) { .agenda { grid-template-columns: 1fr; gap: 40px; } }
+
+.agenda-clock {
+  position: relative;
+  aspect-ratio: 1;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.agenda-clock svg { width: 100%; height: 100%; display: block; }
+.clock-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+.clock-center .big {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 64px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  background: linear-gradient(135deg, var(--ink) 40%, var(--fuchsia-mid));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.clock-center .label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 6px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+.tl-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 22px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--gold-line);
+}
+.tl-item:last-child { border-bottom: none; }
+.tl-item:first-child { padding-top: 0; }
+.tl-time {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gold-dark);
+  letter-spacing: 0.05em;
+  padding-top: 4px;
+}
+.tl-content h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.3rem;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.2;
+  font-variation-settings: "opsz" 96, "SOFT" 50;
+}
+.tl-content p { font-size: 15px; color: var(--ink-mid); line-height: 1.6; }
+
+/* ============ BONUS ============ */
+.bonus {
+  margin-top: 60px;
+  padding: 44px 48px;
+  background:
+    radial-gradient(circle at 90% 20%, rgba(212,0,106,0.08), transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(201,160,48,0.10), transparent 50%),
+    var(--bg-paper);
+  border: 1px solid var(--gold-line);
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 28px;
+  align-items: center;
+}
+@media (max-width: 860px) { .bonus { grid-template-columns: 1fr; gap: 18px; padding: 32px; } }
+.bonus-icon {
+  width: 80px; height: 80px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--fuchsia-mid), var(--fuchsia-dark));
+  display: grid; place-items: center;
+  box-shadow: 0 12px 30px rgba(212,0,106,0.25);
+  color: white;
+}
+.bonus-icon svg { width: 38px; height: 38px; }
+.bonus h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--ink);
+  font-variation-settings: "opsz" 96, "SOFT" 50;
+}
+.bonus h3 em { color: var(--fuchsia-mid); font-style: italic; font-variation-settings: "opsz" 96, "SOFT" 100; }
+.bonus .meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+
+/* ============ HOSTS ============ */
+.hosts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 50px;
+}
+@media (max-width: 860px) { .hosts { grid-template-columns: 1fr; } }
+.host {
+  background: var(--bg-paper);
+  border: 1px solid var(--gold-line);
+  border-radius: 24px;
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.host::before {
+  content: "";
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,0,106,0.05), transparent 70%);
+  pointer-events: none;
+}
+.host-top { display: flex; align-items: center; gap: 18px; margin-bottom: 24px; }
+.host-avatar {
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 32px;
+  color: white;
+  border: 3px solid var(--bg);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10), 0 0 0 1px var(--gold-line);
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+  flex-shrink: 0;
+}
+.host-avatar.a { background: linear-gradient(135deg, #E5C66A, #7A5210); }
+.host-avatar.b { background: linear-gradient(135deg, #FF6BB1, #A30048); }
+.host-top .meta .role {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 6px;
+}
+.host-top .meta h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.7rem;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  line-height: 1.05;
+  font-variation-settings: "opsz" 96, "SOFT" 50;
+}
+.host-top .meta h3 .it { font-style: italic; color: var(--fuchsia-mid); font-variation-settings: "opsz" 96, "SOFT" 100; }
+.host .credit {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--ink-mute);
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--gold-line);
+}
+.host p { color: var(--ink-mid); font-size: 15px; line-height: 1.7; }
+.host p + p { margin-top: 14px; }
+
+/* ============ FORM ============ */
+.form-wrap {
+  background: linear-gradient(180deg, var(--bg-paper), var(--bg));
+  padding: 110px 0 110px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 0.45fr 0.55fr;
+  gap: 60px;
+  align-items: center;
+}
+@media (max-width: 860px) { .form-grid { grid-template-columns: 1fr; gap: 36px; } }
+.form-side h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 20px;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+.form-side h2 .it { font-style: italic; color: var(--fuchsia-mid); font-variation-settings: "opsz" 144, "SOFT" 100; }
+.form-side p { color: var(--ink-mid); font-size: 16px; line-height: 1.7; max-width: 380px; margin-bottom: 28px; }
+.form-side ul { list-style: none; }
+.form-side li {
+  display: flex; gap: 12px; align-items: baseline;
+  padding: 10px 0;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--gold-line);
+}
+.form-side li:last-child { border-bottom: none; }
+.form-side li::before { content: "✦"; color: var(--gold-mid); font-size: 14px; }
+
+.form-card {
+  background: var(--bg);
+  border: 1px solid var(--gold-line);
+  border-radius: 24px;
+  padding: 40px 36px;
+  box-shadow: 0 24px 60px rgba(122,82,16,0.10), 0 1px 0 rgba(255,255,255,0.6) inset;
+}
+.form-card .label-row {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 6px;
+}
+.form-card h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.7rem;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 28px;
+  font-variation-settings: "opsz" 96, "SOFT" 50;
+}
+.form-row { margin-bottom: 14px; }
+.form-row label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 6px;
+}
+.form-row input {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--gold-line);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-row input:focus { border-color: var(--fuchsia-mid); box-shadow: 0 0 0 3px rgba(212,0,106,0.10); }
+.form-checkbox {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: 12.5px; color: var(--ink-mid);
+  margin: 16px 0 22px; line-height: 1.55;
+}
+.form-checkbox input { margin-top: 4px; flex-shrink: 0; accent-color: var(--fuchsia-mid); }
+.form-checkbox a { color: var(--fuchsia-mid); }
+.form-submit { width: 100%; justify-content: center; }
+.form-trust {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 18px;
+}
+
+/* ============ NEXT (warsztaty) - czarne tło z grafiką ============ */
+.next {
+  background: var(--ink);
+  color: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+.next::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 600px at 15% 25%, rgba(212,0,106,0.18), transparent 50%),
+    radial-gradient(ellipse 700px 500px at 85% 75%, rgba(201,160,48,0.13), transparent 50%);
+  animation: mesh-drift 30s ease-in-out infinite;
+}
+.next .container { position: relative; z-index: 2; }
+.next .section-title { color: var(--bg); }
+.next .section-title .it { color: var(--fuchsia-light); font-variation-settings: "opsz" 144, "SOFT" 100; }
+.next .section-lead { color: rgba(255,253,249,0.65); }
+.next .eyebrow { color: rgba(255,253,249,0.55); }
+
+.packages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 50px;
+}
+@media (max-width: 860px) { .packages { grid-template-columns: 1fr; } }
+.pkg {
+  background: rgba(255,253,249,0.04);
+  border: 1px solid rgba(201,160,48,0.22);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 36px;
+  position: relative;
+  transition: transform 0.3s, border-color 0.3s, background 0.3s;
+}
+.pkg:hover { transform: translateY(-4px); border-color: rgba(212,0,106,0.5); }
+.pkg.featured { background: rgba(212,0,106,0.08); border-color: rgba(212,0,106,0.4); }
+.pkg .save {
+  position: absolute;
+  top: -12px;
+  right: 24px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--fuchsia-mid);
+  color: var(--bg);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.pkg .pkg-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+.pkg .pkg-price {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 3.4rem;
+  letter-spacing: -0.03em;
+  color: var(--bg);
+  line-height: 1;
+  margin-bottom: 8px;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+}
+.pkg .pkg-price em { font-style: italic; color: var(--fuchsia-light); font-variation-settings: "opsz" 144, "SOFT" 100; }
+.pkg .pkg-format {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(255,253,249,0.6);
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(201,160,48,0.15);
+}
+.pkg ul { list-style: none; }
+.pkg li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: rgba(255,253,249,0.85);
+  display: flex; gap: 10px; align-items: baseline;
+}
+.pkg li::before {
+  content: "✦";
+  color: var(--gold-light);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.next .note {
+  text-align: center;
+  margin-top: 36px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,253,249,0.55);
+}
+.next .note em { color: var(--fuchsia-light); font-style: italic; text-transform: none; letter-spacing: 0; font-family: var(--serif); font-size: 15px; font-variation-settings: "opsz" 96, "SOFT" 100; }
+
+/* ============ FAQ ============ */
+.faq-list { border-top: 1px solid var(--gold-line); }
+details {
+  border-bottom: 1px solid var(--gold-line);
+  transition: background 0.3s;
+}
+details[open] { background: rgba(247,241,229,0.5); }
+details summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 28px 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  line-height: 1.3;
+  font-variation-settings: "opsz" 96, "SOFT" 30;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::after {
+  content: "";
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--gold-line);
+  background:
+    linear-gradient(var(--ink-soft), var(--ink-soft)) center / 14px 1.5px no-repeat,
+    linear-gradient(var(--ink-soft), var(--ink-soft)) center / 1.5px 14px no-repeat;
+  transition: transform 0.3s, border-color 0.3s, background-color 0.3s;
+}
+details[open] summary::after {
+  background:
+    linear-gradient(var(--fuchsia-mid), var(--fuchsia-mid)) center / 14px 1.5px no-repeat;
+  border-color: var(--fuchsia-mid);
+  background-color: rgba(212,0,106,0.06);
+}
+details .a { padding: 0 60px 28px 0; color: var(--ink-mid); font-size: 15.5px; line-height: 1.75; }
+
+/* ============ FINAL CTA ============ */
+.final-cta {
+  text-align: center;
+  padding: 130px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 500px at 50% 50%, rgba(212,0,106,0.07), transparent 60%);
+  pointer-events: none;
+}
+.final-cta .container { position: relative; z-index: 2; }
+.final-cta .stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 24px;
+  padding: 8px 16px;
+  border: 1px solid var(--gold-line);
+  border-radius: 999px;
+}
+.final-cta h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5.4vw, 4.2rem);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+  color: var(--ink);
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+.final-cta h2 .it { font-style: italic; color: var(--fuchsia-mid); font-variation-settings: "opsz" 144, "SOFT" 100; }
+.final-cta p { color: var(--ink-mid); max-width: 520px; margin: 0 auto 36px; font-size: 16px; }
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--bg-paper);
+  padding: 64px 0 32px;
+  font-size: 14px;
+  border-top: 1px solid var(--gold-line);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr 0.8fr;
+  gap: 40px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--gold-line);
+}
+@media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+.footer-grid .brand {
+  font-family: var(--serif);
+  font-size: 24px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-variation-settings: "opsz" 96, "SOFT" 50;
+}
+.footer-grid .brand .it { font-style: italic; color: var(--fuchsia-mid); font-variation-settings: "opsz" 96, "SOFT" 100; }
+.footer-grid p { color: var(--ink-mid); max-width: 320px; line-height: 1.65; }
+.footer-grid h4 {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 14px;
+}
+.footer-grid a { color: var(--ink-soft); text-decoration: none; display: block; padding: 5px 0; transition: color 0.2s; }
+.footer-grid a:hover { color: var(--fuchsia-mid); }
+.footer-bottom {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+/* ============ STICKY CTA mobile ============ */
+.sticky-cta {
+  position: fixed;
+  bottom: 16px; left: 16px; right: 16px;
+  z-index: 90;
+  display: none;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 16px 20px;
+  border-radius: 999px;
+  text-align: center;
+  font-family: var(--sans);
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.20);
+}
+@media (max-width: 720px) { .sticky-cta { display: block; } }
+
+/* ============ REVEAL ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s cubic-bezier(.2,.8,.2,1), transform 0.9s cubic-bezier(.2,.8,.2,1);
+}
+.reveal.show { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      Akademia <span class="it">AI</span>
+      <span class="small">Nieruchomości</span>
+    </a>
+    <a href="#zapis" class="nav-cta">Zapisz się</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-mesh"></div>
+  <div class="container">
+    <div class="hero-grid">
+
+      <div class="hero-text reveal">
+        <div class="hero-meta-row">
+          <span class="pill"><span class="dot"></span>Webinar online</span>
+          <span class="pill">12 maja 2026 · 20:00</span>
+          <span class="pill">Bezpłatnie</span>
+        </div>
+
+        <h1 class="hero-title">
+          5 narzędzi <span class="it">AI</span>,<br>
+          z których agent<br>
+          <span class="underline-mark">korzysta codziennie</span>.
+        </h1>
+
+        <p class="hero-lead">
+          Claude, ChatGPT, Gemini, NotebookLM i Gamma. Pokazujemy je na prawdziwych zadaniach pośrednika: opis oferty, akt notarialny do streszczenia, prezentacja dla klienta, transkrypcja rozmowy, materiały marketingowe.
+        </p>
+
+        <div class="hero-form-wrap">
+          <div class="hero-form-label">
+            <span class="left"><span class="dot"></span>Zapisz się na webinar</span>
+            <span class="free">Bezpłatne</span>
+          </div>
+          <form id="webinar-form-hero" action="#" method="POST">
+            <div class="hero-form">
+              <input type="text" name="imie" required placeholder="Imię" aria-label="Imię">
+              <input type="email" name="email" required placeholder="twoj@email.pl" aria-label="Email">
+            </div>
+            <button type="submit" class="btn-primary hero-form-submit">Zapisz mnie na webinar 12.05</button>
+            <div class="hero-form-trust">
+              <span>Replay 7 dni</span>
+              <span>Zniżka 100 zł na warsztaty</span>
+              <span>Bez spamu</span>
+            </div>
+            <p class="hero-form-tiny">Zapisując się akceptujesz <a href="/privacy.html" target="_blank">politykę prywatności</a>. Wypisz się jednym kliknięciem.</p>
+          </form>
+        </div>
+
+        <div class="cta-row" style="margin-top: 16px;">
+          <a href="#program" class="btn-ghost">Zobacz program</a>
+        </div>
+
+        <div class="hero-trust">
+          <div class="avatars">
+            <div class="avatar a">S</div>
+            <div class="avatar b">D</div>
+          </div>
+          <div>
+            <div class="label-mono">Prowadzą</div>
+            <div class="names">Sylwia Wróblewska <em>&amp;</em> Dariusz Szuca</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-orbit reveal">
+        <div class="orbit-stage">
+          <div class="orbit-ring r1"></div>
+          <div class="orbit-ring r2"></div>
+          <div class="orbit-ring r3"></div>
+
+          <!-- Pulsujące linie centrum→node (data flow) -->
+          <svg class="orbit-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="50" y1="50" x2="50" y2="6"/>
+            <line x1="50" y1="50" x2="92" y2="22"/>
+            <line x1="50" y1="50" x2="92" y2="78"/>
+            <line x1="50" y1="50" x2="8"  y2="78"/>
+            <line x1="50" y1="50" x2="8"  y2="22"/>
+          </svg>
+
+          <!-- Krążące particles -->
+          <div class="orbit-particles">
+            <div class="particle p1"></div>
+            <div class="particle p2"></div>
+            <div class="particle p3"></div>
+            <div class="particle p4"></div>
+          </div>
+
+          <div class="tool-node t1">
+            <svg viewBox="0 0 40 40"><path d="M20 4 L23.5 16.5 L36 20 L23.5 23.5 L20 36 L16.5 23.5 L4 20 L16.5 16.5 Z" fill="#D97757"/></svg>
+            <span class="tool-label">Claude</span>
+          </div>
+          <div class="tool-node t2">
+            <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" stroke="#10A37F" stroke-width="3" fill="none"/><path d="M14 20 L20 14 L26 20 L20 26 Z" fill="#10A37F"/></svg>
+            <span class="tool-label">ChatGPT</span>
+          </div>
+          <div class="tool-node t3">
+            <svg viewBox="0 0 40 40"><path d="M20 4 C 22 14, 26 18, 36 20 C 26 22, 22 26, 20 36 C 18 26, 14 22, 4 20 C 14 18, 18 14, 20 4 Z" fill="#4285F4"/></svg>
+            <span class="tool-label">Gemini</span>
+          </div>
+          <div class="tool-node t4">
+            <svg viewBox="0 0 40 40"><rect x="8" y="6" width="24" height="28" rx="3" fill="#1A73E8"/><line x1="14" y1="14" x2="26" y2="14" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="20" x2="26" y2="20" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="26" x2="22" y2="26" stroke="#FFFDF9" stroke-width="2"/></svg>
+            <span class="tool-label">NotebookLM</span>
+          </div>
+          <div class="tool-node t5">
+            <svg viewBox="0 0 40 40"><defs><linearGradient id="g1" x1="0" y1="0" x2="40" y2="40"><stop offset="0" stop-color="#A855F7"/><stop offset="1" stop-color="#EC4899"/></linearGradient></defs><path d="M20 4 L26 14 L36 16 L28 24 L30 36 L20 30 L10 36 L12 24 L4 16 L14 14 Z" fill="url(#g1)"/></svg>
+            <span class="tool-label">Gamma</span>
+          </div>
+
+          <div class="orbit-center-aura"></div>
+          <div class="orbit-center">
+            <div class="label">Stack agenta</div>
+            <div class="big">AI</div>
+            <div class="small">5 narzędzi</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <!-- ZESTAW 1 -->
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><path d="M20 4 L23.5 16.5 L36 20 L23.5 23.5 L20 36 L16.5 23.5 L4 20 L16.5 16.5 Z" fill="#D97757"/></svg>Claude<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" stroke="#10A37F" stroke-width="3" fill="none"/><path d="M14 20 L20 14 L26 20 L20 26 Z" fill="#10A37F"/></svg>ChatGPT<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><path d="M20 4 C 22 14, 26 18, 36 20 C 26 22, 22 26, 20 36 C 18 26, 14 22, 4 20 C 14 18, 18 14, 20 4 Z" fill="#4285F4"/></svg>Gemini<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><rect x="8" y="6" width="24" height="28" rx="3" fill="#1A73E8"/><line x1="14" y1="14" x2="26" y2="14" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="20" x2="26" y2="20" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="26" x2="22" y2="26" stroke="#FFFDF9" stroke-width="2"/></svg>NotebookLM<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><defs><linearGradient id="gt1" x1="0" y1="0" x2="40" y2="40"><stop offset="0" stop-color="#A855F7"/><stop offset="1" stop-color="#EC4899"/></linearGradient></defs><path d="M20 4 L26 14 L36 16 L28 24 L30 36 L20 30 L10 36 L12 24 L4 16 L14 14 Z" fill="url(#gt1)"/></svg>Gamma<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><path d="M20 4 L23.5 16.5 L36 20 L23.5 23.5 L20 36 L16.5 23.5 L4 20 L16.5 16.5 Z" fill="#D97757"/></svg>Claude<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" stroke="#10A37F" stroke-width="3" fill="none"/><path d="M14 20 L20 14 L26 20 L20 26 Z" fill="#10A37F"/></svg>ChatGPT<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><path d="M20 4 C 22 14, 26 18, 36 20 C 26 22, 22 26, 20 36 C 18 26, 14 22, 4 20 C 14 18, 18 14, 20 4 Z" fill="#4285F4"/></svg>Gemini<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><rect x="8" y="6" width="24" height="28" rx="3" fill="#1A73E8"/><line x1="14" y1="14" x2="26" y2="14" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="20" x2="26" y2="20" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="26" x2="22" y2="26" stroke="#FFFDF9" stroke-width="2"/></svg>NotebookLM<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><defs><linearGradient id="gt2" x1="0" y1="0" x2="40" y2="40"><stop offset="0" stop-color="#A855F7"/><stop offset="1" stop-color="#EC4899"/></linearGradient></defs><path d="M20 4 L26 14 L36 16 L28 24 L30 36 L20 30 L10 36 L12 24 L4 16 L14 14 Z" fill="url(#gt2)"/></svg>Gamma<span class="sep">/</span></span>
+    <!-- ZESTAW 2 (kopia identyczna dla seamless loop) -->
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><path d="M20 4 L23.5 16.5 L36 20 L23.5 23.5 L20 36 L16.5 23.5 L4 20 L16.5 16.5 Z" fill="#D97757"/></svg>Claude<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" stroke="#10A37F" stroke-width="3" fill="none"/><path d="M14 20 L20 14 L26 20 L20 26 Z" fill="#10A37F"/></svg>ChatGPT<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><path d="M20 4 C 22 14, 26 18, 36 20 C 26 22, 22 26, 20 36 C 18 26, 14 22, 4 20 C 14 18, 18 14, 20 4 Z" fill="#4285F4"/></svg>Gemini<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><rect x="8" y="6" width="24" height="28" rx="3" fill="#1A73E8"/><line x1="14" y1="14" x2="26" y2="14" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="20" x2="26" y2="20" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="26" x2="22" y2="26" stroke="#FFFDF9" stroke-width="2"/></svg>NotebookLM<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><defs><linearGradient id="gt3" x1="0" y1="0" x2="40" y2="40"><stop offset="0" stop-color="#A855F7"/><stop offset="1" stop-color="#EC4899"/></linearGradient></defs><path d="M20 4 L26 14 L36 16 L28 24 L30 36 L20 30 L10 36 L12 24 L4 16 L14 14 Z" fill="url(#gt3)"/></svg>Gamma<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><path d="M20 4 L23.5 16.5 L36 20 L23.5 23.5 L20 36 L16.5 23.5 L4 20 L16.5 16.5 Z" fill="#D97757"/></svg>Claude<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" stroke="#10A37F" stroke-width="3" fill="none"/><path d="M14 20 L20 14 L26 20 L20 26 Z" fill="#10A37F"/></svg>ChatGPT<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><path d="M20 4 C 22 14, 26 18, 36 20 C 26 22, 22 26, 20 36 C 18 26, 14 22, 4 20 C 14 18, 18 14, 20 4 Z" fill="#4285F4"/></svg>Gemini<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><rect x="8" y="6" width="24" height="28" rx="3" fill="#1A73E8"/><line x1="14" y1="14" x2="26" y2="14" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="20" x2="26" y2="20" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="26" x2="22" y2="26" stroke="#FFFDF9" stroke-width="2"/></svg>NotebookLM<span class="sep">/</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 40 40"><defs><linearGradient id="gt4" x1="0" y1="0" x2="40" y2="40"><stop offset="0" stop-color="#A855F7"/><stop offset="1" stop-color="#EC4899"/></linearGradient></defs><path d="M20 4 L26 14 L36 16 L28 24 L30 36 L20 30 L10 36 L12 24 L4 16 L14 14 Z" fill="url(#gt4)"/></svg>Gamma<span class="sep">/</span></span>
+  </div>
+</div>
+
+<!-- DLA KOGO -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow"><span class="num">i</span><span>Dla kogo</span></div>
+      </div>
+      <div>
+        <h2 class="section-title">Webinar dla agentów, którzy chcą <span class="it">pracować szybciej</span>.</h2>
+      </div>
+    </div>
+
+    <div class="audience">
+      <div class="aud-card reveal">
+        <div class="aud-icon">
+          <svg viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="14" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M18 8 L20 16 L28 18 L20 20 L18 28 L16 20 L8 18 L16 16 Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3>Słyszałeś o ChatGPT, ale nie wiesz, <span class="it">od czego zacząć</span></h3>
+        <p>Chcesz zobaczyć, co naprawdę zmienia w pracy agenta. Bez kursu na trzydzieści godzin, bez teorii.</p>
+      </div>
+
+      <div class="aud-card reveal">
+        <div class="aud-icon">
+          <svg viewBox="0 0 36 36" fill="none">
+            <rect x="6" y="8" width="24" height="22" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="11" y1="14" x2="25" y2="14" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="11" y1="19" x2="25" y2="19" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="11" y1="24" x2="20" y2="24" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="28" cy="6" r="3" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3>Masz mało czasu i dużo <span class="it">powtarzalnej roboty</span></h3>
+        <p>Opisy, maile, materiały dla klientów, przygotowanie ofert. Wiesz, że to można zautomatyzować.</p>
+      </div>
+
+      <div class="aud-card reveal">
+        <div class="aud-icon">
+          <svg viewBox="0 0 36 36" fill="none">
+            <circle cx="13" cy="14" r="4" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="23" cy="14" r="4" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M5 28 C 5 23, 9 21, 13 21 C 17 21, 21 23, 21 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M15 28 C 15 23, 19 21, 23 21 C 27 21, 31 23, 31 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Chcesz wprowadzić AI w <span class="it">zespole biura</span></h3>
+        <p>Szukasz konkretnych narzędzi i procesów, które dadzą zespołowi przewagę bez wielomiesięcznego wdrażania.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 NARZĘDZI z mockupami -->
+<section id="program" style="background: var(--bg-paper); padding-top: 90px;">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow"><span class="num">ii</span><span>Co pokażemy</span></div>
+      </div>
+      <div>
+        <h2 class="section-title">Pięć narzędzi. Każde z <span class="it">prawdziwym przykładem</span>.</h2>
+      </div>
+    </div>
+
+    <!-- 01 Claude -->
+    <article class="tool-row reveal">
+      <div class="tool-content">
+        <div class="tool-num-name">
+          <span class="num">i</span>
+          <span class="name-pill"><svg viewBox="0 0 40 40"><path d="M20 4 L23.5 16.5 L36 20 L23.5 23.5 L20 36 L16.5 23.5 L4 20 L16.5 16.5 Z" fill="#D97757"/></svg>Claude</span>
+        </div>
+        <h3>Analiza dokumentów i prompty <span class="it">negocjacyjne</span></h3>
+        <p>Wrzucasz akt notarialny, KW, raport eksperta. Claude streszcza, znajduje ryzyka i przygotowuje pytania do prawnika oraz argumentację dla klienta.</p>
+        <div class="case">
+          <span class="case-label">Przykład</span>
+          Trzydziestostronicowy raport KW w 90 sekund streszczony w 5 punktach dla klienta.
+        </div>
+      </div>
+      <div class="tool-visual">
+        <div class="mock-bar">
+          <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+          <div class="url">claude.ai · raport-kw.pdf</div>
+        </div>
+        <div class="mock-area">
+          <span class="mock-tag">PDF · 30 stron</span>
+          <div class="mock-line w90"></div>
+          <div class="mock-line w70"></div>
+          <div class="mock-line w50"></div>
+          <div class="mock-bubble in">Wgrałem raport KW. Streść 5 najważniejszych ryzyk dla kupującego.</div>
+          <div class="mock-bubble">Główne ryzyka: 1) hipoteka 480k zł, 2) służebność dojazdu, 3) brak zgody współwłaściciela na piwnicę…</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 02 ChatGPT -->
+    <article class="tool-row reverse reveal">
+      <div class="tool-content">
+        <div class="tool-num-name">
+          <span class="num">ii</span>
+          <span class="name-pill"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" stroke="#10A37F" stroke-width="3" fill="none"/><path d="M14 20 L20 14 L26 20 L20 26 Z" fill="#10A37F"/></svg>ChatGPT</span>
+        </div>
+        <h3>Vision i własne <span class="it">GPTs</span> do ofert</h3>
+        <p>Robisz zdjęcie mieszkania, ChatGPT pisze opis. Twój własny GPT odpowiada na maile w Twoim stylu. Multimodal działa już teraz.</p>
+        <div class="case">
+          <span class="case-label">Przykład</span>
+          Dwanaście zdjęć z oględzin daje gotowy opis oferty oraz listę mocnych stron i sugestie home stagingu.
+        </div>
+      </div>
+      <div class="tool-visual">
+        <div class="mock-bar">
+          <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+          <div class="url">chatgpt.com · vision</div>
+        </div>
+        <div class="mock-area">
+          <div class="mock-photo"></div>
+          <span class="mock-tag">Wygenerowany opis</span>
+          <div class="mock-line w90"></div>
+          <div class="mock-line w70"></div>
+          <div class="mock-line w50"></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 03 Gemini -->
+    <article class="tool-row reveal">
+      <div class="tool-content">
+        <div class="tool-num-name">
+          <span class="num">iii</span>
+          <span class="name-pill"><svg viewBox="0 0 40 40"><path d="M20 4 C 22 14, 26 18, 36 20 C 26 22, 22 26, 20 36 C 18 26, 14 22, 4 20 C 14 18, 18 14, 20 4 Z" fill="#4285F4"/></svg>Gemini</span>
+        </div>
+        <h3>Integracja z Google: Gmail, Drive, <span class="it">Workspace</span></h3>
+        <p>Gemini siedzi w Twoim mailu i kalendarzu. Streszcza długie wątki, sugeruje odpowiedzi, planuje spotkania bez przepisywania na trzy strony.</p>
+        <div class="case">
+          <span class="case-label">Przykład</span>
+          Pięćdziesiąt nieprzeczytanych maili daje osiem priorytetowych z sugestiami odpowiedzi.
+        </div>
+      </div>
+      <div class="tool-visual">
+        <div class="mock-bar">
+          <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+          <div class="url">mail.google.com · priorytet</div>
+        </div>
+        <div class="mock-area">
+          <span class="mock-tag">8 z 50 priorytetowych</span>
+          <div class="mock-emails">
+            <div class="mock-email priority">
+              <div class="av">M</div>
+              <div class="text"><div class="from">Marek K.</div><div class="preview">Pilne: oferta na ul. Polanki 12, dziś do 18:00</div></div>
+            </div>
+            <div class="mock-email priority">
+              <div class="av">A</div>
+              <div class="text"><div class="from">Anna W.</div><div class="preview">Czy możemy umówić oględziny w sobotę?</div></div>
+            </div>
+            <div class="mock-email">
+              <div class="av">P</div>
+              <div class="text"><div class="from">PSI</div><div class="preview">Wycena nieruchomości ul. Słowiańska gotowa</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 04 NotebookLM -->
+    <article class="tool-row reverse reveal">
+      <div class="tool-content">
+        <div class="tool-num-name">
+          <span class="num">iv</span>
+          <span class="name-pill"><svg viewBox="0 0 40 40"><rect x="8" y="6" width="24" height="28" rx="3" fill="#1A73E8"/><line x1="14" y1="14" x2="26" y2="14" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="20" x2="26" y2="20" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="26" x2="22" y2="26" stroke="#FFFDF9" stroke-width="2"/></svg>NotebookLM</span>
+        </div>
+        <h3>Research nieruchomości i <span class="it">transkrypcje</span> rozmów z klientem</h3>
+        <p>Wrzucasz PDF, zdjęcia, nagrania ze spotkań. NotebookLM łączy wszystko w jedną bazę, do której zadajesz pytania jak do osobistego analityka.</p>
+        <div class="case">
+          <span class="case-label">Przykład</span>
+          Nagranie 60 min z klientem oraz jego dokumenty dają automatyczne podsumowanie potrzeb i mapę decyzji.
+        </div>
+      </div>
+      <div class="tool-visual">
+        <div class="mock-bar">
+          <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+          <div class="url">notebooklm.google.com</div>
+        </div>
+        <div class="mock-area">
+          <span class="mock-tag">Źródła</span>
+          <div class="mock-sources">
+            <div class="mock-src"><div class="icon audio"></div>spotkanie-klient-2026-04.m4a</div>
+            <div class="mock-src"><div class="icon pdf"></div>akt-notarialny-Polanki-12.pdf</div>
+            <div class="mock-src"><div class="icon"></div>zdjecia-mieszkania.zip</div>
+            <div class="mock-src"><div class="icon"></div>raport-rynku-Q1-2026.pdf</div>
+            <div class="mock-src"><div class="icon audio"></div>rozmowa-tel-2026-04-22.m4a</div>
+          </div>
+          <div class="mock-bubble in" style="margin-top: 4px;">Co najbardziej blokuje klienta przed decyzją?</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 05 Gamma -->
+    <article class="tool-row reveal">
+      <div class="tool-content">
+        <div class="tool-num-name">
+          <span class="num">v</span>
+          <span class="name-pill"><svg viewBox="0 0 40 40"><defs><linearGradient id="g3" x1="0" y1="0" x2="40" y2="40"><stop offset="0" stop-color="#A855F7"/><stop offset="1" stop-color="#EC4899"/></linearGradient></defs><path d="M20 4 L26 14 L36 16 L28 24 L30 36 L20 30 L10 36 L12 24 L4 16 L14 14 Z" fill="url(#g3)"/></svg>Gamma</span>
+        </div>
+        <h3>Prezentacje ofert i materiały dla klienta w <span class="it">5 minut</span></h3>
+        <p>Wpisujesz brief, Gamma robi prezentację, landing albo dokument PDF. Bez Canvy, bez grafika, bez trzech dni czekania.</p>
+        <div class="case">
+          <span class="case-label">Przykład</span>
+          Oferta domu premium daje dwunastoslajdową prezentację z opisem, planem, okolicą i CTA dla klienta.
+        </div>
+      </div>
+      <div class="tool-visual">
+        <div class="mock-bar">
+          <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+          <div class="url">gamma.app · oferta-Polanki12</div>
+        </div>
+        <div class="mock-area">
+          <span class="mock-tag">12 slajdów wygenerowanych</span>
+          <div class="mock-slides">
+            <div class="mock-slide featured"><div class="h"></div><div class="l short"></div></div>
+            <div class="mock-slide"><div class="h"></div><div class="l"></div><div class="l short"></div></div>
+            <div class="mock-slide"><div class="h"></div><div class="l"></div></div>
+            <div class="mock-slide"><div class="h"></div><div class="l short"></div></div>
+            <div class="mock-slide"><div class="h"></div><div class="l"></div><div class="l short"></div></div>
+            <div class="mock-slide"><div class="h"></div><div class="l"></div></div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- AGENDA z zegarem -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow"><span class="num">iii</span><span>Agenda</span></div>
+      </div>
+      <div>
+        <h2 class="section-title">75 minut. <span class="it">Cztery bloki</span>. Każde narzędzie z konkretnym przykładem.</h2>
+      </div>
+    </div>
+
+    <div class="agenda">
+      <div class="agenda-clock reveal">
+        <svg viewBox="0 0 200 200">
+          <defs>
+            <linearGradient id="seg1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#E5C66A"/><stop offset="1" stop-color="#7A5210"/>
+            </linearGradient>
+            <linearGradient id="seg2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#FF6BB1"/><stop offset="1" stop-color="#A30048"/>
+            </linearGradient>
+            <linearGradient id="seg3" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#C9A030"/><stop offset="1" stop-color="#8B6914"/>
+            </linearGradient>
+            <linearGradient id="seg4" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#D4006A"/><stop offset="1" stop-color="#5A0030"/>
+            </linearGradient>
+          </defs>
+
+          <!-- 4 sektory zegara, środek 100,100, r=80 -->
+          <!-- segment 1: 0-48° (10 min powitanie) -->
+          <path d="M 100,100 L 100,20 A 80,80 0 0,1 159.4,46.7 Z" fill="url(#seg1)" opacity="0.85"/>
+          <!-- segment 2: 48-288° (50 min narzędzia) -->
+          <path d="M 100,100 L 159.4,46.7 A 80,80 0 1,1 23.9,124.7 Z" fill="url(#seg2)" opacity="0.85"/>
+          <!-- segment 3: 288-336° (10 min workflow) -->
+          <path d="M 100,100 L 23.9,124.7 A 80,80 0 0,1 32,150.7 Z" fill="url(#seg3)" opacity="0.85"/>
+          <!-- segment 4: 336-360° (5+ Q&A) -->
+          <path d="M 100,100 L 32,150.7 A 80,80 0 0,1 100,20 Z" fill="url(#seg4)" opacity="0.85"/>
+
+          <!-- center hole -->
+          <circle cx="100" cy="100" r="38" fill="#FFFDF9"/>
+          <circle cx="100" cy="100" r="38" fill="none" stroke="rgba(122,82,16,0.16)" stroke-width="1"/>
+
+          <!-- tick marks na obwodzie -->
+          <g stroke="rgba(255,253,249,0.6)" stroke-width="1.5">
+            <line x1="100" y1="22" x2="100" y2="30"/>
+            <line x1="156" y1="48" x2="151" y2="55"/>
+            <line x1="178" y1="100" x2="170" y2="100"/>
+            <line x1="156" y1="152" x2="151" y2="146"/>
+            <line x1="100" y1="178" x2="100" y2="170"/>
+            <line x1="44" y1="152" x2="49" y2="146"/>
+            <line x1="22" y1="100" x2="30" y2="100"/>
+            <line x1="44" y1="48" x2="49" y2="55"/>
+          </g>
+
+          <!-- outer ring -->
+          <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(122,82,16,0.16)" stroke-width="1" stroke-dasharray="2 4"/>
+        </svg>
+        <div class="clock-center">
+          <div class="big">75</div>
+          <div class="label">minut</div>
+        </div>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="tl-time">20:00</div>
+          <div class="tl-content">
+            <h4>Powitanie i kontekst</h4>
+            <p>Sylwia opowiada, dlaczego wzięła ten webinar pod patronat NSL.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">20:10</div>
+          <div class="tl-content">
+            <h4>Pięć narzędzi, pięć przykładów</h4>
+            <p>Claude, ChatGPT, Gemini, NotebookLM, Gamma. Każde na żywo z konkretnym zadaniem pośrednika.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">21:00</div>
+          <div class="tl-content">
+            <h4>Codzienny workflow</h4>
+            <p>Jak spiąć te narzędzia w jeden dzień pracy. Co kiedy używać, gdzie pułapki.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">21:10</div>
+          <div class="tl-content">
+            <h4>Q&amp;A na żywo</h4>
+            <p>Odpowiadamy na pytania w czacie. Bez ograniczenia czasowego.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus reveal">
+      <div class="bonus-icon">
+        <svg viewBox="0 0 40 40" fill="none">
+          <rect x="6" y="14" width="28" height="20" rx="2" fill="white"/>
+          <rect x="6" y="14" width="28" height="6" fill="rgba(255,255,255,0.4)"/>
+          <line x1="20" y1="14" x2="20" y2="34" stroke="rgba(212,0,106,0.4)" stroke-width="1.5"/>
+          <path d="M14 14 C 12 8, 14 6, 17 8 C 19 9, 20 12, 20 14 C 20 12, 21 9, 23 8 C 26 6, 28 8, 26 14" stroke="white" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <h3>Dostajesz nagranie na 7 dni i zniżkę <em>100 zł</em> na warsztaty Akademii AI.</h3>
+      <span class="meta">Replay 7 dni · 100 zł zniżki</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROWADZĄCY -->
+<section style="background: var(--bg-paper);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow"><span class="num">iv</span><span>Prowadzący</span></div>
+      </div>
+      <div>
+        <h2 class="section-title">Pośredniczka i twórca Akademii AI. <span class="it">Razem.</span></h2>
+      </div>
+    </div>
+
+    <div class="hosts">
+      <div class="host reveal">
+        <div class="host-top">
+          <div class="host-avatar a">S</div>
+          <div class="meta">
+            <div class="role">Gospodyni webinaru</div>
+            <h3>Sylwia <span class="it">Wróblewska</span></h3>
+          </div>
+        </div>
+        <div class="credit">15 lat praktyki · NSL · Licencja 18311</div>
+        <p>Pośredniczka nieruchomości z Trójmiasta, założycielka <strong>Nieruchomości Spod Lady</strong>, społeczności 1&nbsp;600+ agentów rynku off-market.</p>
+        <p>Sylwia odpowiada za to, czy narzędzia AI naprawdę mają sens w codziennej pracy agenta, a nie tylko na slajdzie.</p>
+      </div>
+
+      <div class="host reveal">
+        <div class="host-top">
+          <div class="host-avatar b">D</div>
+          <div class="meta">
+            <div class="role">Prowadzący merytoryczny</div>
+            <h3>Dariusz <span class="it">Szuca</span></h3>
+          </div>
+        </div>
+        <div class="credit">Twórca Akademii AI w Nieruchomościach · ai-team.pl</div>
+        <p>Pracuje z agentami i biurami nieruchomości w całej Polsce nad wdrażaniem narzędzi AI w realnej pracy, nie w teorii.</p>
+        <p>Specjalizacja: jak ułożyć kontekst dla AI tak, żeby pisała w Twoim stylu i znała Twojego klienta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARZ -->
+<div id="zapis" class="form-wrap">
+  <div class="container">
+    <div class="form-grid">
+      <div class="form-side reveal">
+        <div class="eyebrow"><span class="num">v</span><span>Zapis</span></div>
+        <h2 style="margin-top: 16px;">Zarezerwuj <span class="it">miejsce</span> na webinarze.</h2>
+        <p>Po zapisie dostajesz mailem link do Zooma i przypomnienia 24 godziny oraz godzinę przed startem.</p>
+        <ul>
+          <li>Wtorek, 12 maja 2026 · 20:00</li>
+          <li>Bezpłatne · Zoom · 75 minut</li>
+          <li>Replay 7 dni dla zapisanych</li>
+          <li>Zniżka 100 zł na warsztaty</li>
+        </ul>
+      </div>
+
+      <div class="form-card reveal">
+        <div class="label-row">Webinar 12.05.2026 · 20:00</div>
+        <h3>Zapisuję się.</h3>
+        <form id="webinar-form" action="#" method="POST">
+          <div class="form-row">
+            <label for="imie">Imię</label>
+            <input type="text" id="imie" name="imie" required placeholder="Twoje imię">
+          </div>
+          <div class="form-row">
+            <label for="email">Adres e-mail</label>
+            <input type="email" id="email" name="email" required placeholder="twoj@email.pl">
+          </div>
+          <label class="form-checkbox">
+            <input type="checkbox" name="rodo" required>
+            <span>Wyrażam zgodę na przetwarzanie moich danych w celu organizacji webinaru i przesłania informacji o warsztatach Akademii AI. <a href="/privacy.html" target="_blank">Polityka prywatności</a>.</span>
+          </label>
+          <button type="submit" class="btn-primary form-submit">Zapisz mnie na webinar</button>
+        </form>
+        <p class="form-trust">Bez spamu · Wypisz się jednym kliknięciem</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WARSZTATY -->
+<section class="next">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow" style="color: rgba(255,253,249,0.55);">
+          <span class="num" style="color: var(--fuchsia-light);">vi</span>
+          <span>Co dalej</span>
+        </div>
+      </div>
+      <div>
+        <h2 class="section-title">Webinar pokazuje narzędzia. <span class="it">Warsztat</span> uczy ich używać.</h2>
+        <p class="section-lead" style="margin-top: 16px;">
+          Po webinarze otwieramy zapisy na Akademię AI w Nieruchomościach. Środa online, czwartek-piątek stacjonarnie, sobota Q&amp;A.
+        </p>
+      </div>
+    </div>
+
+    <div class="packages">
+      <div class="pkg reveal">
+        <div class="pkg-name">Część I</div>
+        <div class="pkg-price">750 <em>zł</em></div>
+        <div class="pkg-format">Środa online · czwartek 6h stacjonarnie · sobota online</div>
+        <ul>
+          <li>10+ agentów AI skonfigurowanych pod Ciebie</li>
+          <li>Rok dostępu do platformy z aktualizacjami</li>
+        </ul>
+      </div>
+
+      <div class="pkg featured reveal">
+        <span class="save">Oszczędzasz 100 zł</span>
+        <div class="pkg-name">Części I + II</div>
+        <div class="pkg-price">1 399 <em>zł</em></div>
+        <div class="pkg-format">Środa · czwartek 6h · piątek 6h · sobota online</div>
+        <ul>
+          <li>10+ agentów AI skonfigurowanych pod Ciebie</li>
+          <li>Rok dostępu do platformy z aktualizacjami</li>
+          <li>Roczna opieka i nowości AI</li>
+          <li>Certyfikat KW-NSL-AI-2026</li>
+          <li>Zamknięta grupa absolwentów</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="note">Zapisani na webinar dostają <em>100 zł zniżki</em> na każdy z pakietów. Szczegóły na żywo.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container-narrow">
+    <div style="margin-bottom: 50px;" class="reveal">
+      <div class="eyebrow"><span class="num">vii</span><span>FAQ</span></div>
+      <h2 class="section-title" style="margin-top: 16px;">Najczęstsze <span class="it">pytania</span>.</h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <details open>
+        <summary>Czy webinar jest naprawdę bezpłatny?</summary>
+        <div class="a">Tak. Bez ukrytych opłat, bez karty kredytowej. Zapisujesz się, dostajesz link, łączysz się o 20:00. Na końcu webinaru opowiemy o płatnych warsztatach Akademii AI, ale to tylko informacja.</div>
+      </details>
+      <details>
+        <summary>Co jeśli nie mogę być na żywo?</summary>
+        <div class="a">Wszyscy zapisani dostają link do nagrania ważny 7 dni po webinarze. Możesz obejrzeć w swoim tempie.</div>
+      </details>
+      <details>
+        <summary>Jakie narzędzie powinienem znać przed webinarem?</summary>
+        <div class="a">Żadne. Pokazujemy każde od podstaw. Wystarczy, że potrafisz obsłużyć przeglądarkę i Zooma.</div>
+      </details>
+      <details>
+        <summary>Webinar jest dla początkujących, czy zaawansowanych?</summary>
+        <div class="a">Dla obu grup. Pokazujemy konkretne zastosowania, nie podstawy promptowania. Jeśli używasz AI od miesięcy, znajdziesz nowe workflow. Jeśli zaczynasz, zobaczysz, od czego pójść w pierwszej kolejności.</div>
+      </details>
+      <details>
+        <summary>Czy dostanę slajdy lub materiały?</summary>
+        <div class="a">Tak, po webinarze wysyłamy materiały podsumowujące: lista narzędzi, linki, gotowe prompty do skopiowania, schemat workflow.</div>
+      </details>
+      <details>
+        <summary>Ile osób będzie na webinarze?</summary>
+        <div class="a">Limit Zooma: 100 osób. Jeśli zapełnimy salę, otwieramy listę rezerwową.</div>
+      </details>
+      <details>
+        <summary>Co dokładnie dają warsztaty Akademii AI?</summary>
+        <div class="a">10+ agentów AI skonfigurowanych pod Twoją pracę, rok dostępu do platformy z aktualizacjami. W pakiecie I+II dodatkowo certyfikat KW-NSL-AI-2026 i zamknięta grupa absolwentów. Szczegóły: <a href="/" style="color: var(--fuchsia-mid);">akademia-ai-nieruchomosci.pl</a>.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <div class="stamp">12.05.2026 · 20:00 · Zoom</div>
+    <h2>Zarezerwuj miejsce, <span class="it">zanim zapełnimy salę</span>.</h2>
+    <p>Po webinarze możesz, ale nie musisz iść dalej. Wartość dostajesz w 75 minut.</p>
+    <a href="#zapis" class="btn-primary">Zapisz mnie na webinar</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">Akademia <span class="it">AI</span></div>
+        <p>Szkolenia AI dla agentów i biur nieruchomości. Współpraca: Keller Williams, Nieruchomości Spod Lady, ai-team.pl.</p>
+      </div>
+      <div>
+        <h4>Strony</h4>
+        <a href="/">Akademia</a>
+        <a href="/certyfikacja/">Certyfikacja</a>
+        <a href="/privacy.html">Prywatność</a>
+      </div>
+      <div>
+        <h4>Webinar</h4>
+        <a href="#program">Program</a>
+        <a href="#zapis">Zapis</a>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <a href="mailto:darek@ai-team.pl">darek@ai-team.pl</a>
+        <a href="https://ai-team.pl" target="_blank" rel="noopener">ai-team.pl</a>
+        <a href="https://nieruchomoscispodlady.pl" target="_blank" rel="noopener">NSL</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Akademia AI w Nieruchomościach</span>
+      <span>Webinar 12.05.2026</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#zapis" class="sticky-cta">Zarezerwuj miejsce →</a>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+// MailerLite (konto Sylwii — Nieruchomości Spod Lady)
+const ML_ACCOUNT_ID = '1031130';
+const ML_FORM_ID = '185744336857597496';
+// Grupa: "Webinar - 5 narzędzi AI dla agenta nieruchomości [12.05.2026]" (185744275235931644)
+
+async function submitToMailerLite(form) {
+  const fd = new FormData(form);
+  const body = new URLSearchParams();
+  body.append('fields[email]', (fd.get('email') || '').trim());
+  body.append('fields[name]', (fd.get('imie') || '').trim());
+  body.append('ml-submit', '1');
+  body.append('anticsrf', 'true');
+
+  // no-cors = fire-and-forget; MailerLite zaakceptuje request, my zakładamy sukces
+  await fetch(`https://assets.mailerlite.com/jsonp/${ML_ACCOUNT_ID}/forms/${ML_FORM_ID}/subscribe`, {
+    method: 'POST',
+    body: body,
+    mode: 'no-cors',
+  });
+}
+
+function showSuccess(form) {
+  const wrap = form.closest('.hero-form-wrap, .form-card');
+  if (!wrap) return;
+  wrap.innerHTML = `
+    <div style="text-align:center; padding: 12px 0;">
+      <div style="display:inline-grid; place-items:center; width:64px; height:64px; border-radius:50%; background: linear-gradient(135deg, var(--fuchsia-mid), var(--fuchsia-dark)); color:white; margin: 0 auto 18px; box-shadow: 0 12px 30px rgba(212,0,106,0.25);">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h3 style="font-family: var(--serif); font-weight: 400; font-size: 1.6rem; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 12px; font-variation-settings: 'opsz' 96, 'SOFT' 50;">Sprawdź skrzynkę &mdash; potwierdź zapis</h3>
+      <p style="color: var(--ink-mid); font-size: 14px; line-height: 1.6; max-width: 420px; margin: 0 auto;">
+        Wysłaliśmy mail z linkiem do potwierdzenia zapisu. Kliknij w link, żeby Twoje miejsce na webinarze 12 maja było zarezerwowane. Sprawdź też folder „Oferty" lub spam, gdyby nie dotarł.
+      </p>
+    </div>`;
+}
+
+function attachFormHandler(id) {
+  const f = document.getElementById(id);
+  if (!f) return;
+  f.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = f.querySelector('button[type="submit"]');
+    if (btn) { btn.disabled = true; btn.dataset.original = btn.textContent; btn.textContent = 'Wysyłam…'; }
+    try {
+      await submitToMailerLite(f);
+      showSuccess(f);
+    } catch (err) {
+      if (btn) { btn.disabled = false; btn.textContent = btn.dataset.original || 'Spróbuj ponownie'; }
+      alert('Wystąpił problem z zapisem. Spróbuj ponownie za chwilę albo napisz do nas: darek@ai-team.pl');
+    }
+  });
+}
+attachFormHandler('webinar-form');
+attachFormHandler('webinar-form-hero');
+</script>
+
+</body>
+</html>
