@@ -157,10 +157,14 @@ nav {
   border-radius: 999px;
   text-decoration: none;
   transition: transform 0.25s cubic-bezier(.2,.8,.2,1), background 0.2s;
+  white-space: nowrap;
 }
 .nav-cta::after { content: "→"; transition: transform 0.25s; }
 .nav-cta:hover { background: var(--fuchsia-mid); transform: translateY(-1px); }
 .nav-cta:hover::after { transform: translateX(3px); }
+@media (max-width: 540px) {
+  .nav-cta { padding: 9px 14px; gap: 6px; font-size: 12px; }
+}
 
 /* ============ HERO ============ */
 .hero {
@@ -1784,7 +1788,12 @@ footer {
   text-decoration: none;
   font-size: 14px;
   box-shadow: 0 16px 40px rgba(0,0,0,0.20);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
 }
+.sticky-cta.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 @media (max-width: 720px) { .sticky-cta { display: block; } }
 
 /* ============ REVEAL ============ */
@@ -1822,7 +1831,7 @@ footer {
         </div>
 
         <h1 class="hero-title">
-          Pięć narzędzi <span class="it">AI</span> dla&nbsp;<span class="underline-mark">agenta nieruchomości</span>.
+          Pięć narzędzi <span class="it">AI</span>&nbsp;dla <span class="underline-mark">agenta nieruchomości</span>.
         </h1>
 
         <p class="hero-lead">
@@ -2361,6 +2370,18 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+// Sticky CTA: pokaż dopiero gdy hero form jest poza viewportem (żeby się nie nakładał)
+const heroForm = document.querySelector('.hero-form-wrap');
+const stickyCta = document.querySelector('.sticky-cta');
+if (heroForm && stickyCta) {
+  const stickyIo = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      stickyCta.classList.toggle('is-visible', !e.isIntersecting);
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -100px 0px' });
+  stickyIo.observe(heroForm);
+}
 
 // MailerLite (konto Sylwii - Nieruchomości Spod Lady)
 const ML_ACCOUNT_ID = '1031130';
