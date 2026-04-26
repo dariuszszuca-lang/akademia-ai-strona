@@ -830,7 +830,100 @@ section.tight { padding: 70px 0; }
 .aud-card h3 .it { font-style: italic; color: var(--fuchsia-mid); font-variation-settings: "opsz" 96, "SOFT" 100; }
 .aud-card p { font-size: 15px; color: var(--ink-mid); line-height: 1.65; }
 
-/* ============ NARZĘDZIA — duże z mockupami ============ */
+/* ============ NARZĘDZIA — grid kafelków (premium, condensed) ============ */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+@media (max-width: 1100px) { .tools-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .tools-grid { grid-template-columns: 1fr; gap: 18px; margin-top: 36px; } }
+
+.tool-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px 28px;
+  border-radius: 24px;
+  background: var(--bg);
+  border: 1px solid var(--gold-line);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 8px 24px -12px rgba(122, 82, 16, 0.18);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.tool-tile:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 0, 106, 0.28);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 18px 36px -16px rgba(212, 0, 106, 0.3);
+}
+.tool-tile-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.tool-tile-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: inline-grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--bg), var(--bg-paper));
+  border: 1px solid var(--gold-line);
+  box-shadow: 0 4px 10px -4px rgba(122, 82, 16, 0.18);
+}
+.tool-tile-icon svg { width: 28px; height: 28px; }
+.tool-tile-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 6px;
+}
+.tool-tile h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-variation-settings: "opsz" 96, "SOFT" 50;
+  font-size: 22px;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.tool-tile h3 .it {
+  font-style: italic;
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+  color: var(--fuchsia-mid);
+}
+.tool-tile > p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-mid);
+}
+.tool-tile-case {
+  margin-top: auto;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--bg-paper);
+  border: 1px solid var(--gold-line);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.tool-tile-case span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  margin-bottom: 6px;
+}
+
+/* ============ NARZĘDZIA — duże z mockupami (legacy, nieużywane) ============ */
 .tool-row {
   display: grid;
   grid-template-columns: 0.55fr 0.45fr;
@@ -1695,24 +1788,23 @@ footer {
 
       <div class="hero-text reveal">
         <div class="hero-meta-row">
-          <span class="pill"><span class="dot"></span>Webinar online</span>
-          <span class="pill">12 maja 2026 · 20:00</span>
-          <span class="pill">Bezpłatnie</span>
+          <span class="pill"><span class="dot"></span>12 maja 2026 · 20:00 · Zoom</span>
+          <span class="pill">Bezpłatnie · 75 minut</span>
         </div>
 
         <h1 class="hero-title">
-          5 narzędzi <span class="it">AI</span>,<br>
-          z których agent<br>
-          <span class="underline-mark">korzysta codziennie</span>.
+          Pięć narzędzi <span class="it">AI</span><br>
+          dla agenta.<br>
+          <span class="underline-mark">Jeden wieczór</span>, gotowy workflow.
         </h1>
 
         <p class="hero-lead">
-          Claude, ChatGPT, Gemini, NotebookLM i Gamma. Pokazujemy je na prawdziwych zadaniach pośrednika: opis oferty, akt notarialny do streszczenia, prezentacja dla klienta, transkrypcja rozmowy, materiały marketingowe.
+          Claude, ChatGPT, Gemini, NotebookLM, Gamma — na prawdziwych zadaniach pośrednika.
         </p>
 
         <div class="hero-form-wrap">
           <div class="hero-form-label">
-            <span class="left"><span class="dot"></span>Zapisz się na webinar</span>
+            <span class="left"><span class="dot"></span>Zarezerwuj miejsce</span>
             <span class="free">Bezpłatne</span>
           </div>
           <form id="webinar-form-hero" action="#" method="POST">
@@ -1720,7 +1812,7 @@ footer {
               <input type="text" name="imie" required placeholder="Imię" aria-label="Imię">
               <input type="email" name="email" required placeholder="twoj@email.pl" aria-label="Email">
             </div>
-            <button type="submit" class="btn-primary hero-form-submit">Zapisz mnie na webinar 12.05</button>
+            <button type="submit" class="btn-primary hero-form-submit">Zapisz mnie na webinar · 12.05</button>
             <div class="hero-form-trust">
               <span>Replay 7 dni</span>
               <span>Zniżka 100 zł na warsztaty</span>
@@ -1728,10 +1820,6 @@ footer {
             </div>
             <p class="hero-form-tiny">Zapisując się akceptujesz <a href="/privacy.html" target="_blank">politykę prywatności</a>. Wypisz się jednym kliknięciem.</p>
           </form>
-        </div>
-
-        <div class="cta-row" style="margin-top: 16px;">
-          <a href="#program" class="btn-ghost">Zobacz program</a>
         </div>
 
         <div class="hero-trust">
@@ -1885,7 +1973,7 @@ footer {
   </div>
 </section>
 
-<!-- 5 NARZĘDZI z mockupami -->
+<!-- 5 NARZĘDZI — grid kafelków -->
 <section id="program" style="background: var(--bg-paper); padding-top: 90px;">
   <div class="container">
     <div class="section-head reveal">
@@ -1897,169 +1985,77 @@ footer {
       </div>
     </div>
 
-    <!-- 01 Claude -->
-    <article class="tool-row reveal">
-      <div class="tool-content">
-        <div class="tool-num-name">
-          <span class="num">i</span>
-          <span class="name-pill"><svg viewBox="0 0 40 40"><path d="M20 4 L23.5 16.5 L36 20 L23.5 23.5 L20 36 L16.5 23.5 L4 20 L16.5 16.5 Z" fill="#D97757"/></svg>Claude</span>
-        </div>
-        <h3>Analiza dokumentów i prompty <span class="it">negocjacyjne</span></h3>
-        <p>Wrzucasz akt notarialny, KW, raport eksperta. Claude streszcza, znajduje ryzyka i przygotowuje pytania do prawnika oraz argumentację dla klienta.</p>
-        <div class="case">
-          <span class="case-label">Przykład</span>
-          Trzydziestostronicowy raport KW w 90 sekund streszczony w 5 punktach dla klienta.
-        </div>
-      </div>
-      <div class="tool-visual">
-        <div class="mock-bar">
-          <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
-          <div class="url">claude.ai · raport-kw.pdf</div>
-        </div>
-        <div class="mock-area">
-          <span class="mock-tag">PDF · 30 stron</span>
-          <div class="mock-line w90"></div>
-          <div class="mock-line w70"></div>
-          <div class="mock-line w50"></div>
-          <div class="mock-bubble in">Wgrałem raport KW. Streść 5 najważniejszych ryzyk dla kupującego.</div>
-          <div class="mock-bubble">Główne ryzyka: 1) hipoteka 480k zł, 2) służebność dojazdu, 3) brak zgody współwłaściciela na piwnicę…</div>
-        </div>
-      </div>
-    </article>
-
-    <!-- 02 ChatGPT -->
-    <article class="tool-row reverse reveal">
-      <div class="tool-content">
-        <div class="tool-num-name">
-          <span class="num">ii</span>
-          <span class="name-pill"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" stroke="#10A37F" stroke-width="3" fill="none"/><path d="M14 20 L20 14 L26 20 L20 26 Z" fill="#10A37F"/></svg>ChatGPT</span>
-        </div>
-        <h3>Vision i własne <span class="it">GPTs</span> do ofert</h3>
-        <p>Robisz zdjęcie mieszkania, ChatGPT pisze opis. Twój własny GPT odpowiada na maile w Twoim stylu. Multimodal działa już teraz.</p>
-        <div class="case">
-          <span class="case-label">Przykład</span>
-          Dwanaście zdjęć z oględzin daje gotowy opis oferty oraz listę mocnych stron i sugestie home stagingu.
-        </div>
-      </div>
-      <div class="tool-visual">
-        <div class="mock-bar">
-          <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
-          <div class="url">chatgpt.com · vision</div>
-        </div>
-        <div class="mock-area">
-          <div class="mock-photo"></div>
-          <span class="mock-tag">Wygenerowany opis</span>
-          <div class="mock-line w90"></div>
-          <div class="mock-line w70"></div>
-          <div class="mock-line w50"></div>
-        </div>
-      </div>
-    </article>
-
-    <!-- 03 Gemini -->
-    <article class="tool-row reveal">
-      <div class="tool-content">
-        <div class="tool-num-name">
-          <span class="num">iii</span>
-          <span class="name-pill"><svg viewBox="0 0 40 40"><path d="M20 4 C 22 14, 26 18, 36 20 C 26 22, 22 26, 20 36 C 18 26, 14 22, 4 20 C 14 18, 18 14, 20 4 Z" fill="#4285F4"/></svg>Gemini</span>
-        </div>
-        <h3>Integracja z Google: Gmail, Drive, <span class="it">Workspace</span></h3>
-        <p>Gemini siedzi w Twoim mailu i kalendarzu. Streszcza długie wątki, sugeruje odpowiedzi, planuje spotkania bez przepisywania na trzy strony.</p>
-        <div class="case">
-          <span class="case-label">Przykład</span>
-          Pięćdziesiąt nieprzeczytanych maili daje osiem priorytetowych z sugestiami odpowiedzi.
-        </div>
-      </div>
-      <div class="tool-visual">
-        <div class="mock-bar">
-          <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
-          <div class="url">mail.google.com · priorytet</div>
-        </div>
-        <div class="mock-area">
-          <span class="mock-tag">8 z 50 priorytetowych</span>
-          <div class="mock-emails">
-            <div class="mock-email priority">
-              <div class="av">M</div>
-              <div class="text"><div class="from">Marek K.</div><div class="preview">Pilne: oferta na ul. Polanki 12, dziś do 18:00</div></div>
-            </div>
-            <div class="mock-email priority">
-              <div class="av">A</div>
-              <div class="text"><div class="from">Anna W.</div><div class="preview">Czy możemy umówić oględziny w sobotę?</div></div>
-            </div>
-            <div class="mock-email">
-              <div class="av">P</div>
-              <div class="text"><div class="from">PSI</div><div class="preview">Wycena nieruchomości ul. Słowiańska gotowa</div></div>
-            </div>
+    <div class="tools-grid">
+      <article class="tool-tile reveal">
+        <div class="tool-tile-head">
+          <span class="tool-tile-icon">
+            <svg viewBox="0 0 40 40"><path d="M20 4 L23.5 16.5 L36 20 L23.5 23.5 L20 36 L16.5 23.5 L4 20 L16.5 16.5 Z" fill="#D97757"/></svg>
+          </span>
+          <div>
+            <div class="tool-tile-num">i · Claude</div>
+            <h3>Analiza dokumentów i prompty <span class="it">negocjacyjne</span></h3>
           </div>
         </div>
-      </div>
-    </article>
+        <p>Wrzucasz akt notarialny, KW, raport eksperta. Claude streszcza, znajduje ryzyka, przygotowuje argumentację.</p>
+        <div class="tool-tile-case"><span>Przykład</span>Raport KW na 30 stron, w 90 sekund 5 punktów dla klienta.</div>
+      </article>
 
-    <!-- 04 NotebookLM -->
-    <article class="tool-row reverse reveal">
-      <div class="tool-content">
-        <div class="tool-num-name">
-          <span class="num">iv</span>
-          <span class="name-pill"><svg viewBox="0 0 40 40"><rect x="8" y="6" width="24" height="28" rx="3" fill="#1A73E8"/><line x1="14" y1="14" x2="26" y2="14" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="20" x2="26" y2="20" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="26" x2="22" y2="26" stroke="#FFFDF9" stroke-width="2"/></svg>NotebookLM</span>
-        </div>
-        <h3>Research nieruchomości i <span class="it">transkrypcje</span> rozmów z klientem</h3>
-        <p>Wrzucasz PDF, zdjęcia, nagrania ze spotkań. NotebookLM łączy wszystko w jedną bazę, do której zadajesz pytania jak do osobistego analityka.</p>
-        <div class="case">
-          <span class="case-label">Przykład</span>
-          Nagranie 60 min z klientem oraz jego dokumenty dają automatyczne podsumowanie potrzeb i mapę decyzji.
-        </div>
-      </div>
-      <div class="tool-visual">
-        <div class="mock-bar">
-          <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
-          <div class="url">notebooklm.google.com</div>
-        </div>
-        <div class="mock-area">
-          <span class="mock-tag">Źródła</span>
-          <div class="mock-sources">
-            <div class="mock-src"><div class="icon audio"></div>spotkanie-klient-2026-04.m4a</div>
-            <div class="mock-src"><div class="icon pdf"></div>akt-notarialny-Polanki-12.pdf</div>
-            <div class="mock-src"><div class="icon"></div>zdjecia-mieszkania.zip</div>
-            <div class="mock-src"><div class="icon"></div>raport-rynku-Q1-2026.pdf</div>
-            <div class="mock-src"><div class="icon audio"></div>rozmowa-tel-2026-04-22.m4a</div>
-          </div>
-          <div class="mock-bubble in" style="margin-top: 4px;">Co najbardziej blokuje klienta przed decyzją?</div>
-        </div>
-      </div>
-    </article>
-
-    <!-- 05 Gamma -->
-    <article class="tool-row reveal">
-      <div class="tool-content">
-        <div class="tool-num-name">
-          <span class="num">v</span>
-          <span class="name-pill"><svg viewBox="0 0 40 40"><defs><linearGradient id="g3" x1="0" y1="0" x2="40" y2="40"><stop offset="0" stop-color="#A855F7"/><stop offset="1" stop-color="#EC4899"/></linearGradient></defs><path d="M20 4 L26 14 L36 16 L28 24 L30 36 L20 30 L10 36 L12 24 L4 16 L14 14 Z" fill="url(#g3)"/></svg>Gamma</span>
-        </div>
-        <h3>Prezentacje ofert i materiały dla klienta w <span class="it">5 minut</span></h3>
-        <p>Wpisujesz brief, Gamma robi prezentację, landing albo dokument PDF. Bez Canvy, bez grafika, bez trzech dni czekania.</p>
-        <div class="case">
-          <span class="case-label">Przykład</span>
-          Oferta domu premium daje dwunastoslajdową prezentację z opisem, planem, okolicą i CTA dla klienta.
-        </div>
-      </div>
-      <div class="tool-visual">
-        <div class="mock-bar">
-          <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
-          <div class="url">gamma.app · oferta-Polanki12</div>
-        </div>
-        <div class="mock-area">
-          <span class="mock-tag">12 slajdów wygenerowanych</span>
-          <div class="mock-slides">
-            <div class="mock-slide featured"><div class="h"></div><div class="l short"></div></div>
-            <div class="mock-slide"><div class="h"></div><div class="l"></div><div class="l short"></div></div>
-            <div class="mock-slide"><div class="h"></div><div class="l"></div></div>
-            <div class="mock-slide"><div class="h"></div><div class="l short"></div></div>
-            <div class="mock-slide"><div class="h"></div><div class="l"></div><div class="l short"></div></div>
-            <div class="mock-slide"><div class="h"></div><div class="l"></div></div>
+      <article class="tool-tile reveal">
+        <div class="tool-tile-head">
+          <span class="tool-tile-icon">
+            <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" stroke="#10A37F" stroke-width="3" fill="none"/><path d="M14 20 L20 14 L26 20 L20 26 Z" fill="#10A37F"/></svg>
+          </span>
+          <div>
+            <div class="tool-tile-num">ii · ChatGPT</div>
+            <h3>Vision i własne <span class="it">GPTs</span> do ofert</h3>
           </div>
         </div>
-      </div>
-    </article>
+        <p>Robisz zdjęcie mieszkania, ChatGPT pisze opis. Twój własny GPT odpowiada na maile w Twoim stylu.</p>
+        <div class="tool-tile-case"><span>Przykład</span>12 zdjęć z oględzin = gotowy opis + sugestie home stagingu.</div>
+      </article>
+
+      <article class="tool-tile reveal">
+        <div class="tool-tile-head">
+          <span class="tool-tile-icon">
+            <svg viewBox="0 0 40 40"><path d="M20 4 C 22 14, 26 18, 36 20 C 26 22, 22 26, 20 36 C 18 26, 14 22, 4 20 C 14 18, 18 14, 20 4 Z" fill="#4285F4"/></svg>
+          </span>
+          <div>
+            <div class="tool-tile-num">iii · Gemini</div>
+            <h3>Integracja Gmail, Drive, <span class="it">Workspace</span></h3>
+          </div>
+        </div>
+        <p>Gemini w Twoim mailu i kalendarzu. Streszcza wątki, sugeruje odpowiedzi, planuje spotkania.</p>
+        <div class="tool-tile-case"><span>Przykład</span>50 nieprzeczytanych maili = 8 priorytetowych z sugestiami.</div>
+      </article>
+
+      <article class="tool-tile reveal">
+        <div class="tool-tile-head">
+          <span class="tool-tile-icon">
+            <svg viewBox="0 0 40 40"><rect x="8" y="6" width="24" height="28" rx="3" fill="#1A73E8"/><line x1="14" y1="14" x2="26" y2="14" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="20" x2="26" y2="20" stroke="#FFFDF9" stroke-width="2"/><line x1="14" y1="26" x2="22" y2="26" stroke="#FFFDF9" stroke-width="2"/></svg>
+          </span>
+          <div>
+            <div class="tool-tile-num">iv · NotebookLM</div>
+            <h3>Research i <span class="it">transkrypcje</span> rozmów</h3>
+          </div>
+        </div>
+        <p>PDF, zdjęcia, nagrania ze spotkań w jednej bazie. Pytasz o wszystko jak osobistego analityka.</p>
+        <div class="tool-tile-case"><span>Przykład</span>60 min rozmowy = mapa decyzji klienta i jego potrzeb.</div>
+      </article>
+
+      <article class="tool-tile reveal">
+        <div class="tool-tile-head">
+          <span class="tool-tile-icon">
+            <svg viewBox="0 0 40 40"><defs><linearGradient id="g3t" x1="0" y1="0" x2="40" y2="40"><stop offset="0" stop-color="#A855F7"/><stop offset="1" stop-color="#EC4899"/></linearGradient></defs><path d="M20 4 L26 14 L36 16 L28 24 L30 36 L20 30 L10 36 L12 24 L4 16 L14 14 Z" fill="url(#g3t)"/></svg>
+          </span>
+          <div>
+            <div class="tool-tile-num">v · Gamma</div>
+            <h3>Prezentacje ofert w <span class="it">5 minut</span></h3>
+          </div>
+        </div>
+        <p>Wpisujesz brief, Gamma robi prezentację, landing albo PDF. Bez Canvy, bez grafika, bez czekania.</p>
+        <div class="tool-tile-case"><span>Przykład</span>Oferta domu premium = 12-slajdowa prezentacja z planem i CTA.</div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -2257,54 +2253,6 @@ footer {
   </div>
 </div>
 
-<!-- WARSZTATY -->
-<section class="next">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="eyebrow" style="color: rgba(255,253,249,0.55);">
-          <span class="num" style="color: var(--fuchsia-light);">vi</span>
-          <span>Co dalej</span>
-        </div>
-      </div>
-      <div>
-        <h2 class="section-title">Webinar pokazuje narzędzia. <span class="it">Warsztat</span> uczy ich używać.</h2>
-        <p class="section-lead" style="margin-top: 16px;">
-          Po webinarze otwieramy zapisy na Akademię AI w Nieruchomościach. Środa online, czwartek-piątek stacjonarnie, sobota Q&amp;A.
-        </p>
-      </div>
-    </div>
-
-    <div class="packages">
-      <div class="pkg reveal">
-        <div class="pkg-name">Część I</div>
-        <div class="pkg-price">750 <em>zł</em></div>
-        <div class="pkg-format">Środa online · czwartek 6h stacjonarnie · sobota online</div>
-        <ul>
-          <li>10+ agentów AI skonfigurowanych pod Ciebie</li>
-          <li>Rok dostępu do platformy z aktualizacjami</li>
-        </ul>
-      </div>
-
-      <div class="pkg featured reveal">
-        <span class="save">Oszczędzasz 100 zł</span>
-        <div class="pkg-name">Części I + II</div>
-        <div class="pkg-price">1 399 <em>zł</em></div>
-        <div class="pkg-format">Środa · czwartek 6h · piątek 6h · sobota online</div>
-        <ul>
-          <li>10+ agentów AI skonfigurowanych pod Ciebie</li>
-          <li>Rok dostępu do platformy z aktualizacjami</li>
-          <li>Roczna opieka i nowości AI</li>
-          <li>Certyfikat KW-NSL-AI-2026</li>
-          <li>Zamknięta grupa absolwentów</li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="note">Zapisani na webinar dostają <em>100 zł zniżki</em> na każdy z pakietów. Szczegóły na żywo.</p>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section>
   <div class="container-narrow">
@@ -2316,31 +2264,19 @@ footer {
     <div class="faq-list reveal">
       <details open>
         <summary>Czy webinar jest naprawdę bezpłatny?</summary>
-        <div class="a">Tak. Bez ukrytych opłat, bez karty kredytowej. Zapisujesz się, dostajesz link, łączysz się o 20:00. Na końcu webinaru opowiemy o płatnych warsztatach Akademii AI, ale to tylko informacja.</div>
+        <div class="a">Tak. Bez ukrytych opłat, bez karty. Zapisujesz się, dostajesz link, łączysz się o 20:00. Na końcu krótko wspomnimy o płatnych warsztatach Akademii AI — to tylko informacja, bez nagabywania.</div>
       </details>
       <details>
         <summary>Co jeśli nie mogę być na żywo?</summary>
-        <div class="a">Wszyscy zapisani dostają link do nagrania ważny 7 dni po webinarze. Możesz obejrzeć w swoim tempie.</div>
+        <div class="a">Wszyscy zapisani dostają link do nagrania ważny 7 dni po webinarze. Materiały podsumowujące (lista narzędzi, linki, prompty) wysyłamy mailem.</div>
       </details>
       <details>
         <summary>Jakie narzędzie powinienem znać przed webinarem?</summary>
-        <div class="a">Żadne. Pokazujemy każde od podstaw. Wystarczy, że potrafisz obsłużyć przeglądarkę i Zooma.</div>
+        <div class="a">Żadne. Pokazujemy każde od podstaw. Wystarczy, że potrafisz obsłużyć przeglądarkę i Zooma. Webinar działa dla początkujących i osób, które już używają AI.</div>
       </details>
       <details>
-        <summary>Webinar jest dla początkujących, czy zaawansowanych?</summary>
-        <div class="a">Dla obu grup. Pokazujemy konkretne zastosowania, nie podstawy promptowania. Jeśli używasz AI od miesięcy, znajdziesz nowe workflow. Jeśli zaczynasz, zobaczysz, od czego pójść w pierwszej kolejności.</div>
-      </details>
-      <details>
-        <summary>Czy dostanę slajdy lub materiały?</summary>
-        <div class="a">Tak, po webinarze wysyłamy materiały podsumowujące: lista narzędzi, linki, gotowe prompty do skopiowania, schemat workflow.</div>
-      </details>
-      <details>
-        <summary>Ile osób będzie na webinarze?</summary>
-        <div class="a">Limit Zooma: 100 osób. Jeśli zapełnimy salę, otwieramy listę rezerwową.</div>
-      </details>
-      <details>
-        <summary>Co dokładnie dają warsztaty Akademii AI?</summary>
-        <div class="a">10+ agentów AI skonfigurowanych pod Twoją pracę, rok dostępu do platformy z aktualizacjami. W pakiecie I+II dodatkowo certyfikat KW-NSL-AI-2026 i zamknięta grupa absolwentów. Szczegóły: <a href="/" style="color: var(--fuchsia-mid);">akademia-ai-nieruchomosci.pl</a>.</div>
+        <summary>Co dostaję po webinarze?</summary>
+        <div class="a">Replay 7 dni, materiały (lista narzędzi, prompty, schemat workflow) i zniżkę 100 zł na warsztaty Akademii AI w Nieruchomościach. Szczegóły o warsztatach: <a href="/" style="color: var(--fuchsia-mid);">akademia-ai-nieruchomosci.pl</a>.</div>
       </details>
     </div>
   </div>
