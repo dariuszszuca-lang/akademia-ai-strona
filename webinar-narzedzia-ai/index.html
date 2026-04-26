@@ -321,6 +321,10 @@ nav {
   width: 100%;
   justify-content: center;
   margin-bottom: 12px;
+  white-space: nowrap;
+}
+@media (max-width: 540px) {
+  .hero-form-submit { font-size: 13px; padding: 14px 14px; gap: 6px; }
 }
 
 .hero-form-trust {
@@ -689,6 +693,11 @@ nav {
     0% { transform: translate(-50%, -50%) rotate(0) translateX(125px) rotate(0); }
     100% { transform: translate(-50%, -50%) rotate(360deg) translateX(125px) rotate(-360deg); }
   }
+}
+
+@media (max-width: 720px) {
+  .hero-orbit { display: none; }
+  .hero-grid { gap: 24px; }
 }
 
 /* ============ TICKER ============ */
@@ -1793,8 +1802,7 @@ footer {
         </div>
 
         <h1 class="hero-title">
-          Pięć narzędzi <span class="it">AI</span><br>
-          dla <span class="underline-mark">agenta nieruchomości</span>.
+          Pięć narzędzi <span class="it">AI</span> dla&nbsp;<span class="underline-mark">agenta nieruchomości</span>.
         </h1>
 
         <p class="hero-lead">
