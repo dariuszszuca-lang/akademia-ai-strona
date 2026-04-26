@@ -227,12 +227,13 @@ nav {
 .hero-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(2.8rem, 6.4vw, 5rem);
-  line-height: 0.98;
+  font-size: clamp(2.1rem, 6.4vw, 5rem);
+  line-height: 1.02;
   letter-spacing: -0.03em;
   color: var(--ink);
   margin-bottom: 28px;
   font-variation-settings: "opsz" 144, "SOFT" 30;
+  overflow-wrap: break-word;
 }
 .hero-title .it {
   font-style: italic;
@@ -241,7 +242,9 @@ nav {
 }
 .hero-title .underline-mark {
   position: relative;
-  white-space: nowrap;
+}
+@media (min-width: 720px) {
+  .hero-title .underline-mark { white-space: nowrap; }
 }
 .hero-title .underline-mark::after {
   content: "";
