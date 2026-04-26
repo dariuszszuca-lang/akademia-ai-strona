@@ -326,8 +326,11 @@ nav {
   margin-bottom: 12px;
   white-space: nowrap;
 }
+.hero-form-submit .btn-short { display: none; }
 @media (max-width: 540px) {
   .hero-form-submit { font-size: 13px; padding: 14px 14px; gap: 6px; }
+  .hero-form-submit .btn-full { display: none; }
+  .hero-form-submit .btn-short { display: inline; }
 }
 
 .hero-form-trust {
@@ -428,6 +431,12 @@ nav {
   font-variation-settings: "opsz" 96, "SOFT" 50;
 }
 .hero-trust .names em { color: var(--fuchsia-mid); font-style: italic; font-variation-settings: "opsz" 96, "SOFT" 100; }
+@media (max-width: 540px) {
+  .hero-trust { gap: 12px; margin-top: 32px; padding-top: 22px; }
+  .hero-trust .avatar { width: 40px; height: 40px; font-size: 16px; }
+  .hero-trust .avatar.b { margin-left: -12px; }
+  .hero-trust .names { font-size: 15px; }
+}
 
 /* ============ HERO ORBIT ============ */
 .hero-orbit {
@@ -737,6 +746,13 @@ nav {
   letter-spacing: -0.01em;
   font-variation-settings: "opsz" 144, "SOFT" 100;
   white-space: nowrap;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+@media (max-width: 540px) {
+  .ticker-track { font-size: 22px; gap: 28px; animation-duration: 22s; }
+  .ticker-item svg { width: 22px; height: 22px; }
 }
 .ticker-item {
   display: inline-flex;
@@ -1822,7 +1838,7 @@ footer {
               <input type="text" name="imie" required placeholder="Imię" aria-label="Imię">
               <input type="email" name="email" required placeholder="twoj@email.pl" aria-label="Email">
             </div>
-            <button type="submit" class="btn-primary hero-form-submit">Zapisz mnie na webinar · 12.05</button>
+            <button type="submit" class="btn-primary hero-form-submit"><span class="btn-full">Zapisz mnie na webinar · 12.05</span><span class="btn-short">Zapisz mnie · 12.05</span></button>
             <div class="hero-form-trust">
               <span>Replay 7 dni</span>
               <span>Zniżka 100 zł na warsztaty</span>
