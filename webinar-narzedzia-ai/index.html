@@ -328,9 +328,10 @@ nav {
 }
 .hero-form-submit .btn-short { display: none; }
 @media (max-width: 540px) {
-  .hero-form-submit { font-size: 13px; padding: 14px 14px; gap: 6px; }
+  .hero-form-submit { font-size: 14px; padding: 14px 12px; gap: 8px; }
   .hero-form-submit .btn-full { display: none; }
-  .hero-form-submit .btn-short { display: inline; }
+  .hero-form-submit .btn-short { display: inline-block; white-space: nowrap; }
+  .hero-form-submit::after { display: none; }
 }
 
 .hero-form-trust {
@@ -1838,7 +1839,7 @@ footer {
               <input type="text" name="imie" required placeholder="Imię" aria-label="Imię">
               <input type="email" name="email" required placeholder="twoj@email.pl" aria-label="Email">
             </div>
-            <button type="submit" class="btn-primary hero-form-submit"><span class="btn-full">Zapisz mnie na webinar · 12.05</span><span class="btn-short">Zapisz mnie · 12.05</span></button>
+            <button type="submit" class="btn-primary hero-form-submit"><span class="btn-full">Zapisz mnie na webinar · 12.05</span><span class="btn-short">Zapisz mnie na webinar</span></button>
             <div class="hero-form-trust">
               <span>Replay 7 dni</span>
               <span>Zniżka 100 zł na warsztaty</span>
