@@ -1380,7 +1380,7 @@ section.tight { padding: 70px 0; }
 }
 .host-top { display: flex; align-items: center; gap: 18px; margin-bottom: 24px; }
 .host-avatar {
-  width: 76px; height: 76px;
+  width: 96px; height: 96px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -1392,9 +1392,11 @@ section.tight { padding: 70px 0; }
   box-shadow: 0 8px 24px rgba(0,0,0,0.10), 0 0 0 1px var(--gold-line);
   font-variation-settings: "opsz" 96, "SOFT" 100;
   flex-shrink: 0;
+  overflow: hidden;
 }
 .host-avatar.a { background: linear-gradient(135deg, #E5C66A, #7A5210); }
 .host-avatar.b { background: linear-gradient(135deg, #FF6BB1, #A30048); }
+.host-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 .host-top .meta .role {
   font-family: var(--mono);
   font-size: 10px;
@@ -2215,27 +2217,27 @@ footer {
         <div class="eyebrow"><span class="num">iv</span><span>Prowadzący</span></div>
       </div>
       <div>
-        <h2 class="section-title">Pośredniczka i twórca Akademii AI. <span class="it">Razem.</span></h2>
+        <h2 class="section-title">Ekspertka rynku nieruchomości i twórca Akademii AI. <span class="it">Razem.</span></h2>
       </div>
     </div>
 
     <div class="hosts">
       <div class="host reveal">
         <div class="host-top">
-          <div class="host-avatar a">S</div>
+          <div class="host-avatar a"><img src="../img/sylwia.jpg" alt="Sylwia Wróblewska" loading="lazy"></div>
           <div class="meta">
             <div class="role">Gospodyni webinaru</div>
             <h3>Sylwia <span class="it">Wróblewska</span></h3>
           </div>
         </div>
         <div class="credit">15 lat praktyki · NSL · Licencja 18311</div>
-        <p>Pośredniczka nieruchomości z Trójmiasta, założycielka <strong>Nieruchomości Spod Lady</strong>, społeczności 1&nbsp;600+ agentów rynku off-market.</p>
+        <p>Ekspertka rynku nieruchomości premium z Trójmiasta. Założycielka <strong>Nieruchomości Spod Lady</strong>, społeczności 1&nbsp;600+ agentów rynku off-market.</p>
         <p>Sylwia odpowiada za to, czy narzędzia AI naprawdę mają sens w codziennej pracy agenta, a nie tylko na slajdzie.</p>
       </div>
 
       <div class="host reveal">
         <div class="host-top">
-          <div class="host-avatar b">D</div>
+          <div class="host-avatar b"><img src="../img/darek.jpg" alt="Dariusz Szuca" loading="lazy"></div>
           <div class="meta">
             <div class="role">Prowadzący merytoryczny</div>
             <h3>Dariusz <span class="it">Szuca</span></h3>
