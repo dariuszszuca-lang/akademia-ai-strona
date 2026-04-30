@@ -109,32 +109,45 @@ body {
 /* ============ NAV ============ */
 nav {
   position: fixed;
-  top: 0; width: 100%;
+  top: 16px;
+  left: 0; right: 0;
   z-index: 100;
-  background: rgba(255,253,249,0.82);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid var(--gold-line);
+  padding: 0 16px;
+  pointer-events: none;
 }
 .nav-inner {
-  max-width: 1240px;
+  pointer-events: auto;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 14px 28px;
+  padding: 10px 12px 10px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  background: rgba(255,253,249,0.72);
+  backdrop-filter: saturate(180%) blur(24px);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  border: 1px solid rgba(122,82,16,0.14);
+  border-radius: 999px;
+  box-shadow: 0 4px 24px rgba(122,82,16,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+  transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
+}
+nav.is-scrolled .nav-inner {
+  background: rgba(255,253,249,0.92);
+  border-color: rgba(122,82,16,0.22);
+  box-shadow: 0 8px 36px rgba(122,82,16,0.12), inset 0 1px 0 rgba(255,255,255,0.7);
 }
 .nav-brand {
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: 21px;
   letter-spacing: -0.015em;
   color: var(--ink);
   text-decoration: none;
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: 10px;
   font-variation-settings: "opsz" 96, "SOFT" 50;
+  white-space: nowrap;
 }
 .nav-brand .it { font-style: italic; color: var(--fuchsia-mid); font-variation-settings: "opsz" 96, "SOFT" 100; }
 .nav-brand .small {
@@ -143,6 +156,12 @@ nav {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-mute);
+}
+@media (max-width: 540px) {
+  nav { top: 12px; padding: 0 12px; }
+  .nav-inner { padding: 8px 8px 8px 18px; gap: 8px; }
+  .nav-brand { font-size: 17px; gap: 6px; }
+  .nav-brand .small { display: none; }
 }
 .nav-cta {
   display: inline-flex;
@@ -216,14 +235,15 @@ nav {
   align-items: center;
   gap: 8px;
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-soft);
-  padding: 8px 14px;
-  border: 1px solid var(--gold-line);
+  color: var(--ink);
+  padding: 9px 16px;
+  border: 1px solid rgba(122,82,16,0.22);
   border-radius: 999px;
-  background: rgba(255,253,249,0.7);
+  background: rgba(255,253,249,0.85);
   backdrop-filter: blur(8px);
 }
 .pill .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--fuchsia-mid); box-shadow: 0 0 10px var(--fuchsia-mid); }
@@ -289,10 +309,11 @@ nav {
   justify-content: space-between;
   gap: 10px;
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-mute);
+  color: var(--ink);
   margin-bottom: 14px;
   padding-bottom: 14px;
   border-bottom: 1px solid var(--gold-line);
@@ -2372,6 +2393,14 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+// Nav: dodaj klasę po scrollu (większy kontrast pill)
+const navEl = document.querySelector('nav');
+if (navEl) {
+  const onNavScroll = () => navEl.classList.toggle('is-scrolled', window.scrollY > 24);
+  onNavScroll();
+  window.addEventListener('scroll', onNavScroll, { passive: true });
+}
 
 // Sticky CTA: pokaż dopiero gdy hero form jest poza viewportem (żeby się nie nakładał)
 const heroForm = document.querySelector('.hero-form-wrap');
