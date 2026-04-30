@@ -163,41 +163,51 @@ nav.is-scrolled .nav-inner {
   .nav-brand { font-size: 17px; gap: 6px; }
   .nav-brand .small { display: none; }
 }
-.nav-links {
+.nav-meta {
   display: none;
-  gap: 2px;
   align-items: center;
-}
-@media (min-width: 860px) {
-  .nav-links { display: inline-flex; }
-}
-.nav-link {
-  position: relative;
+  gap: 10px;
   padding: 8px 16px;
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink-mid);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
   text-decoration: none;
+  border: 1px solid rgba(122,82,16,0.18);
+  background: rgba(255,253,249,0.6);
   border-radius: 999px;
-  transition: color 0.2s, background 0.2s;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+  white-space: nowrap;
 }
-.nav-link:hover { color: var(--ink); background: rgba(122,82,16,0.06); }
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 4px;
-  width: 4px;
-  height: 4px;
+.nav-meta em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  font-size: 13px;
+  color: var(--fuchsia-mid);
+  font-variation-settings: "opsz" 96, "SOFT" 100;
+}
+.nav-meta .sep { color: var(--gold-mid); opacity: 0.6; margin: 0 2px; }
+.nav-meta:hover { border-color: rgba(122,82,16,0.32); background: rgba(255,253,249,0.9); transform: translateY(-1px); }
+.nav-meta-dot {
+  width: 7px; height: 7px;
   border-radius: 999px;
   background: var(--fuchsia-mid);
-  opacity: 0;
-  transform: translateX(-50%) scale(0.6);
-  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 0 0 0 rgba(212,0,106,0.45);
+  animation: nav-pulse 2.4s ease-in-out infinite;
+  flex-shrink: 0;
 }
-.nav-link.is-active { color: var(--ink); }
-.nav-link.is-active::after { opacity: 1; transform: translateX(-50%) scale(1); }
+@keyframes nav-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,0,106,0.45); }
+  50% { box-shadow: 0 0 0 6px rgba(212,0,106,0); }
+}
+@media (min-width: 760px) {
+  .nav-meta { display: inline-flex; }
+}
 
 .nav-cta {
   display: inline-flex;
@@ -1875,11 +1885,10 @@ footer {
       Akademia <span class="it">AI</span>
       <span class="small">Nieruchomości</span>
     </a>
-    <div class="nav-links">
-      <a href="#program" class="nav-link">Program</a>
-      <a href="#prowadzacy" class="nav-link">Prowadzący</a>
-      <a href="#faq" class="nav-link">FAQ</a>
-    </div>
+    <a href="#zapis" class="nav-meta" aria-label="Webinar 14 maja, godzina 10, na Zoomie">
+      <span class="nav-meta-dot" aria-hidden></span>
+      <span class="nav-meta-text">14 maja <span class="sep">·</span> 10:00 <span class="sep">·</span> <em>Zoom</em></span>
+    </a>
     <a href="#zapis" class="nav-cta">Zapisz się</a>
   </div>
 </nav>
@@ -2445,25 +2454,6 @@ if (navEl) {
   window.addEventListener('scroll', onNavScroll, { passive: true });
 }
 
-// Scroll spy: podświetl aktywny link w nawigacji
-const navLinks = Array.from(document.querySelectorAll('.nav-link'));
-const sectionsForSpy = navLinks.map(l => document.getElementById(l.getAttribute('href').slice(1))).filter(Boolean);
-if (sectionsForSpy.length) {
-  const visibleSections = new Map();
-  const spyIo = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) visibleSections.set(e.target.id, e.intersectionRatio);
-      else visibleSections.delete(e.target.id);
-    });
-    let topId = '';
-    let topRatio = -1;
-    for (const [id, ratio] of visibleSections) {
-      if (ratio > topRatio) { topRatio = ratio; topId = id; }
-    }
-    navLinks.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === '#' + topId));
-  }, { rootMargin: '-20% 0px -55% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
-  sectionsForSpy.forEach(s => spyIo.observe(s));
-}
 
 // Sticky CTA: pokaż dopiero gdy hero form jest poza viewportem (żeby się nie nakładał)
 const heroForm = document.querySelector('.hero-form-wrap');
