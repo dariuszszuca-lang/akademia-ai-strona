@@ -166,25 +166,75 @@ h2{font-size:clamp(32px,4vw,52px);line-height:1.05;font-weight:800;font-variatio
 .band .btn{background:var(--white);color:var(--nsl-deep)}
 .band .btn:hover{background:var(--ink);color:var(--white)}
 
-/* wideo */
-.reel{max-width:360px;margin:0 auto}
-.reel-box{display:block;width:100%;aspect-ratio:9/16;position:relative;border:2px solid var(--ink);background:var(--plan-deep);padding:0;cursor:pointer;box-shadow:10px 10px 0 var(--plan);overflow:hidden}
-.reel-box img{width:100%;height:100%;object-fit:cover}
+/* wideo + opinie */
+.site{display:grid;grid-template-columns:340px minmax(0,1fr);gap:72px;align-items:start}
+.reel{position:sticky;top:32px}
+.reel-box{display:block;width:100%;aspect-ratio:9/16;position:relative;border:2px solid var(--ink);background:var(--plan-deep);padding:0;cursor:pointer;box-shadow:12px 12px 0 var(--plan);overflow:hidden;transform:rotate(-2deg);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.reel-box:hover{transform:rotate(0) scale(1.02)}
+.reel-box img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease}
+.reel-box:hover img{transform:scale(1.08)}
 .reel-box iframe{width:100%;height:100%;border:0}
-.reel-play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--nsl);box-shadow:0 0 0 8px rgba(186,73,139,.3)}
-.reel-play::after{content:"";position:absolute;left:30px;top:22px;border-left:22px solid #fff;border-top:16px solid transparent;border-bottom:16px solid transparent}
-.reel-box:hover .reel-play{background:var(--nsl-deep)}
-.reel-cap{font-family:var(--mono);font-size:13px;color:var(--ink-mid);margin-top:20px;text-align:center}
-
-/* opinie */
-.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
-.quotes blockquote{padding:32px 28px 8px 0;margin-right:28px;border-bottom:1px solid #c9d3df}
-.quotes blockquote.big{grid-column:span 3;padding-right:0;margin-right:0}
-.quotes blockquote.big p{font-size:clamp(22px,2.4vw,30px);line-height:1.35;font-weight:600;font-variation-settings:"wdth" 92;max-width:60ch}
-.quotes p{font-size:17px;margin-bottom:16px}
-.quotes cite{font-style:normal;font-weight:700;display:block;margin-bottom:24px}
+.reel-play{position:absolute;left:50%;top:50%;width:80px;height:80px;margin:-40px 0 0 -40px;border-radius:50%;background:var(--nsl);animation:ring 2s ease-out infinite}
+.reel-play::after{content:"";position:absolute;left:31px;top:23px;border-left:24px solid #fff;border-top:17px solid transparent;border-bottom:17px solid transparent}
+.reel-cap{font-family:var(--mono);font-size:13px;color:var(--ink-mid);margin-top:22px}
+.quotes{border-top:2px solid var(--ink)}
+.quotes blockquote{padding:28px 0 28px 28px;border-bottom:1px solid #c9d3df;position:relative}
+.quotes blockquote::before{content:"";position:absolute;left:0;top:32px;width:4px;height:calc(100% - 64px);background:#c9d3df;transition:background .3s}
+.quotes blockquote:hover::before,.quotes blockquote.big::before{background:var(--nsl)}
+.quotes blockquote.big p{font-size:clamp(22px,2.3vw,30px);line-height:1.3;font-weight:700;font-variation-settings:"wdth" 88}
+.quotes p{font-size:18px;margin-bottom:12px}
+.quotes cite{font-style:normal;font-weight:700;display:block}
 .quotes cite span{font-weight:400;color:var(--ink-mid)}
-@media (max-width:860px){.quotes{grid-template-columns:1fr}.quotes blockquote,.quotes blockquote.big{grid-column:auto;margin-right:0;padding-right:0}}
+@media (max-width:900px){.site{grid-template-columns:1fr;gap:40px}.reel{position:static;max-width:300px;margin:0 auto}.quotes blockquote{padding-left:20px}}
+
+/* różowy pasek + taśma */
+.band{background-color:var(--nsl);color:var(--white);padding:76px 0 0;position:relative;overflow:hidden;
+  background-image:radial-gradient(circle at 85% 15%,rgba(255,255,255,.22),transparent 45%),repeating-linear-gradient(-45deg,transparent 0 22px,rgba(255,255,255,.07) 22px 23px)}
+.band-in{display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between;padding-bottom:68px}
+.band p{font-size:clamp(30px,4.2vw,56px);font-weight:800;font-variation-settings:"wdth" 80;line-height:1.02;max-width:19ch;letter-spacing:-.01em}
+.band .btn{background:var(--white);color:var(--nsl-deep);font-size:19px;padding:20px 38px}
+.band .btn:hover{background:var(--ink);color:var(--white)}
+.tape{background:var(--ink);color:var(--white);transform:rotate(-1.4deg);margin:0 -40px -14px;padding:16px 0 30px;overflow:hidden;border-top:3px solid var(--white)}
+.tape-track{display:flex;width:max-content;animation:marquee 40s linear infinite}
+.tape span{font-family:var(--mono);font-size:15px;white-space:nowrap;padding:0 26px}
+.tape span::before{content:"";display:inline-block;width:10px;height:10px;background:var(--nsl);margin-right:14px;vertical-align:1px}
+.band:hover .tape-track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ruch */
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(186,73,139,.65)}80%,100%{box-shadow:0 0 0 22px rgba(186,73,139,0)}}
+@keyframes ringw{0%{box-shadow:0 0 0 0 rgba(255,255,255,.75)}80%,100%{box-shadow:0 0 0 18px rgba(255,255,255,0)}}
+.btn-pulse{animation:ring 2.4s ease-out infinite}
+.band .btn-pulse{animation-name:ringw}
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.js .stagger>*{opacity:0;transform:translateY(30px) scale(.98);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1),background .3s}
+.js .stagger.in>*{opacity:1;transform:none}
+.stagger.in>*:nth-child(2){transition-delay:.1s}.stagger.in>*:nth-child(3){transition-delay:.2s}.stagger.in>*:nth-child(4){transition-delay:.3s}.stagger.in>*:nth-child(5){transition-delay:.4s}
+.js .sym *{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.3s ease .4s}
+.js .in .sym *{stroke-dashoffset:0}
+.legend>div:not(.wide):hover{background:#f6f8fb}
+.steps{position:relative}
+.steps::before{content:"";position:absolute;left:-2px;top:0;width:4px;height:var(--p,0%);background:var(--nsl);z-index:1}
+.steps li{transition:background .3s}
+.steps li:hover{background:#f6f8fb}
+.steps li.brk:hover{background:repeating-linear-gradient(45deg,transparent 0 8px,rgba(22,48,79,.06) 8px 9px)}
+.js .steps .t::after{transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.2,.7,.2,1) .3s}
+.js .rv.in .steps .t::after{transform:scaleX(1)}
+.draw .route{animation:fade .4s ease forwards 2.1s,march 1s linear infinite 2.1s}
+@keyframes march{to{stroke-dashoffset:-24}}
+.plan-svg .ripple{fill:none;stroke:var(--nsl);stroke-width:2;transform-box:fill-box;transform-origin:center;opacity:0;animation:ripple 2.2s ease-out infinite 2.6s}
+.plan-svg .ripple.r2{animation-delay:3.7s}
+@keyframes ripple{0%{transform:scale(1);opacity:.9}100%{transform:scale(4.2);opacity:0}}
+.hero{animation:gridpan 80s linear infinite}
+@keyframes gridpan{to{background-position:119px 119px,119px 119px,23px 23px,23px 23px}}
+.title-block{animation:tb 1s cubic-bezier(.2,.7,.2,1) both .9s}
+@keyframes tb{from{opacity:0;transform:translateY(30px) rotate(2deg)}to{opacity:1;transform:none}}
+.js [data-stamp]{opacity:0}
+.js [data-stamp].in{animation:stamp .6s cubic-bezier(.3,1.6,.5,1) forwards .2s}
+@keyframes stamp{0%{opacity:0;transform:translateY(-50%) rotate(-20deg) scale(2.2)}100%{opacity:1;transform:translateY(-50%) rotate(-8deg) scale(1)}}
+@media (max-width:960px){.js [data-stamp].in{animation-name:stampm}}
+@keyframes stampm{0%{opacity:0;transform:rotate(-20deg) scale(2.2)}100%{opacity:1;transform:rotate(-4deg) scale(1)}}
 
 /* prowadzący */
 .person{display:grid;grid-template-columns:340px minmax(0,1fr);gap:56px;align-items:start}
@@ -250,6 +300,9 @@ footer a{color:var(--ink)}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}
+  .js .rv,.js .stagger>*,.js [data-stamp]{opacity:1!important;transform:none!important}
+  .js .sym *{stroke-dashoffset:0}
   .draw .wall,.draw .wall-thin{animation:none;stroke-dasharray:none;stroke-dashoffset:0}
   .draw .room,.draw .sub,.draw .dimtxt,.draw .dim,.draw .door,.draw .hatch,.draw .route,.draw .route-end{animation:none;opacity:var(--o,1)}
 }
@@ -278,7 +331,7 @@ footer a{color:var(--ink)}
       <h1 id="h1">Zbuduj asystenta AI, który zna Ciebie, Twoich klientów i&nbsp;Twoją ofertę.</h1>
       <p class="lead">Warsztaty dla agentów nieruchomości. Najpierw kładziemy fundamenty online, potem przenosimy asystenta na Twój komputer.</p>
       <div class="actions">
-        <a class="btn btn-nsl" href="#zapis">Zapisz się</a>
+        <a class="btn btn-nsl btn-pulse" href="#zapis">Zapisz się</a>
         <a class="btn btn-line" href="#program">Zobacz program</a>
       </div>
       <p class="when"><span><b>20.01</b> online, 2 h</span><span><b>21.01</b> Gdańsk Chełm, 4 h</span></p>
@@ -310,7 +363,7 @@ footer a{color:var(--ink)}
         <text class="dimtxt" x="380" y="462" text-anchor="middle">wejście</text>
 
         <path class="route" d="M380 452 V100 H560 V250 H140 V100 M140 250 V380 H420 V348 H592 V404"/>
-        <circle class="route-end" cx="592" cy="410" r="7"/>
+        <circle class="ripple" cx="592" cy="410" r="7"/><circle class="ripple r2" cx="592" cy="410" r="7"/><circle class="route-end" cx="592" cy="410" r="7"/>
       </svg>
 
       <div class="title-block" aria-label="Metryka projektu">
@@ -329,10 +382,10 @@ footer a{color:var(--ink)}
 <section class="paper" aria-labelledby="h-legenda">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="sheet">legenda rzutu</span><h2 id="h-legenda">Co wynosisz z warsztatów</h2></div>
+      <div><span class="sheet">legenda rzutu</span><h2 id="h-legenda">Co stanie w Twoim biurze</h2></div>
       <p>Każde pomieszczenie na rzucie to część Twojego asystenta. Budujesz je na swoich danych, nie na przykładach z prezentacji.</p>
     </div>
-    <div class="legend">
+    <div class="legend stagger">
       <div>
         <svg class="sym" viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="4" width="36" height="36"/><circle cx="22" cy="18" r="7"/><path d="M10 38c2-8 7-11 12-11s10 3 12 11"/></svg>
         <h3>Asystent, który Cię zna</h3>
@@ -366,11 +419,11 @@ footer a{color:var(--ink)}
 <section class="program" id="program" aria-labelledby="h-program">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="sheet">przekrój: 2 kondygnacje</span><h2 id="h-program">Program dwóch dni</h2></div>
+      <div><span class="sheet">przekrój: 2 kondygnacje</span><h2 id="h-program">Dwa dni budowy, godzina po godzinie</h2></div>
       <p>Wszystko robimy na zajęciach. Nie ma prac domowych. Przynosisz laptopa i notatkę ze zdjęciami jednej swojej oferty.</p>
     </div>
 
-    <article class="floor online" aria-labelledby="h-d1">
+    <article class="floor online rv" aria-labelledby="h-d1">
       <div class="floor-side">
         <span class="lvl">kondygnacja 0</span>
         <h3 id="h-d1">Fundamenty pod asystenta</h3>
@@ -388,10 +441,10 @@ footer a{color:var(--ink)}
       </ol>
     </article>
 
-    <article class="floor" aria-labelledby="h-d2">
+    <article class="floor rv" aria-labelledby="h-d2">
       <div class="floor-side">
         <span class="lvl">kondygnacja 1</span>
-        <h3 id="h-d2">Asystent na Twoim komputerze</h3>
+        <h3 id="h-d2">Asystent wprowadza się do Twojego komputera</h3>
         <dl><dt>kiedy</dt><dd>21.01, czwartek</dd><dt>gdzie</dt><dd>Gdańsk Chełm</dd><dt>czas</dt><dd>9:00 do 13:00</dd></dl>
         <div class="result"><b>po tym dniu masz</b>Asystenta na własnym komputerze, skille wybrane pod swoją pracę, sprawdzone narzędzia i proste zasady bezpieczeństwa.</div>
       </div>
@@ -409,47 +462,43 @@ footer a{color:var(--ink)}
 </section>
 
 <div class="band">
-  <div class="wrap">
-    <p>Dwa dni pracy, a asystent zostaje z Tobą na co dzień.</p>
-    <a class="btn" href="#zapis">Zapisz się</a>
+  <div class="wrap band-in">
+    <p class="rv">Dwa dni pracy, a asystent zostaje z Tobą na co dzień.</p>
+    <a class="btn btn-pulse rv" style="--d:.15s" href="#zapis">Zapisz się</a>
+  </div>
+  <div class="tape" aria-label="Przykładowe zadania asystenta">
+    <div class="tape-track"><span>Opis oferty ze zdjęć i notatki</span><span>Odpowiedź na zapytanie z portalu, Twoim stylem</span><span>Plan jutrzejszego dnia</span><span>Szkic maila do sprzedającego</span><span>Post o nowym mieszkaniu</span><span>Przypomnienie o prezentacji</span><span>Wizualizacja pustego pokoju</span><span>Raport dla klienta po spotkaniu</span><span aria-hidden="true">Opis oferty ze zdjęć i notatki</span><span aria-hidden="true">Odpowiedź na zapytanie z portalu, Twoim stylem</span><span aria-hidden="true">Plan jutrzejszego dnia</span><span aria-hidden="true">Szkic maila do sprzedającego</span><span aria-hidden="true">Post o nowym mieszkaniu</span><span aria-hidden="true">Przypomnienie o prezentacji</span><span aria-hidden="true">Wizualizacja pustego pokoju</span><span aria-hidden="true">Raport dla klienta po spotkaniu</span></div>
   </div>
 </div>
 
-<!-- ============ WIDEO Z WARSZTATÓW ============ -->
+<!-- ============ WIDEO + OPINIE ============ -->
 <section class="paper" id="wideo" aria-labelledby="h-wideo">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="sheet">dokumentacja z budowy</span><h2 id="h-wideo">Tak wyglądały poprzednie warsztaty</h2></div>
-      <p>Krótki film z poprzedniej edycji w Sopocie.</p>
+      <div><span class="sheet">z poprzedniej edycji</span><h2 id="h-wideo">Ostatnio budowaliśmy w Sopocie</h2></div>
+      <p>Zobacz krótki film z sali i posłuchaj ludzi, którzy już pracują ze swoim asystentem.</p>
     </div>
-    <div class="reel">
-      <button class="reel-box" id="videoContainer" onclick="playVideo()" aria-label="Odtwórz film z warsztatów w Sopocie">
-        <img src="img/video-thumb.png" alt="Szkolenie AI w Sopocie" loading="lazy">
-        <span class="reel-play" aria-hidden="true"></span>
-      </button>
-      <p class="reel-cap">Szkolenie AI w Sopocie, poprzednia edycja</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ OPINIE ============ -->
-<section aria-labelledby="h-opinie" style="background:var(--white)">
-  <div class="wrap">
-    <div class="sec-head">
-      <div><span class="sheet">odbiory od uczestników</span><h2 id="h-opinie">Co mówią uczestnicy</h2></div>
-    </div>
-    <div class="quotes">
-      <blockquote class="big"><p>„Brakowało mi jednego: systemu, który pracuje za mnie. I dokładnie to dostałem. Po szkoleniu mam swoich AI asystentów, którzy realnie ułatwiają prowadzenie biznesu i oszczędzają czas.”</p><cite>Rafał Lenart <span>RM Nieruchomości</span></cite></blockquote>
-      <blockquote><p>„Zaczynałam jako totalny laik, a dziś już siedem kroków dalej. Super wiedza, pomoc i cierpliwość.”</p><cite>Justyna Richert <span>uczestniczka</span></cite></blockquote>
-      <blockquote><p>„Zarówno osoby bez wcześniejszej wiedzy, jak i te bardziej zaawansowane znajdą coś dla siebie.”</p><cite>Szymon Lip <span>uczestnik</span></cite></blockquote>
-      <blockquote><p>„Poznawałam na nim nieznane światy, ale możliwości, jakie to daje w pracy, są po prostu niezmierzone!”</p><cite>Joanna Olejniczak <span>uczestniczka</span></cite></blockquote>
+    <div class="site">
+      <div class="reel rv">
+        <button class="reel-box" id="videoContainer" onclick="playVideo()" aria-label="Odtwórz film z warsztatów w Sopocie">
+          <img src="img/video-thumb.png" alt="Szkolenie AI w Sopocie" loading="lazy">
+          <span class="reel-play" aria-hidden="true"></span>
+        </button>
+        <p class="reel-cap">Szkolenie AI w Sopocie, poprzednia edycja</p>
+      </div>
+      <div class="quotes">
+        <blockquote class="big rv"><p>„Brakowało mi jednego: systemu, który pracuje za mnie. I dokładnie to dostałem. Po szkoleniu mam swoich AI asystentów, którzy realnie ułatwiają prowadzenie biznesu i oszczędzają czas.”</p><cite>Rafał Lenart <span>RM Nieruchomości</span></cite></blockquote>
+        <blockquote class="rv" style="--d:.1s"><p>„Zaczynałam jako totalny laik, a dziś już siedem kroków dalej. Super wiedza, pomoc i cierpliwość.”</p><cite>Justyna Richert <span>uczestniczka</span></cite></blockquote>
+        <blockquote class="rv" style="--d:.2s"><p>„Zarówno osoby bez wcześniejszej wiedzy, jak i te bardziej zaawansowane znajdą coś dla siebie.”</p><cite>Szymon Lip <span>uczestnik</span></cite></blockquote>
+        <blockquote class="rv" style="--d:.3s"><p>„Poznawałam na nim nieznane światy, ale możliwości, jakie to daje w pracy, są po prostu niezmierzone!”</p><cite>Joanna Olejniczak <span>uczestniczka</span></cite></blockquote>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ PROWADZĄCY ============ -->
 <section class="paper" id="prowadzacy" aria-labelledby="h-prow">
-  <div class="wrap person">
+  <div class="wrap person rv">
     <figure><img src="img/darek.jpg" alt="Dariusz Szuca" loading="lazy"><figcaption>prowadzący</figcaption></figure>
     <div>
       <span class="sheet">kierownik budowy</span>
@@ -464,10 +513,11 @@ footer a{color:var(--ink)}
 <!-- ============ SKOOL + DLA KOGO ============ -->
 <section aria-labelledby="h-skool" style="background:var(--white)">
   <div class="wrap">
-    <div class="two">
+    <div class="two rv">
       <div class="dark">
-        <span class="sheet" style="color:var(--line)">po odbiorze</span>
-        <h3 id="h-skool">Rok dostępu do materiałów na Skool</h3>
+        <span class="sheet" style="color:var(--line)">po odbiorze kluczy</span>
+        <h3 id="h-skool">Klucze zostają u Ciebie przez rok</h3>
+        <p style="margin-bottom:14px">Wszystko z warsztatów czeka na Ciebie na Skool.</p>
         <ul>
           <li>Instrukcje krok po kroku z obu dni</li>
           <li>Gotowe polecenia i pliki asystentów</li>
@@ -477,7 +527,8 @@ footer a{color:var(--ink)}
       </div>
       <div>
         <span class="sheet">dla kogo i co zabrać</span>
-        <h3>Dla agentów, pośredników i całej branży nieruchomości</h3>
+        <h3>Weź laptopa i jedną ofertę z telefonu</h3>
+        <p style="margin-bottom:14px;color:var(--ink-mid)">Dla agentów, pośredników i całej branży nieruchomości.</p>
         <ul>
           <li>Nie musisz znać AI. Zaczynamy od zera.</li>
           <li>Własny laptop (Windows albo Mac) z ładowarką</li>
@@ -492,7 +543,7 @@ footer a{color:var(--ink)}
 <!-- ============ FAQ ============ -->
 <section class="paper" id="faq" aria-labelledby="h-faq">
   <div class="wrap">
-    <div class="sec-head"><div><span class="sheet">uwagi do projektu</span><h2 id="h-faq">Pytania</h2></div></div>
+    <div class="sec-head"><div><span class="sheet">uwagi do projektu</span><h2 id="h-faq">Zanim się zapiszesz</h2></div></div>
     <div class="faq">
       <details><summary>Czy muszę znać AI?</summary><p>Nie. Zaczynamy od zera. Pierwszy dzień online przygotowuje wszystko, czego asystent potrzebuje, a drugiego dnia uruchamiasz go na swoim komputerze.</p></details>
       <details><summary>Czy są prace domowe?</summary><p>Nie. Wszystko robimy na zajęciach. Wystarczy, że przyniesiesz laptopa i notatkę ze zdjęciami jednej swojej oferty.</p></details>
@@ -508,13 +559,13 @@ footer a{color:var(--ink)}
 <section class="cta" id="zapis" aria-labelledby="h-zapis">
   <div class="wrap">
     <span class="sheet" style="color:var(--line)">pozwolenie na budowę</span>
-    <h2 id="h-zapis">Zarezerwuj miejsce na styczeń</h2>
+    <h2 id="h-zapis">Budowę zaczynamy 20 stycznia</h2>
     <p>Zapisy prowadzi Nieruchomości Spod Lady. Grupa jest mała, żeby każdy wyszedł z działającym asystentem.</p>
     <div class="actions">
-      <a class="btn btn-nsl" href="#" data-zapis>Zapisz się</a>
+      <a class="btn btn-nsl btn-pulse" href="#" data-zapis>Zapisz się</a>
       <a class="btn btn-line" href="#program">Wróć do programu</a>
     </div>
-    <div class="stamp" aria-hidden="true">etap 1 i 2<b>20 i 21.01</b>online i Gdańsk Chełm</div>
+    <div class="stamp" aria-hidden="true" data-stamp>etap 1 i 2<b>20 i 21.01</b>online i Gdańsk Chełm</div>
   </div>
 </section>
 </main>
@@ -547,6 +598,7 @@ footer a{color:var(--ink)}
 </div>
 <button class="cookie-icon" id="cookieIcon" onclick="reopenCookieBanner()" aria-label="Ustawienia cookies">🍪</button>
 
+<script>document.documentElement.classList.add("js")</script>
 <script>
 function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
 (function(){
@@ -579,6 +631,17 @@ function playVideo(){
   c.innerHTML='<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1906124916655205&show_text=false&autoplay=1" title="Szkolenie AI w Sopocie" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>';
   c.onclick=null;c.style.cursor='default';
 }
+// wejścia przy przewijaniu
+document.querySelectorAll('.sym *').forEach(function(el){el.setAttribute('pathLength','1')});
+var els=document.querySelectorAll('.rv,.stagger,[data-stamp]');
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -60px 0px'});
+  els.forEach(function(el){io.observe(el)});
+}else{els.forEach(function(el){el.classList.add('in')})}
+// oś czasu programu wypełnia się przy czytaniu
+var lists=document.querySelectorAll('.steps');
+function fill(){var vh=window.innerHeight;lists.forEach(function(l){var r=l.getBoundingClientRect();var p=Math.min(1,Math.max(0,(vh*.65-r.top)/r.height));l.style.setProperty('--p',(p*100).toFixed(1)+'%')})}
+window.addEventListener('scroll',fill,{passive:true});fill();
 // długości ścian do animacji rysowania
 document.querySelectorAll('.plan-svg .wall,.plan-svg .wall-thin').forEach(function(el){
   try{el.style.setProperty('--len',Math.ceil(el.getTotalLength()))}catch(e){}
