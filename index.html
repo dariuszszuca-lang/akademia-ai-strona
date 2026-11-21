@@ -239,8 +239,7 @@ h2{font-size:clamp(32px,4vw,52px);line-height:1.05;font-weight:800;font-variatio
 @keyframes tb{from{opacity:0;transform:translateY(30px) rotate(2deg)}to{opacity:1;transform:none}}
 .js [data-stamp]{opacity:0}
 .js [data-stamp].in{animation:stamp .6s cubic-bezier(.3,1.6,.5,1) forwards .2s}
-@keyframes stamp{0%{opacity:0;transform:translateY(-50%) rotate(-20deg) scale(2.2)}100%{opacity:1;transform:translateY(-50%) rotate(-8deg) scale(1)}}
-@media (max-width:960px){.js [data-stamp].in{animation-name:stampm}}
+@keyframes stamp{0%{opacity:0;transform:rotate(-24deg) scale(2.2)}100%{opacity:1;transform:rotate(-8deg) scale(1)}}
 @keyframes stampm{0%{opacity:0;transform:rotate(-20deg) scale(2.2)}100%{opacity:1;transform:rotate(-4deg) scale(1)}}
 
 /* prowadzący */
@@ -282,9 +281,21 @@ h2{font-size:clamp(32px,4vw,52px);line-height:1.05;font-weight:800;font-variatio
 .cta h2{color:var(--white);max-width:18ch;margin-bottom:20px}
 .cta p{max-width:56ch;margin-bottom:32px;font-size:19px}
 .cta .actions{display:flex;flex-wrap:wrap;gap:14px}
-.cta .stamp{position:absolute;right:6%;top:50%;transform:translateY(-50%) rotate(-8deg);border:3px solid var(--nsl);color:var(--nsl);padding:14px 22px;font-family:var(--mono);font-size:14px;line-height:1.5;text-align:center;background:rgba(13,33,64,.6)}
-.cta .stamp b{display:block;font-family:var(--display);font-size:26px;font-weight:800;font-variation-settings:"wdth" 80;color:var(--white)}
-@media (max-width:960px){.cta .stamp{position:static;transform:rotate(-4deg);display:inline-block;margin-top:40px}}
+.cta-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,480px);gap:64px;align-items:center}
+.cta-grid h2{max-width:14ch}
+.permit{position:relative;background:var(--white);color:var(--ink);border:2px solid var(--ink);box-shadow:14px 14px 0 rgba(13,33,64,.7)}
+.permit .tb-logo{border-bottom:2px solid var(--ink);padding:14px 18px}
+.permit .tb-logo img{height:72px}
+.permit-row{display:grid;grid-template-columns:120px 1fr;border-top:1px solid var(--ink)}
+.permit .tb-logo+.permit-row{border-top:0}
+.permit-row>*{padding:14px 18px}
+.permit-row .tb-k{display:flex;align-items:center}
+.permit-row b{display:block;font-size:20px;font-weight:800;font-variation-settings:"wdth" 88;line-height:1.2}
+.permit-row div span{display:block;font-size:15px;color:var(--ink-mid)}
+.permit-stamp{position:absolute;right:-22px;top:-28px;border:3px solid var(--nsl);color:var(--nsl);background:var(--white);padding:10px 18px;font-family:var(--mono);font-size:12px;text-align:center;line-height:1.4;transform:rotate(-8deg)}
+.permit-stamp b{display:block;font-family:var(--display);font-size:24px;font-weight:800;font-variation-settings:"wdth" 80}
+@media (max-width:960px){.cta-grid{grid-template-columns:1fr;gap:56px}.permit-stamp{right:-6px}}
+@media (max-width:560px){.permit-row{grid-template-columns:90px 1fr}.permit-row>*{padding:12px}}
 
 footer{background:var(--white);border-top:2px solid var(--ink);padding:40px 0}
 footer .wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;font-size:15px;color:var(--ink-mid)}
@@ -342,7 +353,7 @@ footer a{color:var(--ink)}
         <a class="btn btn-nsl btn-pulse" href="#zapis">Zapisz się</a>
         <a class="btn btn-line" href="#program">Zobacz program</a>
       </div>
-      <p class="when"><span><b>20.01</b> online, 2 h</span><span><b>21.01</b> Gdańsk Chełm, 4 h</span></p>
+      <p class="when"><span><b>20.01</b> online, 2 h</span><span><b>21.01</b> Gdańsk Chełm, 6 h</span></p>
     </div>
 
     <div class="plan-box">
@@ -352,7 +363,7 @@ footer a{color:var(--ink)}
         </defs>
         <!-- wymiar górny -->
         <line class="dim" x1="20" y1="14" x2="620" y2="14"/><line class="dim" x1="20" y1="8" x2="20" y2="20"/><line class="dim" x1="620" y1="8" x2="620" y2="20"/>
-        <text class="dimtxt" x="320" y="9" text-anchor="middle">2 dni, 6 h pracy</text>
+        <text class="dimtxt" x="320" y="9" text-anchor="middle">2 dni, 8 h</text>
         <rect class="hatch" x="473" y="421" width="144" height="16"/>
         <path class="wall" style="--len:2200" d="M20 30 H620 V440 H410 M350 440 H20 V30"/>
         <path class="wall-thin" style="--len:2000" d="M20 170 H120 M160 170 H360 M400 170 H540 M580 170 H620 M20 290 H120 M160 290 H360 M400 290 H620 M200 30 V230 M200 270 V360 M200 400 V440 M420 30 V80 M420 120 V230 M420 270 V290 M470 290 V330 M470 365 V440 M470 370 H570 M610 370 H620"/>
@@ -379,7 +390,7 @@ footer a{color:var(--ink)}
         <div class="tb-row"><span class="tb-k">projekt</span><span class="tb-v">Asystent AI agenta nieruchomości</span></div>
         <div class="tb-row"><span class="tb-k">inwestor</span><span class="tb-v">Ty</span></div>
         <div class="tb-row"><span class="tb-k">etap 1</span><span class="tb-v">20.01, środa, online, 2 h</span></div>
-        <div class="tb-row"><span class="tb-k">etap 2</span><span class="tb-v">21.01, czwartek, Gdańsk Chełm, 4 h</span></div>
+        <div class="tb-row"><span class="tb-k">etap 2</span><span class="tb-v">21.01, czwartek, Gdańsk Chełm, 6 h z przerwą</span></div>
         <div class="tb-row"><span class="tb-k">prowadzi</span><span class="tb-v">Dariusz Szuca</span></div>
       </div>
     </div>
@@ -453,17 +464,17 @@ footer a{color:var(--ink)}
       <div class="floor-side">
         <span class="lvl">kondygnacja 1</span>
         <h3 id="h-d2">Asystent wprowadza się do Twojego komputera</h3>
-        <dl><dt>kiedy</dt><dd>21.01, czwartek</dd><dt>gdzie</dt><dd>Gdańsk Chełm</dd><dt>czas</dt><dd>9:00 do 13:00</dd></dl>
+        <dl><dt>kiedy</dt><dd>21.01, czwartek</dd><dt>gdzie</dt><dd>Gdańsk Chełm</dd><dt>czas</dt><dd>9:00 do 15:00, z przerwą</dd></dl>
         <div class="result"><b>po tym dniu masz</b>Asystenta na własnym komputerze, skille wybrane pod swoją pracę, sprawdzone narzędzia i proste zasady bezpieczeństwa.</div>
       </div>
       <ol class="steps">
         <li><span class="t">9:00 do 9:45</span><div><h4>Konfiguracja i przeniesienie na komputer</h4><p>Instalujemy razem, krok po kroku, na Windows i Mac. Wrzucasz pliki z pierwszego dnia i asystent od pierwszej minuty wie, z kim pracuje.</p></div></li>
-        <li><span class="t">9:45 do 10:30</span><div><h4>Nauka pracy z asystentem</h4><p>Na swojej ofercie robisz to, co robisz co tydzień: opis na portal ze zdjęć i notatki, odpowiedź na zapytanie, plan jutrzejszego dnia. Uczysz się poprawiać wynik i łapać, kiedy AI coś zmyśla.</p></div></li>
-        <li class="brk"><span class="t">10:30 do 10:45</span><div><h4>Przerwa</h4></div></li>
-        <li><span class="t">10:45 do 11:25</span><div><h4>Skille</h4><p>Skille to gotowe umiejętności dla asystenta. Są ich tysiące: opisy ofert, analiza dokumentów, grafiki, raporty. Pokazuję, gdzie ich szukać i jak je sprawdzić, a Ty wybierasz te, które pasują do Twojej pracy, i instalujesz od razu.</p></div></li>
-        <li><span class="t">11:25 do 12:10</span><div><h4>Narzędzia i rekomendacje dla branży nieruchomości</h4><p>To, co naprawdę przydaje się agentowi: poczta i kalendarz (asystent pisze szkice, wysyłasz Ty), arkusz z klientami, dane do wyceny, wizualizacje pustych mieszkań. Bez listy stu aplikacji.</p></div></li>
-        <li><span class="t">12:10 do 12:45</span><div><h4>Cyberbezpieczeństwo w codziennej pracy</h4><p>Fałszywy mail „z banku”, link do „umowy”, hasło wklejone do czatu. Prawdziwe przykłady i kilka prostych zasad, które chronią Ciebie i dane klientów.</p></div></li>
-        <li><span class="t">12:45 do 13:00</span><div><h4>Plan na 30 dni</h4><p>Wybierasz jedną rzecz na tydzień, którą od poniedziałku robi za Ciebie asystent. Na koniec pytania.</p></div></li>
+        <li><span class="t">9:45 do 10:45</span><div><h4>Nauka pracy z asystentem</h4><p>Na swojej ofercie robisz to, co robisz co tydzień: opis na portal ze zdjęć i notatki, odpowiedź na zapytanie, plan jutrzejszego dnia. Uczysz się poprawiać wynik i łapać, kiedy AI coś zmyśla.</p></div></li>
+        <li><span class="t">10:45 do 11:45</span><div><h4>Skille</h4><p>Skille to gotowe umiejętności dla asystenta. Są ich tysiące: opisy ofert, analiza dokumentów, grafiki, raporty. Pokazuję, gdzie ich szukać i jak je sprawdzić, a Ty wybierasz te, które pasują do Twojej pracy, i instalujesz od razu.</p></div></li>
+        <li class="brk"><span class="t">11:45 do 12:30</span><div><h4>Przerwa obiadowa</h4></div></li>
+        <li><span class="t">12:30 do 13:30</span><div><h4>Narzędzia i rekomendacje dla branży nieruchomości</h4><p>To, co naprawdę przydaje się agentowi: poczta i kalendarz (asystent pisze szkice, wysyłasz Ty), arkusz z klientami, dane do wyceny, wizualizacje pustych mieszkań. Bez listy stu aplikacji.</p></div></li>
+        <li><span class="t">13:30 do 14:30</span><div><h4>Cyberbezpieczeństwo w codziennej pracy</h4><p>Fałszywy mail „z banku”, link do „umowy”, hasło wklejone do czatu. Prawdziwe przykłady i kilka prostych zasad, które chronią Ciebie i dane klientów.</p></div></li>
+        <li><span class="t">14:30 do 15:00</span><div><h4>Plan na 30 dni</h4><p>Wybierasz jedną rzecz na tydzień, którą od poniedziałku robi za Ciebie asystent. Na koniec pytania.</p></div></li>
       </ol>
     </article>
   </div>
@@ -565,15 +576,24 @@ footer a{color:var(--ink)}
 
 <!-- ============ ZAPIS ============ -->
 <section class="cta" id="zapis" aria-labelledby="h-zapis">
-  <div class="wrap">
-    <span class="sheet" style="color:var(--line)">pozwolenie na budowę</span>
-    <h2 id="h-zapis">Budowę zaczynamy 20 stycznia</h2>
-    <p>Zapisy prowadzi Nieruchomości Spod Lady. Grupa jest mała, żeby każdy wyszedł z działającym asystentem.</p>
-    <div class="actions">
-      <a class="btn btn-nsl btn-pulse" href="mailto:darek@ai-team.pl?subject=Akademia%20AI%2C%20stycze%C5%84%202027" data-zapis>Zapytaj o miejsce</a>
-      <a class="btn btn-line" href="#program">Wróć do programu</a>
+  <div class="wrap cta-grid">
+    <div class="rv">
+      <span class="sheet" style="color:var(--line)">pozwolenie na budowę</span>
+      <h2 id="h-zapis">Budowę zaczynamy 20 stycznia</h2>
+      <p>Zapisy prowadzi Nieruchomości Spod Lady. Grupa jest mała, żeby każdy wyszedł z działającym asystentem.</p>
+      <div class="actions">
+        <a class="btn btn-nsl btn-pulse" href="mailto:darek@ai-team.pl?subject=Akademia%20AI%2C%20stycze%C5%84%202027" data-zapis>Zapytaj o miejsce</a>
+        <a class="btn btn-line" href="#program">Wróć do programu</a>
+      </div>
     </div>
-    <div class="stamp" aria-hidden="true" data-stamp>etap 1 i 2<b>20 i 21.01</b>online i Gdańsk Chełm</div>
+    <div class="permit rv" style="--d:.15s">
+      <div class="tb-logo"><img src="img/nsl-logo.png" alt="Nieruchomości Spod Lady"></div>
+      <div class="permit-row"><span class="tb-k">etap 1</span><div><b>20.01, środa</b><span>online, 9:00 do 11:00</span></div></div>
+      <div class="permit-row"><span class="tb-k">etap 2</span><div><b>21.01, czwartek</b><span>Gdańsk Chełm, 9:00 do 15:00, z przerwą</span></div></div>
+      <div class="permit-row"><span class="tb-k">po odbiorze</span><div><b>Rok na Skool</b><span>materiały, polecenia, aktualizacje</span></div></div>
+      <div class="permit-row"><span class="tb-k">prowadzi</span><div><b>Dariusz Szuca</b></div></div>
+      <div class="permit-stamp" data-stamp aria-hidden="true">zatwierdzono<b>20 i 21.01</b></div>
+    </div>
   </div>
 </section>
 </main>
