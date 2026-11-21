@@ -176,13 +176,14 @@ h2{font-size:clamp(32px,4vw,52px);line-height:1.05;font-weight:800;font-variatio
 /* wideo + opinie */
 .site{display:grid;grid-template-columns:340px minmax(0,1fr);gap:72px;align-items:start}
 .reel{position:sticky;top:32px}
-.reel-box{display:block;width:100%;aspect-ratio:9/16;position:relative;border:2px solid var(--ink);background:var(--plan-deep);padding:0;cursor:pointer;box-shadow:12px 12px 0 var(--plan);overflow:hidden;transform:rotate(-2deg);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.reel-box{display:block;width:100%;aspect-ratio:9/16;position:relative;border:2px solid var(--ink);background:var(--plan-deep);padding:0;box-shadow:12px 12px 0 var(--plan);overflow:hidden;transform:rotate(-2deg);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
 .reel-box:hover{transform:rotate(0) scale(1.02)}
-.reel-box img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease}
-.reel-box:hover img{transform:scale(1.08)}
-.reel-box iframe{width:100%;height:100%;border:0}
-.reel-play{position:absolute;left:50%;top:50%;width:80px;height:80px;margin:-40px 0 0 -40px;border-radius:50%;background:var(--nsl);animation:ring 2s ease-out infinite}
-.reel-play::after{content:"";position:absolute;left:31px;top:23px;border-left:24px solid #fff;border-top:17px solid transparent;border-bottom:17px solid transparent}
+.reel-box video{width:100%;height:100%;object-fit:cover;display:block}
+.reel-sound{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-family:var(--display);font-weight:700;font-size:15px;color:#fff;background:var(--nsl);border:0;padding:12px 22px 12px 44px;border-radius:40px;cursor:pointer;animation:ring 2s ease-out infinite;white-space:nowrap}
+.reel-sound::before{content:"";position:absolute;left:18px;top:50%;margin-top:-7px;width:6px;height:14px;background:#fff;box-shadow:0 0 0 0 #fff}
+.reel-sound::after{content:"";position:absolute;left:22px;top:50%;margin-top:-10px;border-right:12px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.reel-sound[aria-pressed="true"]{background:var(--ink);animation:none}
+.reel-sound:hover{background:var(--nsl-deep)}
 .reel-cap{font-family:var(--mono);font-size:13px;color:var(--ink-mid);margin-top:22px}
 .quotes{border-top:2px solid var(--ink)}
 .quotes blockquote{padding:28px 0 28px 28px;border-bottom:1px solid #c9d3df;position:relative}
@@ -499,10 +500,10 @@ footer a{color:var(--ink)}
     </div>
     <div class="site">
       <div class="reel rv">
-        <button class="reel-box" id="videoContainer" onclick="playVideo()" aria-label="Odtwórz film z warsztatów w Sopocie">
-          <img src="img/video-thumb.png" alt="Szkolenie AI w Sopocie" loading="lazy">
-          <span class="reel-play" aria-hidden="true"></span>
-        </button>
+        <div class="reel-box">
+          <video id="reelVideo" src="media/szkolenie-sopot.mp4" poster="img/video-thumb.png" autoplay muted loop playsinline preload="auto" aria-label="Film ze szkolenia AI w Sopocie"></video>
+          <button class="reel-sound" id="reelSound" type="button" aria-pressed="false">Włącz dźwięk</button>
+        </div>
         <p class="reel-cap">Szkolenie AI w Sopocie, poprzednia edycja</p>
       </div>
       <div class="quotes">
@@ -654,11 +655,15 @@ function loadAnalytics(){
   var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-MX6DBXQ66D';s.async=true;document.head.appendChild(s);
   s.onload=function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MX6DBXQ66D')};
 }
-function playVideo(){
-  var c=document.getElementById('videoContainer');
-  c.innerHTML='<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1906124916655205&show_text=false&autoplay=1" title="Szkolenie AI w Sopocie" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>';
-  c.onclick=null;c.style.cursor='default';
-}
+// film: startuje sam bez dźwięku, przycisk włącza dźwięk
+(function(){
+  var v=document.getElementById('reelVideo'),b=document.getElementById('reelSound');
+  if(!v)return;
+  function tryPlay(){var p=v.play();if(p&&p.catch)p.catch(function(){})}
+  if('IntersectionObserver' in window){new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)tryPlay();else if(v.muted)v.pause()})},{threshold:.25}).observe(v)}else tryPlay();
+  b.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted){v.currentTime=0;v.loop=false}else{v.loop=true}tryPlay();b.textContent=v.muted?'Włącz dźwięk':'Wycisz';b.setAttribute('aria-pressed',String(!v.muted))});
+  v.addEventListener('ended',function(){v.muted=true;v.loop=true;b.textContent='Włącz dźwięk';b.setAttribute('aria-pressed','false');tryPlay()});
+})();
 // wejścia przy przewijaniu
 document.querySelectorAll('.sym *').forEach(function(el){el.setAttribute('pathLength','1')});
 var els=document.querySelectorAll('.rv,.stagger,[data-stamp]');
