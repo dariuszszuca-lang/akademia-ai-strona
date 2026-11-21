@@ -89,6 +89,13 @@ a{color:inherit}
 .draw .dim,.draw .door{--o:.6}
 .draw .sub{--o:.8}.draw .dimtxt{--o:.65}
 
+/* logo NSL w hero */
+.hero-org{display:inline-flex;align-items:center;gap:16px;background:var(--white);color:var(--ink);padding:10px 20px 10px 12px;margin-bottom:28px;box-shadow:8px 8px 0 rgba(13,33,64,.6);animation:tb .9s cubic-bezier(.2,.7,.2,1) both .2s}
+.hero-org img{height:64px;width:auto}
+.hero-org span{font-family:var(--mono);font-size:12px;line-height:1.45;color:var(--ink-mid);border-left:1px solid var(--ink);padding-left:16px}
+.hero-org b{font-family:var(--display);font-size:15px;color:var(--ink)}
+@media (max-width:600px){.hero-org img{height:52px}}
+
 /* tabelka rysunkowa */
 .title-block{position:relative;margin:-28px 0 0 auto;width:min(360px,100%);background:var(--white);color:var(--ink);border:2px solid var(--ink);font-size:13px;box-shadow:10px 10px 0 rgba(13,33,64,.55)}
 .tb-row{display:grid;grid-template-columns:96px 1fr;border-top:1px solid var(--ink)}
@@ -328,6 +335,7 @@ footer a{color:var(--ink)}
 <section class="hero" aria-labelledby="h1">
   <div class="wrap hero-grid">
     <div>
+      <div class="hero-org"><img src="img/nsl-logo.png" alt="Nieruchomości Spod Lady"><span>organizator<br><b>Nieruchomości Spod Lady</b></span></div>
       <h1 id="h1">Zbuduj asystenta AI, który zna Ciebie, Twoich klientów i&nbsp;Twoją ofertę.</h1>
       <p class="lead">Warsztaty dla agentów nieruchomości. Najpierw kładziemy fundamenty online, potem przenosimy asystenta na Twój komputer.</p>
       <div class="actions">
@@ -562,7 +570,7 @@ footer a{color:var(--ink)}
     <h2 id="h-zapis">Budowę zaczynamy 20 stycznia</h2>
     <p>Zapisy prowadzi Nieruchomości Spod Lady. Grupa jest mała, żeby każdy wyszedł z działającym asystentem.</p>
     <div class="actions">
-      <a class="btn btn-nsl btn-pulse" href="#" data-zapis>Zapisz się</a>
+      <a class="btn btn-nsl btn-pulse" href="mailto:darek@ai-team.pl?subject=Akademia%20AI%2C%20stycze%C5%84%202027" data-zapis>Zapytaj o miejsce</a>
       <a class="btn btn-line" href="#program">Wróć do programu</a>
     </div>
     <div class="stamp" aria-hidden="true" data-stamp>etap 1 i 2<b>20 i 21.01</b>online i Gdańsk Chełm</div>
